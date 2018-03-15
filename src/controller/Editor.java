@@ -12,14 +12,12 @@ import model.Game;
 
 public class Editor {
 
-	public static void Edit() {
+	public static void Edit(Game model) {
 	
 	Scanner keyboard = new Scanner(System.in);
 	ArrayList <Item> items = new ArrayList<Item>(); // needs fixed
 	
-	Game model = new Game();
-	
-	model.setLocation(LocationType.START, items); // must pass in a populated aray list
+	model.setLocation(LocationType.START, items); // must pass in a populated array list
 	
 	if(model.getLocation().getLocationType() == LocationType.START) {
 		
@@ -30,7 +28,6 @@ public class Editor {
 				+ "is urged to stay inside and lock all doors and windows.  The infected are considered extremely \n"
 				+ "dangerous!!!!";
 		
-		System.out.println(open);
 		model.setOpen(open);
 		
 		try        
