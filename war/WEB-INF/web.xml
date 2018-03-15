@@ -12,6 +12,12 @@
     <servlet-class>servlet.IndexServlet</servlet-class>
   </servlet>
   
+  <servlet>
+    <servlet-name>StartServlet</servlet-name>
+    <servlet-class>servlet.StartServlet</servlet-class>
+  </servlet>
+  
+  
   <!-- Servlet mappings -->
   
   <servlet-mapping>
@@ -19,4 +25,9 @@
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
 
+   <servlet-mapping>
+    <servlet-name>StartServlet</servlet-name>
+    <url-pattern>/start</url-pattern>
+  </servlet-mapping>
+  	
 </web-app>
