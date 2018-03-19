@@ -30,10 +30,10 @@ public class FakeUserDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for(int i = 0; i < user.size(); i++){
+		/*for(int i = 0; i < user.size(); i++){
 			System.out.println(user.get(i));
 			System.out.println(pass.get(i));
-		}
+		}*/
 	}
 	
 	public boolean accountExist(String username, String password){
@@ -70,6 +70,11 @@ public class FakeUserDB {
 					return false;
 				}
 			}
-		
+	}
+	
+	//FOR TESTS
+	public void setArrayList(String users, String passs){
+		user.add(users);
+		pass.add(passs);
 	}
 }
