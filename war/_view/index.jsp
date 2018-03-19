@@ -5,6 +5,7 @@
 <html>
 	<head>
 		<title>Index view</title>
+		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 		
 	</head>
 
