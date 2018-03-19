@@ -10,23 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import fakeDB.FakeUserDB;
 
-public class LoginServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Login Servlet: doGet");
+		System.out.println("Register Servlet: doGet");
 		
-		req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/register.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Login Servlet: doPost");
+		System.out.println("Register Servlet: doPost");
 		
 		//checks if account it a real account
 		FakeUserDB db = new FakeUserDB();
@@ -34,23 +34,26 @@ public class LoginServlet extends HttpServlet {
 		// gets username and password
 		String user = (req.getParameter("u")).toLowerCase();
 		String password = req.getParameter("p");
+		String password2 = req.getParameter("p2");
+		String email = req.getParameter("e");
 		
-		boolean validAccount = db.accountExist(user, password);
+		boolean validAccount = db.registerAccount(user, password, password2, email);
 		
 		
 		if(validAccount == true){
 			// Forward to view to render the result HTML document
-			req.getRequestDispatcher("/_view/start.jsp").forward(req, resp);
-			System.out.println("Login Servlet: Login Successful");
-		}else{
-			req.setAttribute("response", "Incorrect Username or Password");
-			System.out.println("Login Servlet: Login Failed");
 			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+			System.out.println("Register Servlet: Register Successful");
+		}else{
+			req.setAttribute("response", "Account already exists or passwords dont match");
+			System.out.println("Register Servlet: Register Failed");
+			req.getRequestDispatcher("/_view/register.jsp").forward(req, resp);
 		}
 		//System.out.println(first + second);
 		
 		
 	}
+
 
 }
 

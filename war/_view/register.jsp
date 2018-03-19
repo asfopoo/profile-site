@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Login Form</title>
+<title>Register Form</title>
 <head>
 	<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	<link rel="stylesheet" href="webresources/webcss.css" />
@@ -20,15 +20,15 @@
 		<c:out value="${response}" escapeXml="false" />
 	</div>
 	<div class="login">
-		<h1>Login</h1>
-		<form action="${pageContext.servletContext.contextPath}/login"
+		<h1>Register</h1>
+		<form action="${pageContext.servletContext.contextPath}/register"
 			method="post">
-			<input type="text" name="u" placeholder="Username"required="required" "/> 
-			<input type="password" name="p" placeholder="Password" required="required" "/>
-			<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Walk the Organ Trail.</button>
-			<div class=register>
-				<a href="register">Register for a free account.</a>
-			</div>
+			<input type="email" name="e"placeholder="Email" required="required" />
+			<input type="text" name="u" placeholder="Username"required="required" /> 
+			<input type="password" name="p"placeholder="Password" required="required" />
+			<input type="password" name="p2"placeholder="Password" required="required" />
+			<button type="submit" name="submit"
+				class="btn btn-primary btn-block btn-large">Register Account</button>
 		</form>
 	</div>
 </body>
