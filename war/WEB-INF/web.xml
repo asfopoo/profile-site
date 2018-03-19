@@ -12,6 +12,17 @@
     <servlet-class>servlet.IndexServlet</servlet-class>
   </servlet>
   
+   <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>servlet.RegisterServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet>
+    <servlet-name>BedroomServlet</servlet-name>
+    <servlet-class>servlet.BedroomServlet</servlet-class>
+  </servlet>
+  
   <servlet>
     <servlet-name>StartServlet</servlet-name>
     <servlet-class>servlet.StartServlet</servlet-class>
@@ -22,13 +33,23 @@
     <servlet-class>servlet.LoginServlet</servlet-class>
   </servlet>
   
-  
+ 
   
   <!-- Servlet mappings -->
   
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>BedroomServlet</servlet-name>
+    <url-pattern>/bedroom</url-pattern>
   </servlet-mapping>
 
    <servlet-mapping>
@@ -41,5 +62,5 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
   
- 
+  
 </web-app>

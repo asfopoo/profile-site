@@ -10,10 +10,8 @@ import entity.LocationType;
 
 public class Game {
 	
-	private String open;
-	private String start;
 	
-	private ArrayList<Item> houseItems = new ArrayList<Item>();
+	public ArrayList<Item> houseItems = new ArrayList<Item>();
 	private ArrayList<Item> hospitalItems = new ArrayList<Item>();
 	private ArrayList<Item> churchItems = new ArrayList<Item>();
 	private ArrayList<Item> schoolItems = new ArrayList<Item>();
@@ -33,6 +31,7 @@ public class Game {
 	private Area sheetz;
 	private Area groceryStore;
 	private Area location;
+	private String firstChoice;
 	
 	public Game() {
 		this.house = new Area(LocationType.START, houseItems);
@@ -47,34 +46,7 @@ public class Game {
 		
 	}
 	
-	
-	public Area getHouse() {
-		return house;
-	}
-	public Area getHospital() {
-		return hospital;
-	}
-	public Area getChurch() {
-		return church;
-	}
-	public Area getSchool() {
-		return school;
-	}
-	public Area getBrokenDownCar() {
-		return brokenDownCar;
-	}
-	public Area getRestaurant() {
-		return restaurant;
-	}
-	public Area getOpenManHoleCover() {
-		return openManholeCover;
-	}
-	public Area getSheetz() {
-		return sheetz;
-	}
-	public Area getGroceryStore() {
-		return groceryStore;
-	}
+
 	public void setLocation(LocationType locationType, ArrayList<Item> items) {
 		this.location = new Area(locationType, items);
 	}
@@ -82,17 +54,11 @@ public class Game {
 		return location;
 	}
 
-	public String getOpen() {
-		return open;
+	public String getFirstChoice() {
+		return getFirstChoice();
 	}
-	public void setOpen(String open) {
-		this.open = open;
-	}
-	public void setStart(String start) {
-		this.start = start;
-	}
-	public String getStart() {
-		return start;
+	public void setfirstChoice(String firstChoice) {
+		this.firstChoice = firstChoice;
 	}
 
 

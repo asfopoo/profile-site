@@ -62,11 +62,13 @@ article {
   		at all costs.  Stock up on food and water as much as possible.</p>
 </article>
 
-<footer>Co-written by Ed Nardo and Greg Plachno <br> Press c to continue </footer>
+<footer>Co-written by Ed Nardo and Greg Plachno </footer>
 
 </div>
 
-<input type="text" name="first" size="12" value="${game.start}" />
+<form action="${pageContext.servletContext.contextPath}/start" method = "post"
+	<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Click to continue</button>
+</form>
 
 </body>
 </html>

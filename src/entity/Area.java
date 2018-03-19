@@ -15,7 +15,7 @@ public class Area {
 		
 	}
 	
-	private void setLocationType(LocationType locationType) {
+	public void setLocationType(LocationType locationType) {
 		this.locationType = locationType;
 	}
 	

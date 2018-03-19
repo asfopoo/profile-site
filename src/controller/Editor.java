@@ -28,7 +28,7 @@ public class Editor {
 				+ "is urged to stay inside and lock all doors and windows.  The infected are considered extremely \n"
 				+ "dangerous!!!!";
 		
-		model.setOpen(open);
+	
 		
 		try        
 		{

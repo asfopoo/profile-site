@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class BedroomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -17,5 +18,19 @@ public class BedroomServlet extends HttpServlet {
 		System.out.println("Index Servlet: doGet");
 		
 		req.getRequestDispatcher("/_view/bedroom.jsp").forward(req, resp);
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		System.out.println("Bedroom Servlet: doPost");
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
