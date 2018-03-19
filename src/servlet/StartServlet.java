@@ -21,16 +21,41 @@ public class StartServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		Game model = new Game();
-		GameController controller = new GameController();
-		controller.setModel(model);
-
-		req.setAttribute("game", model);
-		
-		System.out.println(model.getOpen());	
 		System.out.println("Start Servlet: doGet");	
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/start.jsp").forward(req, resp);
 	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		
+		System.out.println("Login Servlet: doPost");
+		String errorMessage = null;
+		Game model = new Game();
+		
+		try {
+			String next = req.getParameter("next");
+			
+			
+			
+		if (!(next == "c")) {
+				errorMessage = "Please press c to continue";
+						
+			}
+			else {
+				model.setStart(next);
+			}
+
+		} catch (NumberFormatException e) {
+			errorMessage = "Invalid selection";
+		}
+		
+		req.setAttribute("errorMessage", errorMessage);
+		
+		req.setAttribute("game", model);
+		
+		req.getRequestDispatcher("/_view/bedroom.jsp").forward(req, resp);
+		
+	}	
 }

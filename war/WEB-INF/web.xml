@@ -22,6 +22,11 @@
     <servlet-class>servlet.LoginServlet</servlet-class>
   </servlet>
   
+  <servlet>
+    <servlet-name>BedroomServlet</servlet-name>
+    <servlet-class>servlet.BedroomServlet</servlet-class>
+  </servlet>
+  
   <!-- Servlet mappings -->
   
   <servlet-mapping>
@@ -38,4 +43,10 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>BedroomServlet</servlet-name>
+    <url-pattern>/bedroom</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

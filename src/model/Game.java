@@ -11,6 +11,7 @@ import entity.LocationType;
 public class Game {
 	
 	private String open;
+	private String start;
 	
 	private ArrayList<Item> houseItems = new ArrayList<Item>();
 	private ArrayList<Item> hospitalItems = new ArrayList<Item>();
@@ -87,7 +88,12 @@ public class Game {
 	public void setOpen(String open) {
 		this.open = open;
 	}
-
+	public void setStart(String start) {
+		this.start = start;
+	}
+	public String getStart() {
+		return start;
+	}
 
 
 
