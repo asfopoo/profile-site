@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<title>Bedroom</title>
-		
+		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	</head>
 
 	<body>
@@ -13,7 +13,10 @@
 		How did I sleep so long?<br>
 		What time is it?<br>
 		... screw sitting around this place, im getting outta here!!!!!<br><br><br>
-		Grab what you need and get on the road, keep in mind, you can only take what you can carry!!!! <br><br<br>
+		Grab what you need and get on the road, keep in mind, you can only take what you can carry!!!! 
+		<br>
+		<br>
+		<br>
 		
 		What do you want to do<br>
 		1. check the first dresser<br>
