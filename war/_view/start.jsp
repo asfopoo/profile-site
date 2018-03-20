@@ -5,7 +5,7 @@
 <html>
 <head>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="webresources/game.css">
+    <link rel="stylesheet" href="webresources/start.css">
     <title>Game</title>
     <meta name="viewport" content="width=device-width">
     <link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />

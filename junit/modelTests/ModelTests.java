@@ -32,7 +32,7 @@ public class ModelTests {
 		model.houseItems.add(one);
 		model.houseItems.add(two);
 		model.setLocation(start, houseItems);
-		model.setfirstChoice(first);
+		model.setChoice(first);
 		
 	}
 	
@@ -51,6 +51,6 @@ public class ModelTests {
 	
 	@Test
 	public void testFirstChoice() {
-		assertEquals(first, model.getFirstChoice());
+		assertEquals(first, model.getChoice());
 	}
 }

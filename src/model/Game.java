@@ -54,10 +54,10 @@ public class Game {
 		return location;
 	}
 
-	public String getFirstChoice() {
-		return getFirstChoice();
+	public String getChoice() {
+		return getChoice();
 	}
-	public void setfirstChoice(String firstChoice) {
+	public void setChoice(String firstChoice) {
 		this.firstChoice = firstChoice;
 	}
 

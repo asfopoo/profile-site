@@ -17,7 +17,6 @@
     <servlet-class>servlet.RegisterServlet</servlet-class>
   </servlet>
   
-  
   <servlet>
     <servlet-name>BedroomServlet</servlet-name>
     <servlet-class>servlet.BedroomServlet</servlet-class>
@@ -33,7 +32,10 @@
     <servlet-class>servlet.LoginServlet</servlet-class>
   </servlet>
   
- 
+   <servlet>
+    <servlet-name>GameServlet</servlet-name>
+    <servlet-class>servlet.GameServlet</servlet-class>
+  </servlet>
   
   <!-- Servlet mappings -->
   
@@ -62,5 +64,8 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
   
-  
+  <servlet-mapping>
+    <servlet-name>GameServlet</servlet-name>
+    <url-pattern>/game</url-pattern>
+  </servlet-mapping>
 </web-app>
