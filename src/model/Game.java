@@ -31,7 +31,7 @@ public class Game {
 	private Area sheetz;
 	private Area groceryStore;
 	private Area location;
-	private String firstChoice;
+	private String choice;
 	
 	public Game() {
 		this.house = new Area(LocationType.START, houseItems);
@@ -55,10 +55,34 @@ public class Game {
 	}
 
 	public String getChoice() {
-		return getChoice();
+		return choice;
 	}
-	public void setChoice(String firstChoice) {
-		this.firstChoice = firstChoice;
+	public void setChoice(String choice) {
+		this.choice = choice;
+	}
+	
+	public ArrayList<Item> getItems(Area location){
+		ArrayList<Item> returnItem = null;
+		if(location == house){
+			returnItem = houseItems;
+		}else if(location == hospital){
+			returnItem = hospitalItems;
+		}else if(location == church){
+			returnItem = churchItems;
+		}else if(location == school){
+			returnItem = schoolItems;
+		}else if(location == brokenDownCar){
+			returnItem = carItems;
+		}else if(location == restaurant){
+			returnItem = restaurantItems;
+		}else if(location == openManholeCover){
+			returnItem = manCoverItems;
+		}else if(location == sheetz){
+			returnItem = sheetzItems;
+		}else if(location == groceryStore){
+			returnItem = groceryItems;
+		}
+		return returnItem;
 	}
 
 

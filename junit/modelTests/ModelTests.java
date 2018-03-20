@@ -24,7 +24,7 @@ public class ModelTests {
 	private Item one;
 	private Item two;
 	
-	private String first = "first";
+	private String first = "1";
 	
 	
 	@Before
@@ -46,11 +46,11 @@ public class ModelTests {
 	@Test
 	public void testArea() {
 		assertEquals(start, model.getLocation().getLocationType());
-		//assertEquals(2, model.getLocation().getItem(1)); /// needs implemented to get to array list
+		assertEquals(true, model.getItems(area).isEmpty()); /// needs implemented to get to array list
 	}
 	
 	@Test
 	public void testFirstChoice() {
-		assertEquals(first, model.getChoice());
+		assertEquals("1", model.getChoice());
 	}
 }
