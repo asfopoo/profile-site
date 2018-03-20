@@ -37,9 +37,10 @@ public class RegisterServlet extends HttpServlet {
 		String password2 = req.getParameter("p2");
 		String email = req.getParameter("e");
 		
+		//checks if account exist
 		boolean validAccount = db.registerAccount(user, password, password2, email);
 		
-		
+		//If account is valid, continue, if it isnt, spit out error
 		if(validAccount == true){
 			// Forward to view to render the result HTML document
 			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);

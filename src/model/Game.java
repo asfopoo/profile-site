@@ -9,8 +9,6 @@ import entity.LocationType;
 
 
 public class Game {
-	
-	
 	public ArrayList<Item> houseItems = new ArrayList<Item>();
 	private ArrayList<Item> hospitalItems = new ArrayList<Item>();
 	private ArrayList<Item> churchItems = new ArrayList<Item>();
@@ -46,21 +44,27 @@ public class Game {
 		
 	}
 	
-
+	//Sets location based on type and arraylist of items
 	public void setLocation(LocationType locationType, ArrayList<Item> items) {
 		this.location = new Area(locationType, items);
 	}
+	
+	//returns location
 	public Area getLocation() {
 		return location;
 	}
 
+	//Get choice from in game
 	public String getChoice() {
 		return choice;
 	}
+	
+	//sets choice from in game
 	public void setChoice(String choice) {
 		this.choice = choice;
 	}
 	
+	//gets array of items
 	public ArrayList<Item> getItems(Area location){
 		ArrayList<Item> returnItem = null;
 		if(location == house){

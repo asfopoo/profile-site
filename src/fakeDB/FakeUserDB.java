@@ -15,8 +15,10 @@ public class FakeUserDB {
 	private ArrayList<String> email = new ArrayList<String>();
 
 	public FakeUserDB(){
-		System.out.println("fefef");
+		//Loads fakDB file
 		File file = new File("accounts.txt");
+		
+		//Reads the file and puts them into array list, before ":" goes in users, after goes in pass
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line;
@@ -30,6 +32,8 @@ public class FakeUserDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//TESTS
 		/*for(int i = 0; i < user.size(); i++){
 			System.out.println(user.get(i));
 			System.out.println(pass.get(i));
@@ -51,9 +55,7 @@ public class FakeUserDB {
 	
 	//Registers account
 	public boolean registerAccount(String username, String password, String password2, String emailName) throws IOException{
-		System.out.println(password);
-		System.out.println(password2);
-
+		//Checks if username exist
 			if(user.contains(username) == true){
 				return false;
 			}else{
