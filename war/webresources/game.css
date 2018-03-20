@@ -22,6 +22,11 @@ body{
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
+.options .para{
+	border-color: #4f5052;
+	padding : 10px;
+	border-style: solid;
+}
 .options p{
 	position: relative;
     left: 100%;
@@ -29,5 +34,5 @@ body{
     transform: translate(-50%, -50%);
 }
 .options form{
-	transform: translate(0%, -80%);
+	transform: translate(0%, -50%);
 }

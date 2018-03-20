@@ -11,7 +11,9 @@
 
 	<body>
 		<div class="options">
-			<c:out value="${para}" escapeXml="false" />
+			<div class="para">
+				<c:out value="${para}" escapeXml="false" />
+			</div>
 		<br>
 		<br>
 		<br>
