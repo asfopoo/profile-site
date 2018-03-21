@@ -28,9 +28,7 @@ public class BedroomServlet extends HttpServlet {
 		
 		
 		
-		
-		
-		
-		
+	
 	}
+
 }
