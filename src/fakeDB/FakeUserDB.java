@@ -56,12 +56,12 @@ public class FakeUserDB {
 	//Registers account
 	public boolean registerAccount(String username, String password, String password2, String emailName) throws IOException{
 		//Checks if username exist
-			if(user.contains(username) == true){
+			if(user.contains(username) == true){ // select username from table
 				return false;
 			}else{
 				//Checks if both passwords match
-				if(password.equals(password2)){
-					try(PrintWriter out = new PrintWriter(new FileWriter("accounts.txt", true))) {
+				if(password.equals(password2)){ //can stay
+					try(PrintWriter out = new PrintWriter(new FileWriter("accounts.txt", true))) { ///insert statement
 						out.println(username + ":" + password);
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block

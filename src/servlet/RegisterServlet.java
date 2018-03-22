@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -8,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import gamePersist.DatabaseProvider;
+import gamePersist.IDatabase;
 import fakeDB.FakeUserDB;
+import gamePersist.DerbyDatabase;
 
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,7 +33,9 @@ public class RegisterServlet extends HttpServlet {
 		System.out.println("Register Servlet: doPost");
 		
 		//checks if account it a real account
-		FakeUserDB db = new FakeUserDB();
+		//FakeUserDB db = new FakeUserDB();
+		gamePersist.IDatabase db = gamePersist.DatabaseProvider.getInstance();
+		
 
 		// gets username and password
 		String user = (req.getParameter("u")).toLowerCase();
@@ -38,7 +44,14 @@ public class RegisterServlet extends HttpServlet {
 		String email = req.getParameter("e");
 		
 		//checks if account exist
-		boolean validAccount = db.registerAccount(user, password, password2, email);
+		boolean validAccount = false;
+	
+		try {
+			validAccount = db.registerAccount(user, password, password2, email);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//If account is valid, continue, if it isnt, spit out error
 		if(validAccount == true){

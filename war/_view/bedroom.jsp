@@ -34,7 +34,7 @@
 			<table>
 				<tr>
 					<td class="label">Your choice:</td>
-					<td><input type="text" name="first" size="12" value="${game.choice}" /></td>
+					<td><input type="text" name="choice" size="12" value="${game.choice}" /></td>
 				</tr>
 			</table>
 		<input type="Submit" name="submit" value="submit">
