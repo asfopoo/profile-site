@@ -68,7 +68,8 @@ public class RegisterServlet extends HttpServlet {
 		
 	}
 
-
+// create table with labels
+	/// primary key?
 }
 
 

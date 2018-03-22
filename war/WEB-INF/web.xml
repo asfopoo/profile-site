@@ -37,6 +37,32 @@
     <servlet-class>servlet.GameServlet</servlet-class>
   </servlet>
   
+  <servlet>
+    <servlet-name>BathroomServlet</servlet-name>
+    <servlet-class>servlet.BathroomServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>BedServlet</servlet-name>
+    <servlet-class>servlet.BedServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>DresserServlet</servlet-name>
+    <servlet-class>servlet.DresserServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>Dresser2Servlet</servlet-name>
+    <servlet-class>servlet.Dresser2Servlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>TvServlet</servlet-name>
+    <servlet-class>servlet.TvServlet</servlet-class>
+  </servlet>
+  
+  
   <!-- Servlet mappings -->
   
   <servlet-mapping>
@@ -68,4 +94,30 @@
     <servlet-name>GameServlet</servlet-name>
     <url-pattern>/game</url-pattern>
   </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>BathroomServlet</servlet-name>
+    <url-pattern>/bathroom</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>BedServlet</servlet-name>
+    <url-pattern>/bed</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>DresserServlet</servlet-name>
+    <url-pattern>/dresser</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>Dresser2Servlet</servlet-name>
+    <url-pattern>/dresser2</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>TvServlet</servlet-name>
+    <url-pattern>/tv</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

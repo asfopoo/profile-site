@@ -12,26 +12,26 @@ import model.Game;
 
 
 
-public class StartServlet extends HttpServlet {
+public class TvServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Start Servlet: doGet");	
+		System.out.println("Tv Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/start.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/_view/tv.jsp").forward(req, resp);	
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Start Servlet: doPost");
+		System.out.println("Tv Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/bedroom");
+		resp.sendRedirect(req.getContextPath() + "/tv");
 		
 		
 	}

@@ -7,23 +7,13 @@
 		<title>Bedroom</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	</head>
-
+	
 	<body>
-		You have just woken up<br><br><br>
-		How did I sleep so long?<br>
-		What time is it?<br>
-		... screw sitting around this place, im getting outta here!!!!!<br><br><br>
-		Grab what you need and get on the road, keep in mind, you can only take what you can carry!!!! 
-		<br>
-		You are in your bedroom.  There are two dressers and a tv turned on to the local news.
-		<br>
-		<br>
-		<br>
-		
-		What do you want to do<br>
-		<br>
-		
-		<form action="${pageContext.servletContext.contextPath}/dresser" method="deGet">
+	You seriously need to clean this bathroom!!!! Its a disaster!!!!<br><Br>
+	
+	What will you do?
+	<br>
+	<form action="${pageContext.servletContext.contextPath}/dresser" method="deGet">
 		<input type="Submit" name="submit" value="check the first dresser ">
 		</form>
 		<br>
@@ -43,11 +33,10 @@
 		<input type="Submit" name="submit" value="     turn the tv off    ">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/bathroom" method="post">
+		<form action="${pageContext.servletContext.contextPath}/bathroom" method="doGet">
 		<input type="Submit" name="submit" value="     leave the room     ">
 		</form>
 		<br>
 		
-		
 	</body>
-</html>
+</html>		

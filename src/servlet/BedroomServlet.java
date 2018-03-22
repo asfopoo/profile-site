@@ -19,7 +19,15 @@ public class BedroomServlet extends HttpServlet {
 		
 		System.out.println("Bedroom Servlet: doGet");
 		
-		req.getRequestDispatcher("/_view/bedroom.jsp").forward(req, resp);
+		//String action = (String) req.getAttribute("action");
+		
+		//if(action == null) {// if choice is made, go to dresser
+			req.getRequestDispatcher("/_view/bedroom.jsp").forward(req, resp);
+		//}
+		//else { // no choices ... default to bedroom
+			//req.getRequestDispatcher("/_view/dresser.jsp").forward(req, resp);
+		//}
+
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -29,24 +37,21 @@ public class BedroomServlet extends HttpServlet {
 		
 		Game model = new Game();
 		
-		String choice = req.getParameter("choice");
+		String choice = req.getParameter("choice"); /// not needed right now 
 	
-		model.setChoice(choice);
+		model.setChoice(choice); /// also not needed right now 
 		
 		req.setAttribute("game", model);
-			
 		
-		System.out.print(model.getChoice());
-		System.out.println("Choice2 = " + choice);
+		String action = req.getParameter("action");
 		
-		req.getRequestDispatcher("/_view/bedroom.jsp").forward(req, resp);
-		
-		if(model.getChoice() == "one") {
-			resp.sendRedirect(req.getContextPath() + "/game");
+		if(action.equals("bedroom")) {
+			req.getRequestDispatcher("/_view/bedroom.jsp").forward(req, resp);
+		}
+		else if (action.equals("dresser")){
+			req.getRequestDispatcher("/_view/dresser.jsp").forward(req, resp);
 		}	
-		
-		
-	
+
 	}
 
 }
