@@ -30,7 +30,7 @@
 				<p>
 						Your choice:
 						<br>
-						<input type="text" name="first" size="12" value="${firstChoice}" />
+						<input type="text" name="first" size="12" value="${choice}" />
 						<br>
 						<input type="Submit" name="submit" value="submit">
 				</p>

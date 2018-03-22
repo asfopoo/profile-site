@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 		//If account is valid, continue, if it isnt, spit out error
 		if(validAccount == true){
 			// Forward to view to render the result HTML document
-			req.getRequestDispatcher("/_view/start.jsp").forward(req, resp);
+			resp.sendRedirect(req.getContextPath() + "/start");
 			System.out.println("Login Servlet: Login Successful");
 		}else{
 			req.setAttribute("response", "Incorrect Username or Password");

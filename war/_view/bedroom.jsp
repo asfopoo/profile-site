@@ -15,6 +15,8 @@
 		... screw sitting around this place, im getting outta here!!!!!<br><br><br>
 		Grab what you need and get on the road, keep in mind, you can only take what you can carry!!!! 
 		<br>
+		You are in a room.  There are two dressers and a tv turned on to the local news.
+		<br>
 		<br>
 		<br>
 		
@@ -26,11 +28,13 @@
 		5. turn the tv off<br>
 		6. leave the room<br>
 		
+	
+		
 		<form action="${pageContext.servletContext.contextPath}/bedroom" method="post">
 			<table>
 				<tr>
 					<td class="label">Your choice:</td>
-					<td><input type="text" name="first" size="12" value="${numbers.firstChoice}" /></td>
+					<td><input type="text" name="first" size="12" value="${game.choice}" /></td>
 				</tr>
 			</table>
 		<input type="Submit" name="submit" value="submit">

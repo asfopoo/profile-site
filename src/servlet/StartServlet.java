@@ -31,9 +31,9 @@ public class StartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Login Servlet: doPost");
+		System.out.println("Start Servlet: doPost");
 	
-		
+		resp.sendRedirect(req.getContextPath() + "/bedroom");
 		
 		
 	}
