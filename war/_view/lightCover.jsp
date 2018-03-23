@@ -8,9 +8,9 @@
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	</head>
 	
-	<body>
-	
-		Just a light... Quit wasting time!!!!
+	<body  style = text-align:center;>
+		<br>
+		Just a light... Quit wasting time!!!!<br>
 		<br>
 	
 		<form action="${pageContext.servletContext.contextPath}/bathroom" method="doGet">

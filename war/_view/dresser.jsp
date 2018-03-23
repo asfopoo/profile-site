@@ -6,9 +6,18 @@
 	<head>
 		<title>Dresser</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
+		
+		<style>
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
 	</head>
 	
-	<body>
+	<body style = text-align:center;>
+		<img src="https://i.imgur.com/vkX1cF8.jpg" alt="Empty Drawer" style="width:50%;">
 		Aint shit in there bro <br>
 		Keep moving
 		<br>

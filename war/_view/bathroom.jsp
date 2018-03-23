@@ -8,10 +8,11 @@
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	</head>
 	
-	<body>
+	<body  style = text-align:center;>
+	<br>
 	You seriously need to clean this bathroom!!!! Its a disaster!!!!<br><Br>
 	
-	What will you do?
+	What will you do?<br>
 	<br>
 	<form action="${pageContext.servletContext.contextPath}/medicine" method="deGet">
 		<input type="Submit" name="submit" value="Look in the medicine cabinet ">

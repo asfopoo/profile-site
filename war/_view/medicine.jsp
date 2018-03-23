@@ -6,9 +6,17 @@
 	<head>
 		<title>Medicine Cabinet</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
+		<style>
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+		</style>
+	
 	</head>
 	
-	<body>
+	<body style = text-align:center;>
 	
 	<img src="https://i.imgur.com/ojgDg4A.jpg" alt="Medicine Cabinet" style="width:600px;height:600px;"> 
 	<br>

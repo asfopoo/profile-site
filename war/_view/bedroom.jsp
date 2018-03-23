@@ -8,7 +8,8 @@
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	</head>
 
-	<body>
+	<body  style = text-align:center;>
+		<br>
 		You have just woken up<br><br><br>
 		How did I sleep so long?<br>
 		What time is it?<br>

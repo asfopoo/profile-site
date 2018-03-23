@@ -6,11 +6,22 @@
 	<head>
 		<title>Dresser2</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
+		
+		<style>
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+		</style>
 	</head>
 	
-	<body>
-		You got a bunch of junk in here....<br>
-		Nothing useful except maybe this lighter.
+	<body style = text-align:center;>
+	
+		<img src="https://i.imgur.com/LBxTzqw.jpg" alt="Messy Drawer" style="width:50%;">
+		
+		<br>You got a bunch of junk in here....<br>
+		Nothing useful except maybe this lighter.<br>
 
 		
 		<form action="${pageContext.servletContext.contextPath}/bedroom" method="doGet">

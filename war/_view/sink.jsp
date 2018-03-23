@@ -6,9 +6,17 @@
 	<head>
 		<title>Sink</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
+		<style>
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+		</style>	
+	
 	</head>
 	
-	<body>
+	<body style = text-align:center;>
 		<img src="https://i.imgur.com/Yq5sG94.jpg" alt="Sink" style="width:500px;height:500px;"> 
 		<br>
 		<form action="${pageContext.servletContext.contextPath}/sink" method="deGet">

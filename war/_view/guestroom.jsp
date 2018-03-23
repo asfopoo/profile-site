@@ -8,7 +8,7 @@
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	</head>
 
-	<body>
+	<body  style = text-align:center;>
 		Guest room stuff
 		<br>
 		<br>
