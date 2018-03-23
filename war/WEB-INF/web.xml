@@ -62,6 +62,32 @@
     <servlet-class>servlet.TvServlet</servlet-class>
   </servlet>
   
+   <servlet>
+    <servlet-name>MedicineServlet</servlet-name>
+    <servlet-class>servlet.MedicineServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>GuestroomServlet</servlet-name>
+    <servlet-class>servlet.GuestroomServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>LightCoverServlet</servlet-name>
+    <servlet-class>servlet.LightCoverServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>ShowerServlet</servlet-name>
+    <servlet-class>servlet.ShowerServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>SinkServlet</servlet-name>
+    <servlet-class>servlet.SinkServlet</servlet-class>
+  </servlet>
+  
+  
   
   <!-- Servlet mappings -->
   
@@ -120,4 +146,30 @@
     <url-pattern>/tv</url-pattern>
   </servlet-mapping>
   
+  <servlet-mapping>
+    <servlet-name>MedicineServlet</servlet-name>
+    <url-pattern>/medicine</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>GuestroomServlet</servlet-name>
+    <url-pattern>/guestroom</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>LightCoverServlet</servlet-name>
+    <url-pattern>/lightCover</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ShowerServlet</servlet-name>
+    <url-pattern>/shower</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>SinkServlet</servlet-name>
+    <url-pattern>/sink</url-pattern>
+  </servlet-mapping>
+  
+ 
 </web-app>

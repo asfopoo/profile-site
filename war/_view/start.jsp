@@ -35,7 +35,7 @@
 								<figcaption class="figcaption">Fire Safety Warning.</figcaption>
 						</figure>
 
-            <p>Always remember fire saftey.  Use any available extiguisher possible and always remember to stop drop and roll....some other hint to be used later in the game!!!</p>
+            <p>Always remember fire safety.  Use any available extinguisher possible and always remember to stop drop and roll....some other hint to be used later in the game!!!</p>
             <p>The CDC is strongly urging everyone to wear protective masks, long sleeves and long pants.  Everyone is urged to protect themselves
   		at all costs.  Stock up on food and water as much as possible.</p>
             </div>

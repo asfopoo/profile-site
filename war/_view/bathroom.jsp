@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Bedroom</title>
+		<title>Bathroom</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	</head>
 	
@@ -13,28 +13,28 @@
 	
 	What will you do?
 	<br>
-	<form action="${pageContext.servletContext.contextPath}/dresser" method="deGet">
-		<input type="Submit" name="submit" value="check the first dresser ">
+	<form action="${pageContext.servletContext.contextPath}/medicine" method="deGet">
+		<input type="Submit" name="submit" value="Look in the medicine cabinet ">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/dresser2" method="doGet">
-		<input type="Submit" name="submit" value="check the second dresser">
+		<form action="${pageContext.servletContext.contextPath}/sink" method="doGet">
+		<input type="Submit" name="submit" value="Look under the sink">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/bed" method="doGet">
-		<input type="Submit" name="submit" value="     check the bed       ">
+		<form action="${pageContext.servletContext.contextPath}/shower" method="doGet">
+		<input type="Submit" name="submit" value="Open the shower curtain">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/bed" method="doGet">
-		<input type="Submit" name="submit" value="      make the bed      ">
+		<form action="${pageContext.servletContext.contextPath}/lightCover" method="doGet">
+		<input type="Submit" name="submit" value="Pull off the light cover">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/tv" method="doGet">
-		<input type="Submit" name="submit" value="     turn the tv off    ">
+		<form action="${pageContext.servletContext.contextPath}/guestroom" method="doGet">
+		<input type="Submit" name="submit" value="Go to the guest room">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/bathroom" method="doGet">
-		<input type="Submit" name="submit" value="     leave the room     ">
+		<form action="${pageContext.servletContext.contextPath}/bedroom" method="doGet">
+		<input type="Submit" name="submit" value="Go to your bedroom">
 		</form>
 		<br>
 		
