@@ -34,7 +34,8 @@ public class RegisterServlet extends HttpServlet {
 		
 		//checks if account it a real account
 		//FakeUserDB db = new FakeUserDB();
-		gamePersist.IDatabase db = gamePersist.DatabaseProvider.getInstance();
+		DatabaseProvider.setInstance(new DerbyDatabase());
+		IDatabase db = DatabaseProvider.getInstance();
 		
 
 		// gets username and password
@@ -68,8 +69,6 @@ public class RegisterServlet extends HttpServlet {
 		
 	}
 
-// create table with labels
-	/// primary key?
 }
 
 

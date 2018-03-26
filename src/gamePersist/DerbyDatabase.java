@@ -26,6 +26,7 @@ public class DerbyDatabase implements IDatabase {
 
 	private static final int MAX_ATTEMPTS = 10;
 
+	
 	public boolean registerAccount(String userName, String pass, String pass2, String email) throws SQLException {
 		
 		Connection conn = null;
@@ -40,6 +41,9 @@ public class DerbyDatabase implements IDatabase {
 		ResultSet resultSet3 = null;
 		ResultSet resultSet4 = null;
 		ResultSet resultSet5 = null;
+		
+		
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 				
 				try {
 					// retreive username attribute from login
