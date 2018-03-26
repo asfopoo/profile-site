@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import gamePersist.DBUtil;
+
 public class DerbyDatabase implements IDatabase {
 	static {
 		try {
