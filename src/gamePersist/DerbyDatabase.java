@@ -11,7 +11,7 @@ import java.util.List;
 
 import gamePersist.DBUtil;
 
-public class DerbyDatabase implements IDatabase {
+public class DerbyDatabase implements IDatabase { /// most of the gamePersist package taken from Lab06 ----CITING
 	static {
 		try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
@@ -48,7 +48,7 @@ public class DerbyDatabase implements IDatabase {
 				try {
 					// retreive username attribute from login
 					stmt = conn.prepareStatement(
-							"select user " // user attribute
+							"select userName " // user attribute
 							+ "  from login " // from login table
 							+ "  where userName = ?"	
 							
@@ -98,6 +98,53 @@ public class DerbyDatabase implements IDatabase {
 					DBUtil.closeQuietly(stmt6);
 					DBUtil.closeQuietly(conn);
 				}
+	}
+	
+	public boolean accountExist(String username, String password){ ///checks if account exists
+		//Checks if the user exist and if the password matches
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet resultSet = null;
+		
+	try {
+			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+		
+				
+	
+			// retreive username attribute from login
+			stmt = conn.prepareStatement(
+					"select userName, password"
+					+ "from login"
+					+ "where userName = ?"
+			);		
+			
+			// substitute the title entered by the user for the placeholder in the query
+			stmt.setString(1, username);
+			
+
+			// execute the query
+			resultSet = stmt.executeQuery();
+			
+			if(resultSet.next()) {
+				return true;//account doesnt exists
+			}
+			else{
+				return false;//account exists
+			}
+			
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(conn);
+		}
+		return false;
 	}
 	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {

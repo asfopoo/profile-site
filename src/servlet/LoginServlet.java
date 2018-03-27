@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fakeDB.FakeUserDB;
+import gamePersist.DatabaseProvider;
+import gamePersist.DerbyDatabase;
+import gamePersist.IDatabase;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,14 +32,16 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("Login Servlet: doPost");
 		
 		//checks if account it a real account
-		FakeUserDB db = new FakeUserDB();
+		//FakeUserDB db = new FakeUserDB(); fake database
+		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example-- CITING
+		IDatabase db = DatabaseProvider.getInstance();
 
 		// gets username and password
-		String user = (req.getParameter("u")).toLowerCase();
+		String userName = (req.getParameter("u")).toLowerCase();
 		String password = req.getParameter("p");
 		
 		//checks if the account is valid
-		boolean validAccount = db.accountExist(user, password);
+		boolean validAccount = db.accountExist(userName, password);
 		
 		//If account is valid, continue, if it isnt, spit out error
 		if(validAccount == true){
