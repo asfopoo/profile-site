@@ -102,15 +102,17 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 	
 	public boolean accountExist(String username, String password){ ///checks if account exists
 		//Checks if the user exist and if the password matches
+		
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet resultSet = null;
+		String harry = null;
 		
-	try {
+	
+		try {
+			
 			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 		
-				
-	
 			// retreive username attribute from login
 			stmt = conn.prepareStatement(
 					"select userName, password"
@@ -125,19 +127,23 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			// execute the query
 			resultSet = stmt.executeQuery();
 			
-			if(resultSet.next()) {
-				return true;//account doesnt exists
+			harry = resultSet.toString();/// this might not work 
+			System.out.print(harry);
+			
+		
+			if(harry == username) {
+				
+				return true;//account exists
 			}
 			else{
-				return false;//account exists
+				return false;//account doesnt exists
 			}
+		
 			
-		} 
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		} 
 		
 		finally {
 			DBUtil.closeQuietly(resultSet);
@@ -145,6 +151,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			DBUtil.closeQuietly(conn);
 		}
 		return false;
+		
 	}
 	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
