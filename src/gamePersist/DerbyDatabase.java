@@ -163,7 +163,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 ///////////////////////////////////////////////////////////////////////////////////
 /////////////////////INSERT USER INVENTORY////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
-	public void insertItem(int size, String name, String type) {
+	public void insertUserItem(int size, String name, String type) {
 		
 		ResultSet resultSet = null;
 		Connection conn = null;
@@ -195,6 +195,45 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			DBUtil.closeQuietly(conn);
 		}
 	}
+	
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////REMOVE ITEM/////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+public void removeUserItem(String name) {
+		
+		ResultSet resultSet = null;
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+				
+			stmt = conn.prepareStatement(
+					"delete from userInventory"
+					+ "where itemName = ?"
+					
+			);
+		
+			
+			stmt.setString(1, name);
+			
+			
+			stmt.execute();
+			
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 	
+		finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(conn);
+		}
+	}
+	
+	
+	
 ///////////////////////////////////////////////////////////////////////////////////	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
 		try {
@@ -301,6 +340,4 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		
 		System.out.println("Success!");
 	}
-
-
 }
