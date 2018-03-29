@@ -108,6 +108,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		ResultSet resultSet = null;
 		String harry = null;
 		
+		
 	
 		try {
 			
@@ -212,6 +213,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
 				PreparedStatement stmt1 = null;
+				PreparedStatement stmt2 = null;
 				
 				
 				try {
@@ -225,6 +227,17 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 						")"
 					);	
 					stmt1.executeUpdate();
+					
+					stmt2 = conn.prepareStatement(
+							"create table userInventory (" +
+							"	inventory_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +									
+							"	item varchar(40)," +
+							"	itemType varchar(40)," +
+							"   size integer"     +
+							")"
+						);	
+						stmt2.executeUpdate();
 					
 					
 					return true;

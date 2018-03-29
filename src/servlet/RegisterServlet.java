@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
 		System.out.println("Register Servlet: doPost");
 		
 		//checks if account it a real account
-		//FakeUserDB db = new FakeUserDB();
+		//fake db stuff//FakeUserDB db = new FakeUserDB();
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
 		IDatabase db = DatabaseProvider.getInstance();
 		
