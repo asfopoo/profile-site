@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.GameController;
 import model.Game;
 
 
@@ -35,22 +36,12 @@ public class BedroomServlet extends HttpServlet {
 		
 		System.out.println("Bedroom Servlet: doPost");
 		
+		GameController controller = new GameController();
 		Game model = new Game();
 		
-		String choice = req.getParameter("choice"); /// not needed right now 
-	
-		model.setChoice(choice); /// also not needed right now 
+		controller.addItem(model.getLighter());
 		
-		req.setAttribute("game", model);
-		
-		String action = req.getParameter("action");
-		
-		if(action.equals("bedroom")) {
 			req.getRequestDispatcher("/_view/bedroom.jsp").forward(req, resp);
-		}
-		else if (action.equals("dresser")){
-			req.getRequestDispatcher("/_view/dresser.jsp").forward(req, resp);
-		}	
 
 	}
 

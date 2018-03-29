@@ -66,7 +66,6 @@ public class RegisterServlet extends HttpServlet {
 		}
 		//System.out.println(first + second);
 		
-		
 	}
 
 }

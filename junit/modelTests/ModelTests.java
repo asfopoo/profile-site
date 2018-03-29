@@ -53,4 +53,7 @@ public class ModelTests {
 	public void testFirstChoice() {
 		assertEquals("1", model.getChoice());
 	}
+	
+	
+	//// item getters and setters need tested
 }

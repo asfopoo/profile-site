@@ -14,7 +14,9 @@ import gamePersist.DerbyDatabase;
 public class GameController {
 	
 	private Game model;
+	private Item item;
 	private IDatabase db = null;
+	
 	
 	public GameController() {
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
@@ -26,7 +28,8 @@ public class GameController {
 	}
 	
 	public void addItem(Item item) {
-		
+		db.insertItem(item.getSize(), item.getName(), item.getItemType());
+		System.out.println(item.getSize() + item.getName() + item.getItemType() + "controller");
 	}
 
 }

@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import entity.Item;
+import entity.ItemType;
 import gamePersist.DBUtil;
 
 public class DerbyDatabase implements IDatabase { /// most of the gamePersist package taken from Lab06 ----CITING
@@ -26,7 +28,9 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 
 	private static final int MAX_ATTEMPTS = 10;
 
-	
+///////////////////////////////////////////////////////////////////////////////////
+/////////////////////REGISTER ACCOUNT////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////	
 	public boolean registerAccount(String userName, String pass, String pass2, String email) throws SQLException {
 		
 		Connection conn = null;
@@ -99,7 +103,9 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 					DBUtil.closeQuietly(conn);
 				}
 	}
-	
+///////////////////////////////////////////////////////////////////////////////////
+/////////////////////ACCOUNT EXISTS////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////	
 	public boolean accountExist(String username, String password){ ///checks if account exists
 		//Checks if the user exist and if the password matches
 		
@@ -154,7 +160,42 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		return false;
 		
 	}
-	
+///////////////////////////////////////////////////////////////////////////////////
+/////////////////////INSERT USER INVENTORY////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+	public void insertItem(int size, String name, String type) {
+		
+		ResultSet resultSet = null;
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+				
+			stmt = conn.prepareStatement(
+					"insert into userInventory(size, itemName, itemType)"
+					+ "values(?, ?, ?)"
+					
+			);
+		
+			stmt.setInt(1, size);
+			stmt.setString(2, name);
+			stmt.setString(3, type);
+			
+			stmt.execute();
+			
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 	
+		finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(conn);
+		}
+	}
+///////////////////////////////////////////////////////////////////////////////////	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
 		try {
 			return doExecuteTransaction(txn);
@@ -232,7 +273,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 							"create table userInventory (" +
 							"	inventory_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +									
-							"	item varchar(40)," +
+							"	itemName varchar(40)," +
 							"	itemType varchar(40)," +
 							"   size integer"     +
 							")"

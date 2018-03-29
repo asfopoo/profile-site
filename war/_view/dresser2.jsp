@@ -28,7 +28,7 @@ img {
 		<input type="Submit" name="submit" value="Go back">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/FIX ME" method="doGet">
+		<form action="${pageContext.servletContext.contextPath}/bedroom" method="Post">
 		<input type="Submit" name="submit" value="Take the lighter">
 		</form>
 		<br>

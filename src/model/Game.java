@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import entity.Area;
 import entity.Item;
+import entity.ItemType;
 import entity.LocationType;
 
 
@@ -31,6 +32,11 @@ public class Game {
 	private Area location;
 	private String choice;
 	
+	private Item lighter;
+	private String greenLighter;
+	
+	private String utility;
+	
 	public Game() {
 		this.house = new Area(LocationType.START, houseItems);
 		this.hospital = new Area(LocationType.HOSPITAL,hospitalItems);
@@ -42,6 +48,7 @@ public class Game {
 		this.sheetz = new Area(LocationType.SHEETZ, sheetzItems);
 		this.groceryStore = new Area(LocationType.GROCERY_STORE, groceryItems);
 		
+		this.lighter = new Item(1 , "greenLighter", "utility");
 	}
 	
 	//Sets location based on type and arraylist of items
@@ -89,7 +96,9 @@ public class Game {
 		return returnItem;
 	}
 
-
+	public Item getLighter() {
+		return lighter;
+	}
 
 }
 
