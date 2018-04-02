@@ -23,16 +23,15 @@ public class GameController {
 		db = DatabaseProvider.getInstance();
 	}
 	
-	public void setModel(Game model) { /// needs tested
+	public void setModel(Game model) {
 		this.model = model;
 	}
 	
-	public void addItem(Item item) { /// needs tested
+	public void addItem(Item item) { 
 		db.insertUserItem(item.getSize(), item.getName(), item.getItemType());
-		System.out.println(item.getSize() + item.getName() + item.getItemType() + "controller");
 	}
-	public void removeItem(Item item) { // needs tested
-		db.removeUserItem(item.getName());
+	public void removeItem(Item item) { 
+		db.removeUserItem(item.getSize(), item.getName(), item.getItemType());
 	}
 
 }

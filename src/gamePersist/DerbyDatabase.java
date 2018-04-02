@@ -114,6 +114,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		PreparedStatement stmt = null;
 		ResultSet resultSet = null;
 		String harry = null;
+		int count = 0;
 		
 		
 	
@@ -123,24 +124,27 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		
 			// retreive username attribute from login
 			stmt = conn.prepareStatement(
-					"select userName, password"
-					+ "from login"
-					+ "where userName = ?"
+					"select * from login"
 			);		
 			
-			// substitute the title entered by the user for the placeholder in the query
-			stmt.setString(1, username);
+			
 			
 
 			// execute the query
 			resultSet = stmt.executeQuery();
 			
-			harry = resultSet.toString();/// this might not work 
-			System.out.print(harry);
+			//harry = resultSet.getString("username");/// this might not work 
+			while(resultSet.next()) {
+				harry = resultSet.getString("userName");
+				if(username == harry) {
+					count++;
+				}
+				
+			}
 			
 		
-			if(harry == username) {
-				
+			if(count > 0) { // HAS to be a better way to do this!!!!!!!!!!!!!!!!!
+						///still doesnt work anyway
 				return true;//account exists
 			}
 			else{
@@ -169,9 +173,23 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		ResultSet resultSet = null;
 		Connection conn = null;
 		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
 		
 		try {
 			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+			
+			
+			stmt2 = conn.prepareStatement(
+					"delete from houseItems " //will have to change at some point depending on current location
+					+ "where itemName= ?"
+					
+			);
+		
+			
+			stmt2.setString(1, name);
+			
+			
+			stmt2.executeUpdate();
 				
 			stmt = conn.prepareStatement(
 					"insert into userInventory(size, itemName, itemType)"
@@ -184,6 +202,8 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			stmt.setString(3, type);
 			
 			stmt.execute();
+			
+			
 			
 		} 
 		catch (SQLException e) {
@@ -198,20 +218,21 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 	}
 	
 ///////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////REMOVE ITEM/////////////////////////////////////////////
+///////////////////////////REMOVE ITEM FROM USER INVENTORY/////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-public void removeUserItem(String name) {
+public void removeUserItem(int size, String name, String type) {
 		
 		ResultSet resultSet = null;
 		Connection conn = null;
 		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
 		
 		try {
 			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 				
 			stmt = conn.prepareStatement(
-					"delete from userInventory"
-					+ "where itemName = ?"
+					"delete from userInventory "
+					+ "where itemName= ?"
 					
 			);
 		
@@ -219,7 +240,19 @@ public void removeUserItem(String name) {
 			stmt.setString(1, name);
 			
 			
-			stmt.execute();
+			stmt.executeUpdate();
+			
+			stmt2 = conn.prepareStatement(
+					"insert into houseItems(size, itemName, itemType)" //will have to change depending on current location.. ie....wont always be in the house
+					+ "values(?, ?, ?)"
+					
+			);
+		
+			stmt2.setInt(1, size);
+			stmt2.setString(2, name);
+			stmt2.setString(3, type);
+			
+			stmt2.execute();
 			
 		} 
 		catch (SQLException e) {
