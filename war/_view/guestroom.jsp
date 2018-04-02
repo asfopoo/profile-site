@@ -9,36 +9,33 @@
 	</head>
 
 	<body  style = text-align:center;>
-		Guest room stuff
+		Not much in here... 
 		<br>
 		<br>
 		<br>
 		
-		What do you want to do<br>
-		<br>
-		
-		<form action="${pageContext.servletContext.contextPath}/dresser" method="deGet">
-		<input type="Submit" name="submit" value="check the first dresser ">
-		</form>
-		<br>
-		<form action="${pageContext.servletContext.contextPath}/dresser2" method="doGet">
-		<input type="Submit" name="submit" value="check the second dresser">
-		</form>
-		<br>
 		<form action="${pageContext.servletContext.contextPath}/bed" method="doGet">
-		<input type="Submit" name="submit" value="     check the bed       ">
+		<input type="Submit" name="submit" value="Check the bed">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/bed" method="doGet">
-		<input type="Submit" name="submit" value="      make the bed      ">
+		<form action="${pageContext.servletContext.contextPath}/nightstand" method="doGet">
+		<input type="Submit" name="submit" value="Check the night stand">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/tv" method="doGet">
-		<input type="Submit" name="submit" value="     turn the tv off    ">
+		<form action="${pageContext.servletContext.contextPath}/window" method="doGet">
+		<input type="Submit" name="submit" value="look out the window">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/bathroom" method="post">
-		<input type="Submit" name="submit" value="     leave the room     ">
+		<form action="${pageContext.servletContext.contextPath}/bathroom" method="doGet">
+		<input type="Submit" name="submit" value="      Go to the bathroom     ">
+		</form>
+		<br>
+		<form action="${pageContext.servletContext.contextPath}/bedroom" method="doGet">
+		<input type="Submit" name="submit" value="Go to your bedroom">
+		</form>
+		<br>
+		<form action="${pageContext.servletContext.contextPath}/living room" method="doGet">
+		<input type="Submit" name="submit" value=" Go downstairs ">
 		</form>
 		<br>
 		

@@ -19,7 +19,7 @@ img {
 	<body style = text-align:center;>
 		<img src="https://i.imgur.com/Yq5sG94.jpg" alt="Sink" style="width:500px;height:500px;"> 
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/sink" method="deGet">
+		<form action="${pageContext.servletContext.contextPath}/sink" method="doGet">
 		<input type="Submit" name="submit" value="Take toilet paper">
 		</form>
 		<br>

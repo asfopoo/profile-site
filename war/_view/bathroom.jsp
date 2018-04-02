@@ -14,7 +14,7 @@
 	
 	What will you do?<br>
 	<br>
-	<form action="${pageContext.servletContext.contextPath}/medicine" method="deGet">
+	<form action="${pageContext.servletContext.contextPath}/medicine" method="doGet">
 		<input type="Submit" name="submit" value="Look in the medicine cabinet ">
 		</form>
 		<br>

@@ -87,6 +87,16 @@
     <servlet-class>servlet.SinkServlet</servlet-class>
   </servlet>
   
+   <servlet>
+    <servlet-name>NightstandServlet</servlet-name>
+    <servlet-class>servlet.NightstandServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>WindowServlet</servlet-name>
+    <servlet-class>servlet.WindowServlet</servlet-class>
+  </servlet>
+  
   
   
   <!-- Servlet mappings -->
@@ -169,6 +179,16 @@
   <servlet-mapping>
     <servlet-name>SinkServlet</servlet-name>
     <url-pattern>/sink</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>WindowServlet</servlet-name>
+    <url-pattern>/window</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>NightstandServlet</servlet-name>
+    <url-pattern>/nightstand</url-pattern>
   </servlet-mapping>
   
  

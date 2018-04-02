@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Medicine Cabinet</title>
+		<title>Window</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 		<style>
 img {
@@ -18,13 +18,13 @@ img {
 	
 	<body style = text-align:center;>
 	
-	<img src="https://i.imgur.com/ojgDg4A.jpg" alt="Medicine Cabinet" style="width:600px;height:600px;"> 
+	<img src="https://i.imgur.com/8BFtFD7.jpg" alt="neighborhood" style="width:600px;height:600px;"> 
+	
 	<br>
-	<form action="${pageContext.servletContext.contextPath}/medicine" method="doGet">
-		<input type="Submit" name="submit" value="Take band-aids">
-		</form>
-		<br>
-		<form action="${pageContext.servletContext.contextPath}/bathroom" method="doGet">
+	Everything looks fine out there...
+	<br>
+	<br>
+		<form action="${pageContext.servletContext.contextPath}/guestroom" method="doGet">
 		<input type="Submit" name="submit" value="Go back">
 		</form>
 	</body>

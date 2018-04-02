@@ -24,7 +24,7 @@
 		What do you want to do<br>
 		<br>
 		
-		<form action="${pageContext.servletContext.contextPath}/dresser" method="deGet">
+		<form action="${pageContext.servletContext.contextPath}/dresser" method="doGet">
 		<input type="Submit" name="submit" value="check the first dresser ">
 		</form>
 		<br>
