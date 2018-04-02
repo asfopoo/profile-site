@@ -4,6 +4,7 @@ public class Item {
 	private int size;
 	private String name;
 	private String type;
+	private int houseInventoryId;
 	
 	public Item(int size, String name, String type) {
 		this.size = size;
@@ -11,6 +12,12 @@ public class Item {
 		this.type = type;
 	}
 	
+	public void setHouseInventoryId(int houseInventoryId) {
+		this.houseInventoryId = houseInventoryId;
+	}
+	public int getHouseInventoryId() {
+		return houseInventoryId;
+	}
 	public int getSize() {
 		return size;
 	}

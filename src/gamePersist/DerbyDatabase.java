@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import entity.Item;
 import entity.ItemType;
 import gamePersist.DBUtil;
@@ -288,16 +289,56 @@ public void removeUserItem(String name) {
 		return conn;
 	}
 	
+	public void loadInitialData() { ///taken from lab06
+		executeTransaction(new Transaction<Boolean>() {
+			@Override
+			public Boolean execute(Connection conn) throws SQLException {
+				List<Item> houseItems;
+				
+				
+				try {
+					houseItems = InitialData.getHouseItems();
+				} catch (IOException e) {
+					throw new SQLException("Couldn't read initial data", e);
+				}
+
+				PreparedStatement insertHouseItem = null;
+
+				try {
+					// populate houseItems table 
+					insertHouseItem = conn.prepareStatement("insert into houseItems (itemName, itemType, size) values (?, ?, ?)");
+					for (Item item : houseItems) {
+//						insertAuthor.setInt(1, author.getAuthorId());	// auto-generated primary key, don't insert this
+						insertHouseItem.setString(1, item.getName());
+						insertHouseItem.setString(2, item.getItemType());
+						insertHouseItem.setInt(3, item.getSize());
+						insertHouseItem.addBatch();
+					}
+					insertHouseItem.executeBatch();
+					
+					// populate books table (do this after authors table,
+					// since author_id must exist in authors table before inserting book)
+					
+					return true;
+				} finally {
+					DBUtil.closeQuietly(insertHouseItem);
+				}
+			}
+		});
+	}
+	
+	
 	public void createTables() {
 		executeTransaction(new Transaction<Boolean>() {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
 				PreparedStatement stmt1 = null;
 				PreparedStatement stmt2 = null;
+				PreparedStatement stmt3 = null;
 				
 				
 				try {
-					stmt1 = conn.prepareStatement(
+					stmt1 = conn.prepareStatement( //creates login table
 						"create table login (" +
 						"	login_id integer primary key " +
 						"		generated always as identity (start with 1, increment by 1), " +									
@@ -308,9 +349,9 @@ public void removeUserItem(String name) {
 					);	
 					stmt1.executeUpdate();
 					
-					stmt2 = conn.prepareStatement(
+					stmt2 = conn.prepareStatement( // creates user inventory table
 							"create table userInventory (" +
-							"	inventory_id integer primary key " +
+							"	userInventory_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +									
 							"	itemName varchar(40)," +
 							"	itemType varchar(40)," +
@@ -318,11 +359,24 @@ public void removeUserItem(String name) {
 							")"
 						);	
 						stmt2.executeUpdate();
+						
+					stmt3 = conn.prepareStatement( //creates house inventory 
+							"create table houseItems (" +
+							"	houseInventory_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +									
+							"	itemName varchar(40)," +
+							"	itemType varchar(40)," +
+							"   size integer"     +
+							")"
+						);	
+						stmt3.executeUpdate();	
 					
 					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);
+					DBUtil.closeQuietly(stmt2);
+					DBUtil.closeQuietly(stmt3);
 				}
 			}
 		});
@@ -337,6 +391,9 @@ public void removeUserItem(String name) {
 		System.out.println("Creating tables...");
 		DerbyDatabase db = new DerbyDatabase();
 		db.createTables();
+		
+		System.out.println("Loading initial data...");
+		db.loadInitialData();
 		
 		System.out.println("Success!");
 	}

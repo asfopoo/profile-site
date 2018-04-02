@@ -57,5 +57,5 @@ public class ModelTests {
 	public void testGetLighter() {
 		/// needs implemented
 	}
-	//// item getters and setters need tested
+	
 }
