@@ -32,11 +32,48 @@ public class ItemTests {
 	public void testSetName(String name) {
 	
 	}
-	public void testGetItemType() {
+	public void testGetvoidType() {
 		
 	}
 	public void testSetType(String type) {
 		
+	}
+	
+	
+	
+	
+	public void testGetLighter() {
+		
+	}
+	public void testGetKnife() {
+		
+	}
+	public void testGetToiletPaper() {
+		
+	}
+	public void testGetShampoo() {
+	
+	}
+	public void testGetDogFood() {
+		
+	}
+	public void testGetFork() {
+		
+	}
+	public void testGetTvChanger() {
+	
+	}
+	public void testGetBattery() {
+	
+	}
+	public void testGetScissors() {
+		
+	}
+	public void testGetCanFood() {
+	
+	}
+	public void testGetCigs() {
+	
 	}
 
 }

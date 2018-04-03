@@ -33,9 +33,20 @@ public class Game {
 	private String choice;
 	
 	private Item lighter;
-	private String greenLighter;
+	private Item knife;
+	private Item toiletPaper;
+	private Item shampoo;
+	private Item dogFood;
+	private Item fork;
+	private Item tvChanger;
+	private Item battery;
+	private Item scissors;
+	private Item canFood; // no label on food
+	private Item cigs;
 	
-	private String utility;
+	
+	
+	
 	
 	public Game() {
 		this.house = new Area(LocationType.START, houseItems);
@@ -48,7 +59,19 @@ public class Game {
 		this.sheetz = new Area(LocationType.SHEETZ, sheetzItems);
 		this.groceryStore = new Area(LocationType.GROCERY_STORE, groceryItems);
 		
+		
+		
 		this.lighter = new Item(1 , "greenLighter", "utility");
+		this.knife = new Item(3 , "knife", "utility");
+		this.toiletPaper = new Item(4 , "toiletPaper", "utility");
+		this.shampoo = new Item(4 , "shampoo", "utility");
+		this.dogFood = new Item(3 , "dogFood", "food");
+		this.fork = new Item(2 , "fork", "utility");
+		this.tvChanger = new Item(3 , "tvChanger", "utility");
+		this.battery = new Item(1 , "battery", "utility");
+		this.scissors = new Item(3 , "scissors", "utility");
+		this.canFood = new Item(4 , "canFood", "food");
+		this.cigs = new Item(2 , "cigs", "utility");
 	}
 	
 	//Sets location based on type and arraylist of items
@@ -98,6 +121,36 @@ public class Game {
 
 	public Item getLighter() {
 		return lighter;
+	}
+	public Item getKnife() {
+		return knife;
+	}
+	public Item getToiletPaper() {
+		return toiletPaper;
+	}
+	public Item getShampoo() {
+		return shampoo;
+	}
+	public Item getDogFood() {
+		return dogFood;
+	}
+	public Item getFork() {
+		return fork;
+	}
+	public Item getTvChanger() {
+		return tvChanger;
+	}
+	public Item getBattery() {
+		return battery;
+	}
+	public Item getScissors() {
+		return scissors;
+	}
+	public Item getCanFood() {
+		return canFood;
+	}
+	public Item getCigs() {
+		return cigs;
 	}
 
 }
