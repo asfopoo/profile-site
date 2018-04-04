@@ -43,6 +43,7 @@ public class Game {
 	private Item scissors;
 	private Item canFood; // no label on food
 	private Item cigs;
+	private Item candle;
 	
 	
 	
@@ -72,6 +73,7 @@ public class Game {
 		this.scissors = new Item(3 , "scissors", "utility");
 		this.canFood = new Item(4 , "canFood", "food");
 		this.cigs = new Item(2 , "cigs", "utility");
+		this.candle = new Item(2, "candle", "utility");
 	}
 	
 	//Sets location based on type and arraylist of items
@@ -151,6 +153,9 @@ public class Game {
 	}
 	public Item getCigs() {
 		return cigs;
+	}
+	public Item getCandle() {
+		return candle; ////////////junit!!!!!!!!!!!!!
 	}
 
 }
