@@ -44,6 +44,7 @@ public class Game {
 	private Item canFood; // no label on food
 	private Item cigs;
 	private Item candle;
+	private Item firePoker;
 	
 	
 	
@@ -63,7 +64,7 @@ public class Game {
 		
 		
 		this.lighter = new Item(1 , "greenLighter", "utility");
-		this.knife = new Item(3 , "knife", "utility");
+		this.knife = new Item(3 , "knife", "utility"); // change to weapon type csv, tests
 		this.toiletPaper = new Item(4 , "toiletPaper", "utility");
 		this.shampoo = new Item(4 , "shampoo", "utility");
 		this.dogFood = new Item(3 , "dogFood", "food");
@@ -74,6 +75,7 @@ public class Game {
 		this.canFood = new Item(4 , "canFood", "food");
 		this.cigs = new Item(2 , "cigs", "utility");
 		this.candle = new Item(2, "candle", "utility");
+		this.firePoker = new Item(7, "firePoker", "weapon");
 	}
 	
 	//Sets location based on type and arraylist of items
@@ -156,6 +158,9 @@ public class Game {
 	}
 	public Item getCandle() {
 		return candle; ////////////junit!!!!!!!!!!!!!
+	}
+	public Item getFirePoker() {
+		return firePoker; ////////////junit!!!!!!!!!!!!!
 	}
 
 }
