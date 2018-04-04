@@ -53,9 +53,4 @@ public class ModelTests {
 	public void testFirstChoice() {
 		assertEquals("1", model.getChoice());
 	}
-	
-	public void testGetLighter() {
-		/// needs implemented
-	}
-	
 }
