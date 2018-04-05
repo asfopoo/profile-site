@@ -47,11 +47,16 @@ public class RegisterServlet extends HttpServlet {
 		//checks if account exist
 		boolean validAccount = false;
 	
-		try {
-			validAccount = db.registerAccount(user, password, password2, email);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//Checks if 2 passes are the same
+		if(password.equals(password2)){
+			try {
+				validAccount = db.registerAccount(user, password, password2, email);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			validAccount = false;
 		}
 		
 		//If account is valid, continue, if it isnt, spit out error
