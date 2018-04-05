@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 		
 		//checks if the account is valid
 		boolean validAccount = db.accountExist(userName, password);
-		
+
 		//If account is valid, continue, if it isnt, spit out error
 		if(validAccount == true){
 			// Forward to view to render the result HTML document

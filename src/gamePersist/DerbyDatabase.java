@@ -114,6 +114,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		PreparedStatement stmt = null;
 		ResultSet resultSet = null;
 		String harry = null;
+		boolean exist = false;
 		int count = 0;
 		
 		
@@ -136,19 +137,22 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			//harry = resultSet.getString("username");/// this might not work 
 			while(resultSet.next()) {
 				harry = resultSet.getString("userName");
-				if(username == harry) {
-					count++;
+				if(username.equals(harry)) {
+					exist = true;
 				}
 				
 			}
 			
-		
-			if(count > 0) { // HAS to be a better way to do this!!!!!!!!!!!!!!!!!
+			//System.out.println(exist);
+			if(exist == true) { // HAS to be a better way to do this!!!!!!!!!!!!!!!!!
 						///still doesnt work anyway
+				//System.out.println("true");
 				return true;//account exists
+				
 			}
 			else{
-				return false;//account doesnt exists
+				//System.out.println("failed");
+				return false;//account doesnt exists		
 			}
 		
 			
