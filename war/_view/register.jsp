@@ -29,6 +29,9 @@
 			<input type="password" name="p2"placeholder="Password" required="required" />
 			<button type="submit" name="submit"
 				class="btn btn-primary btn-block btn-large">Register Account</button>
+				<div class=register>
+				<a href="login">Have an account? Log in.</a>
+			</div>
 		</form>
 	</div>
 </body>
