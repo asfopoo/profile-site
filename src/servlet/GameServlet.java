@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fakeDB.FakeAreaDB;
+import gamePersist.DatabaseProvider;
+import gamePersist.DerbyDatabase;
+import gamePersist.IDatabase;
 
 
 public class GameServlet extends HttpServlet {
@@ -19,19 +23,24 @@ public class GameServlet extends HttpServlet {
 			throws ServletException, IOException {
 		post = false;
 		System.out.println("Game Servlet: doGet");
-		FakeAreaDB db = new FakeAreaDB();
-		
-		db.setArea(level);
-		db.setScreen();
-		//Sets paragraph above the choices
-		String para = db.getPara();
-		String[] options = db.getOptions();				
+		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
+		IDatabase db = DatabaseProvider.getInstance();
+		//FakeAreaDB db2 = new FakeAreaDB();
+		String[] content = new String[9];
+		try {
+			content = db.getArea("1");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String para = content[2];
 		req.setAttribute("para",para);
 		
 		//Sets the choices
-		for(int i = 0; i < 6; i++){
-			
-			req.setAttribute("q" + (i + 1), (i + 1) + ": " + options[i]);
+		for(int i = 3; i < 9; i++){
+			System.out.println(content[i]);
+			req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 		}
 
 		
