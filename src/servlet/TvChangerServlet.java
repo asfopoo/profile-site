@@ -28,7 +28,7 @@ public class TvChangerServlet extends HttpServlet {
 
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/tvChanger.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/livingroom.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class TvChangerServlet extends HttpServlet {
 		
 		System.out.println("TvChanger Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/tvChanger");
+		resp.sendRedirect(req.getContextPath() + "/livingroom");
 		
 		
 	}

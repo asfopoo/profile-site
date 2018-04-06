@@ -103,8 +103,8 @@
   </servlet>
   
    <servlet>
-    <servlet-name>Candle</servlet-name>
-    <servlet-class>servlet.Candle</servlet-class>
+    <servlet-name>CandleServlet</servlet-name>
+    <servlet-class>servlet.CandleServlet</servlet-class>
   </servlet>
   
    <servlet>
@@ -141,6 +141,8 @@
     <servlet-name>UnderCouchServlet</servlet-name>
     <servlet-class>servlet.UnderCouchServlet</servlet-class>
   </servlet>
+  
+  
   
   
   
@@ -241,7 +243,7 @@
     <url-pattern>/nightstand</url-pattern>
   </servlet-mapping>
   
-   <servlet-mapping>
+	<servlet-mapping>
     <servlet-name>CandleServlet</servlet-name>
     <url-pattern>/candle</url-pattern>
   </servlet-mapping>
@@ -280,6 +282,7 @@
     <servlet-name>UnderCouchServlet</servlet-name>
     <url-pattern>/underCouch</url-pattern>
   </servlet-mapping>
+  
   
  
 </web-app>
