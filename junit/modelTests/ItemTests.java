@@ -1,4 +1,4 @@
-package ItemTest;
+package modelTests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -105,5 +105,28 @@ public class ItemTests {
 		assertEquals("cigs", model.getCigs().getName());
 		assertEquals("utility", model.getCigs().getItemType());
 	}
-
+	@Test
+	public void testGetChange() { /// 2 instances of change ??????
+		assertEquals(3, model.getChange().getSize());
+		assertEquals("change", model.getChange().getName());
+		assertEquals("utility", model.getScissors().getItemType());
+	}
+	@Test
+	public void testGetCandle() {
+		assertEquals(2, model.getCandle().getSize());
+		assertEquals("candle", model.getCandle().getName());
+		assertEquals("food", model.getCanFood().getItemType());
+	}
+	@Test
+	public void testGetFirePoker() {
+		assertEquals(7, model.getFirePoker().getSize());
+		assertEquals("firePoker", model.getFirePoker().getName());
+		assertEquals("utility", model.getCigs().getItemType());
+	}
+	@Test
+	public void testGetBandAids() {
+		assertEquals(2, model.getBandAids().getSize());
+		assertEquals("bandAids", model.getBandAids().getName());
+		assertEquals("utility", model.getCigs().getItemType());
+	}
 }

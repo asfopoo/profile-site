@@ -162,13 +162,13 @@ public class Game {
 		return cigs;
 	}
 	public Item getChange() {
-		return change; ////jUnit//////////////
+		return change;
 	}
 	public Item getCandle() {
-		return candle; ////////////junit!!!!!!!!!!!!!
+		return candle; 
 	}
 	public Item getFirePoker() {
-		return firePoker; ////////////junit!!!!!!!!!!!!!
+		return firePoker; 
 	}
 	public Item getBandAids() {
 		return bandAids;
