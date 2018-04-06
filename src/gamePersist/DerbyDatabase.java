@@ -374,6 +374,7 @@ public void removeUserItem(int size, String name, String type) {
 				PreparedStatement stmt1 = null;
 				PreparedStatement stmt2 = null;
 				PreparedStatement stmt3 = null;
+				PreparedStatement stmt4 = null;
 				
 				
 				try {
@@ -409,6 +410,22 @@ public void removeUserItem(int size, String name, String type) {
 							")"
 						);	
 						stmt3.executeUpdate();	
+						
+					stmt4 = conn.prepareStatement( //creates house inventory 
+							"create table area (" +
+							"	area_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +									
+							"	areaName varchar(40)," +
+							"	areaPara varchar(40)," +
+							"   areaOpt1 varchar(40)," +
+							"   areaOpt2 varchar(40)," +
+							"   areaOpt3 varchar(40)," +
+							"   areaOpt4 varchar(40)," +
+							"   areaOpt5 varchar(40)," +
+							"   areaOpt6 varchar(40)" +					
+							")"
+						);	
+					stmt4.executeUpdate();	
 					
 					
 					return true;
@@ -416,6 +433,7 @@ public void removeUserItem(int size, String name, String type) {
 					DBUtil.closeQuietly(stmt1);
 					DBUtil.closeQuietly(stmt2);
 					DBUtil.closeQuietly(stmt3);
+					DBUtil.closeQuietly(stmt4);
 				}
 			}
 		});
