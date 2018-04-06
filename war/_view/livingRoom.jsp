@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Bedroom</title>
+		<title>Living Room</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 	</head>
 

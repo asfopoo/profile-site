@@ -34,7 +34,7 @@
 		<input type="Submit" name="submit" value="Go to your bedroom">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/living room" method="doGet">
+		<form action="${pageContext.servletContext.contextPath}/livingroom" method="doGet">
 		<input type="Submit" name="submit" value=" Go downstairs ">
 		</form>
 		<br>
