@@ -30,9 +30,9 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 	private static final int MAX_ATTEMPTS = 10;
 
 ///////////////////////////////////////////////////////////////////////////////////
-/////////////////////REGISTER ACCOUNT////////////////////////////////////
+/////////////////////ADD AREA////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////	
-	public boolean registerAccount(String userName, String pass, String pass2, String email) throws SQLException {
+	public void createArea(String name, String para, String[] options) throws SQLException {
 		
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -51,39 +51,18 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 				
 				try {
-					// retreive username attribute from login
-					stmt = conn.prepareStatement(
-							"select userName " // user attribute
-							+ "  from login " // from login table
-							+ "  where userName = ?"	
-							
-					);
-
-					// substitute the title entered by the user for the placeholder in the query
-					stmt.setString(1, userName);
-					
-
-					// execute the query
-					resultSet = stmt.executeQuery();
-						
-					if (!resultSet.next()) { /// if username doesnt exist
-						
 						stmt2 = conn.prepareStatement( // enter username
-								"insert into login(userName, password, email)"
-								+ "values(?, ?, ?)"
+								"insert into area(areaName, areaPara, areaOpt1, areaOpt2, areaOpt3, areaOpt4, areaOpt5, areaOpt6)"
+								+ "values(?, ?, ?, ?, ?, ?, ?, ?)"
 						);				
 								
-						stmt2.setString(1, userName);
-						stmt2.setString(2, pass);
-						stmt2.setString(3, email);
+						stmt2.setString(1, name);
+						stmt2.setString(2, para);
+						for(int i = 0; i < 6; i++){
+							stmt2.setString(i + 3, options[i]);
+						}
 								
 						stmt2.execute();
-						
-					return true;
-					}	
-					else {
-						return false; // username already exists
-					}
 					
 					
 				
@@ -103,6 +82,130 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 					DBUtil.closeQuietly(stmt6);
 					DBUtil.closeQuietly(conn);
 				}
+	}
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////////////// ADD AREA////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////
+	public String[] getArea(String id) throws SQLException {
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
+		PreparedStatement stmt3 = null;
+		PreparedStatement stmt4 = null;
+		PreparedStatement stmt5 = null;
+		PreparedStatement stmt6 = null;
+		ResultSet resultSet = null;
+		ResultSet resultSet2 = null;
+		ResultSet resultSet3 = null;
+		ResultSet resultSet4 = null;
+		ResultSet resultSet5 = null;
+		
+		String[] content = new String[9];
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+
+		try {
+			stmt = conn.prepareStatement(
+					"select * from area "
+					+ "where area_id = ?"
+					
+			);
+			
+			stmt.setString(1, id);
+			
+			resultSet = stmt.executeQuery();
+			while(resultSet.next()){
+				for(int i = 0; i < 9; i++){
+					content[i] = resultSet.getString(i + 1);
+					System.out.println(content[i]);
+				}
+			}
+			return content;
+
+		} finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(resultSet2);
+			DBUtil.closeQuietly(resultSet3);
+			DBUtil.closeQuietly(resultSet4);
+			DBUtil.closeQuietly(resultSet5);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(stmt3);
+			DBUtil.closeQuietly(stmt4);
+			DBUtil.closeQuietly(stmt5);
+			DBUtil.closeQuietly(stmt6);
+			DBUtil.closeQuietly(conn);
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////////////////////
+	///////////////////// REGISTER ACCOUNT////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////
+	public boolean registerAccount(String userName, String pass, String pass2, String email) throws SQLException {
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
+		PreparedStatement stmt3 = null;
+		PreparedStatement stmt4 = null;
+		PreparedStatement stmt5 = null;
+		PreparedStatement stmt6 = null;
+		ResultSet resultSet = null;
+		ResultSet resultSet2 = null;
+		ResultSet resultSet3 = null;
+		ResultSet resultSet4 = null;
+		ResultSet resultSet5 = null;
+
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+
+		try {
+			// retreive username attribute from login
+			stmt = conn.prepareStatement("select userName " // user attribute
+					+ "  from login " // from login table
+					+ "  where userName = ?"
+
+			);
+
+			// substitute the title entered by the user for the placeholder in
+			// the query
+			stmt.setString(1, userName);
+
+			// execute the query
+			resultSet = stmt.executeQuery();
+
+			if (!resultSet.next()) { /// if username doesnt exist
+
+				stmt2 = conn.prepareStatement( // enter username
+						"insert into login(userName, password, email)" + "values(?, ?, ?)");
+
+				stmt2.setString(1, userName);
+				stmt2.setString(2, pass);
+				stmt2.setString(3, email);
+
+				stmt2.execute();
+				
+
+
+				return true;
+			} else {
+				return false; // username already exists
+			}
+
+		} finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(resultSet2);
+			DBUtil.closeQuietly(resultSet3);
+			DBUtil.closeQuietly(resultSet4);
+			DBUtil.closeQuietly(resultSet5);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(stmt3);
+			DBUtil.closeQuietly(stmt4);
+			DBUtil.closeQuietly(stmt5);
+			DBUtil.closeQuietly(stmt6);
+			DBUtil.closeQuietly(conn);
+		}
 	}
 ///////////////////////////////////////////////////////////////////////////////////
 /////////////////////ACCOUNT EXISTS////////////////////////////////////
@@ -416,7 +519,7 @@ public void removeUserItem(int size, String name, String type) {
 							"	area_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +									
 							"	areaName varchar(40)," +
-							"	areaPara varchar(40)," +
+							"	areaPara varchar(400)," +
 							"   areaOpt1 varchar(40)," +
 							"   areaOpt2 varchar(40)," +
 							"   areaOpt3 varchar(40)," +
@@ -454,4 +557,6 @@ public void removeUserItem(int size, String name, String type) {
 		
 		System.out.println("Success!");
 	}
+
+
 }
