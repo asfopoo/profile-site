@@ -102,6 +102,46 @@
     <servlet-class>servlet.WindowServlet</servlet-class>
   </servlet>
   
+   <servlet>
+    <servlet-name>Candle</servlet-name>
+    <servlet-class>servlet.Candle</servlet-class>
+  </servlet>
+  
+   <servlet>
+    <servlet-name>ChairServlet</servlet-name>
+    <servlet-class>servlet.ChairServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>ChangeServlet</servlet-name>
+    <servlet-class>servlet.ChangeServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>CouchServlet</servlet-name>
+    <servlet-class>servlet.CouchServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>FirePokerServlet</servlet-name>
+    <servlet-class>servlet.FirePokerServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>LivingroomServlet</servlet-name>
+    <servlet-class>servlet.LivingroomServlet</servlet-class>
+  </servlet>
+  
+   <servlet>
+    <servlet-name>TvChangerServlet</servlet-name>
+    <servlet-class>servlet.TvChangerServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>UnderCouchServlet</servlet-name>
+    <servlet-class>servlet.UnderCouchServlet</servlet-class>
+  </servlet>
+  
   
   
   <!-- Servlet mappings -->
@@ -199,6 +239,46 @@
   <servlet-mapping>
     <servlet-name>NightstandServlet</servlet-name>
     <url-pattern>/nightstand</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>CandleServlet</servlet-name>
+    <url-pattern>/candle</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ChairServlet</servlet-name>
+    <url-pattern>/chair</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ChangeServlet</servlet-name>
+    <url-pattern>/change</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>CouchServlet</servlet-name>
+    <url-pattern>/couch</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>FirePokerServlet</servlet-name>
+    <url-pattern>/firePoker</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>LivingroomServlet</servlet-name>
+    <url-pattern>/livingroom</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>TvChangerServlet</servlet-name>
+    <url-pattern>/tvChanger</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>UnderCouchServlet</servlet-name>
+    <url-pattern>/underCouch</url-pattern>
   </servlet-mapping>
   
  
