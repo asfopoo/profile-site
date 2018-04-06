@@ -45,6 +45,7 @@ public class Game {
 	private Item cigs;
 	private Item candle;
 	private Item firePoker;
+	private Item change;
 	
 	
 	
@@ -76,6 +77,8 @@ public class Game {
 		this.cigs = new Item(2 , "cigs", "utility");
 		this.candle = new Item(2, "candle", "utility");
 		this.firePoker = new Item(7, "firePoker", "weapon");
+		this.change = new Item(1, "change", "utility");
+		this.change = new Item(3, "change", "utility");
 	}
 	
 	//Sets location based on type and arraylist of items
@@ -155,6 +158,9 @@ public class Game {
 	}
 	public Item getCigs() {
 		return cigs;
+	}
+	public Item getChange() {
+		return change; ////jUnit//////////////
 	}
 	public Item getCandle() {
 		return candle; ////////////junit!!!!!!!!!!!!!

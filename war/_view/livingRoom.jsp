@@ -21,12 +21,16 @@
 		What do you want to do<br>
 		<br>
 		
-		<form action="${pageContext.servletContext.contextPath}/tvRemote" method="Post">
-		<input type="Submit" name="submit" vaue="Grab the tv remote">
+		<form action="${pageContext.servletContext.contextPath}/tvChanger" method="Post">
+		<input type="Submit" name="submit" value="Grab the tv remote">
 		</form>
 		<br>
 		<form action="${pageContext.servletContext.contextPath}/couch" method="doGet">
 		<input type="Submit" name="submit" value="Check the couch">
+		</form>
+		<br>
+		<form action="${pageContext.servletContext.contextPath}/underCouch" method="doGet">
+		<input type="Submit" name="submit" value="Check under the couch">
 		</form>
 		<br>
 		<form action="${pageContext.servletContext.contextPath}/chair" method="doGet">

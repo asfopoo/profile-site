@@ -12,19 +12,19 @@ import model.Game;
 
 
 
-public class CandleServlet extends HttpServlet {
+public class ChangeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Candle Servlet: doGet");
+		System.out.println("Change: doGet");
 		
 		GameController controller = new GameController();
 		Game model = new Game();
 		
-		controller.addItem(model.getCandle()); // adds tv changer to userinventory items
+		controller.addItem(model.getChange()); // adds change to userinventory items
 
 		
 		// call JSP to generate empty form
@@ -35,7 +35,7 @@ public class CandleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Candle Servlet: doPost");
+		System.out.println("Change: doPost");
 	
 		resp.sendRedirect(req.getContextPath() + "/livingroom");
 		

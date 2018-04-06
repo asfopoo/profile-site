@@ -21,6 +21,12 @@ public class TvChangerServlet extends HttpServlet {
 		
 		System.out.println("TvChanger Servlet: doGet");	
 		
+		GameController controller = new GameController();
+		Game model = new Game();
+		
+		controller.addItem(model.getTvChanger()); // adds tv changer to userinventory items
+
+		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/tvChanger.jsp").forward(req, resp);
 	}

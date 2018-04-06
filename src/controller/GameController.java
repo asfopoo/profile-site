@@ -27,7 +27,7 @@ public class GameController {
 		this.model = model;
 	}
 	
-	public void addItem(Item item) { 
+	public void addItem(Item item) { // needs tested
 		db.insertUserItem(item.getSize(), item.getName(), item.getItemType());
 	}
 	public void removeItem(Item item) { 

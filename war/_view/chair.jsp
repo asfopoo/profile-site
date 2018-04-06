@@ -13,7 +13,7 @@
 	<body style = text-align:center;>
 	
 		
-		<br>you've found some spare change<br>
+		<br>you've found more spare change<br>
 
 		
 		<form action="${pageContext.servletContext.contextPath}/change" method="doGet">
