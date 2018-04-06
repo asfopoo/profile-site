@@ -13,12 +13,10 @@
 	<body style = text-align:center;>
 	
 		
-		<br>you've found more spare change<br>
+		<br>You took the tv changer<br>
 
 		
-		<form action="${pageContext.servletContext.contextPath}/change" method="doGet">
-		<input type="Submit" name="submit" value="Take the change">
-		</form>
+		
 		<br>
 		<form action="${pageContext.servletContext.contextPath}/livingroom" method="doGet">
 		<input type="Submit" name="submit" value="Go back">

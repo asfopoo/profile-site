@@ -28,7 +28,7 @@ public class ChangeServlet extends HttpServlet {
 
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/livingroom.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/change.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class ChangeServlet extends HttpServlet {
 		
 		System.out.println("Change: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/livingroom");
+		resp.sendRedirect(req.getContextPath() + "/change");
 		
 		
 	}

@@ -6,19 +6,13 @@
 	<head>
 		<title>Nightstand</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
-		<style>
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-		</style>
+		
 	
 	</head>
 	
 	<body style = text-align:center;>
 	
-	<img src="https://i.imgur.com/8BFtFD7.jpg" alt="neighborhood" style="width:600px;height:600px;"> 
+	
 	
 	<br>
 	Nightstand things

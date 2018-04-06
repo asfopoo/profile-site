@@ -21,7 +21,7 @@ img {
 		<br>
 		<br>Thats gross bro!!!!<br>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/shower" method="doGet">
+		<form action="${pageContext.servletContext.contextPath}/shampoo" method="doGet">
 		<input type="Submit" name="submit" value="Take the shampoo">
 		</form>
 		<br>

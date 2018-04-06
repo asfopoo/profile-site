@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Couch</title>
+		<title>shampoo</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 		
 		
@@ -13,14 +13,11 @@
 	<body style = text-align:center;>
 	
 		
-		<br>you've found more spare change<br>
+		<br>You took the shampoo<br>
 
 		
-		<form action="${pageContext.servletContext.contextPath}/change" method="doGet">
-		<input type="Submit" name="submit" value="Take the change">
-		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/livingroom" method="doGet">
+		<form action="${pageContext.servletContext.contextPath}/bathroom" method="doGet">
 		<input type="Submit" name="submit" value="Go back">
 		</form>
 		<br>

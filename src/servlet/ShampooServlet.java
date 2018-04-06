@@ -12,32 +12,32 @@ import model.Game;
 
 
 
-public class TvChangerServlet extends HttpServlet {
+public class ShampooServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("TvChanger Servlet: doGet");	
+		System.out.println("Shampoo Servlet: doGet");
 		
 		GameController controller = new GameController();
 		Game model = new Game();
 		
-		controller.addItem(model.getTvChanger()); // adds tv changer to userinventory items
+		controller.addItem(model.getShampoo()); // adds tv changer to userinventory items
 
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/tvChanger.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/shampoo.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("TvChanger Servlet: doPost");
+		System.out.println("Shampoo Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/tvChanger");
+		resp.sendRedirect(req.getContextPath() + "/shampoo");
 		
 		
 	}

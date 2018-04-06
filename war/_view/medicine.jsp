@@ -20,7 +20,7 @@ img {
 	
 	<img src="https://i.imgur.com/ojgDg4A.jpg" alt="Medicine Cabinet" style="width:600px;height:600px;"> 
 	<br>
-	<form action="${pageContext.servletContext.contextPath}/medicine" method="doGet">
+	<form action="${pageContext.servletContext.contextPath}/bandAids" method="doGet">
 		<input type="Submit" name="submit" value="Take band-aids">
 		</form>
 		<br>

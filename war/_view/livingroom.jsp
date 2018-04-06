@@ -21,7 +21,7 @@
 		What do you want to do<br>
 		<br>
 		
-		<form action="${pageContext.servletContext.contextPath}/tvChanger" method="Post">
+		<form action="${pageContext.servletContext.contextPath}/tvChanger" method="doGet">
 		<input type="Submit" name="submit" value="Grab the tv remote">
 		</form>
 		<br>
@@ -37,11 +37,11 @@
 		<input type="Submit" name="submit" value="Check the chair">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/candle" method="Post">
+		<form action="${pageContext.servletContext.contextPath}/candle" method="doGet">
 		<input type="Submit" name="submit" value="Grab the candle">
 		</form>
 		<br>
-		<form action="${pageContext.servletContext.contextPath}/firePoker" method="Post">
+		<form action="${pageContext.servletContext.contextPath}/firePoker" method="doGet">
 		<input type="Submit" name="submit" value="Grab the fire poker">
 		</form>
 		<br>

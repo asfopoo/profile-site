@@ -46,6 +46,7 @@ public class Game {
 	private Item candle;
 	private Item firePoker;
 	private Item change;
+	private Item bandAids;
 	
 	
 	
@@ -79,6 +80,7 @@ public class Game {
 		this.firePoker = new Item(7, "firePoker", "weapon");
 		this.change = new Item(1, "change", "utility");
 		this.change = new Item(3, "change", "utility");
+		this.bandAids = new Item(2, "bandAids", "utility");
 	}
 	
 	//Sets location based on type and arraylist of items
@@ -167,6 +169,9 @@ public class Game {
 	}
 	public Item getFirePoker() {
 		return firePoker; ////////////junit!!!!!!!!!!!!!
+	}
+	public Item getBandAids() {
+		return bandAids;
 	}
 
 }

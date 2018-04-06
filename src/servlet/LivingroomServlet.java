@@ -19,7 +19,7 @@ public class LivingroomServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Living Room: doGet");	
+		System.out.println("Livingroom Servlet: doGet");	
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/livingroom.jsp").forward(req, resp);

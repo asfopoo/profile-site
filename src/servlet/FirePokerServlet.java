@@ -28,7 +28,7 @@ public class FirePokerServlet extends HttpServlet {
 
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/livingroom.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/firePoker.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class FirePokerServlet extends HttpServlet {
 		
 		System.out.println("FirePoker Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/livingroom");
+		resp.sendRedirect(req.getContextPath() + "/firePoker");
 		
 		
 	}

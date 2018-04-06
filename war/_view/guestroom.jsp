@@ -26,6 +26,10 @@
 		<input type="Submit" name="submit" value="look out the window">
 		</form>
 		<br>
+		<form action="${pageContext.servletContext.contextPath}/livingroom" method="doGet">
+		<input type="Submit" name="submit" value=" Go downstairs ">
+		</form>
+		<br>
 		<form action="${pageContext.servletContext.contextPath}/bathroom" method="doGet">
 		<input type="Submit" name="submit" value="      Go to the bathroom     ">
 		</form>
@@ -33,11 +37,7 @@
 		<form action="${pageContext.servletContext.contextPath}/bedroom" method="doGet">
 		<input type="Submit" name="submit" value="Go to your bedroom">
 		</form>
-		<br>
-		<form action="${pageContext.servletContext.contextPath}/livingroom" method="doGet">
-		<input type="Submit" name="submit" value=" Go downstairs ">
-		</form>
-		<br>
+		
 		
 		
 	</body>

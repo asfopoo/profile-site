@@ -142,6 +142,16 @@
     <servlet-class>servlet.UnderCouchServlet</servlet-class>
   </servlet>
   
+   <servlet>
+    <servlet-name>BandAidsServlet</servlet-name>
+    <servlet-class>servlet.BandAidsServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>ShampooServlet</servlet-name>
+    <servlet-class>servlet.ShampooServlet</servlet-class>
+  </servlet>
+  
   
   
   
@@ -281,6 +291,16 @@
   <servlet-mapping>
     <servlet-name>UnderCouchServlet</servlet-name>
     <url-pattern>/underCouch</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>BandAidsServlet</servlet-name>
+    <url-pattern>/bandAids</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ShampooServlet</servlet-name>
+    <url-pattern>/shampoo</url-pattern>
   </servlet-mapping>
   
   

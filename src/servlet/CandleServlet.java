@@ -28,7 +28,7 @@ public class CandleServlet extends HttpServlet {
 
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/livingroom.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/candle.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class CandleServlet extends HttpServlet {
 		
 		System.out.println("Candle Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/livingroom");
+		resp.sendRedirect(req.getContextPath() + "/candle");
 		
 		
 	}
