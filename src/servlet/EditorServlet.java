@@ -50,16 +50,11 @@ public class EditorServlet extends HttpServlet {
 		
 
 		
-		//If account is valid, continue, if it isnt, spit out error
-		if(validAccount == true){
-			// Forward to view to render the result HTML document
-			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
-			System.out.println("Register Servlet: Register Successful");
-		}else{
-			req.setAttribute("response", "Account already exists or passwords dont match");
-			System.out.println("Register Servlet: Register Failed");
-			req.getRequestDispatcher("/_view/register.jsp").forward(req, resp);
-		}
+
+		// Forward to view to render the result HTML document
+		req.getRequestDispatcher("/_view/editor.jsp").forward(req, resp);
+		System.out.println("Editor Servlet: Edit Successful");
+
 		//System.out.println(first + second);
 		
 	}
