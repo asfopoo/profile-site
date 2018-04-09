@@ -52,7 +52,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 				
 				try {
 						stmt2 = conn.prepareStatement( // enter username
-								"insert into area(areaName, areaPara, areaOpt1, areaOpt2, areaOpt3, areaOpt4, areaOpt5, areaOpt6, areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6)"
+								"insert into area(areaName, areaPara, areaOpt1, areaOpt2, areaOpt3, areaOpt4, areaOpt5, areaOpt6, areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6, areaPicture)"
 								+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 						);				
 								
@@ -103,7 +103,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		ResultSet resultSet4 = null;
 		ResultSet resultSet5 = null;
 		
-		String[] content = new String[15];
+		String[] content = new String[16];
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 
 		try {
@@ -533,7 +533,7 @@ public void removeUserItem(int size, String name, String type) {
 							"   areaLink4 varchar(40)," +
 							"   areaLink5 varchar(40)," +
 							"   areaLink6 varchar(40)," +
-							"   areaPicture varchar(40)," +
+							"   areaPicture varchar(40)" +
 							")"
 						);	
 					stmt4.executeUpdate();	

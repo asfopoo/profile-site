@@ -27,12 +27,12 @@
 			<input type="op4" name="o4"placeholder="Option"/>
 			<input type="op5" name="o5"placeholder="Option"/>
 			<input type="op6" name="o6"placeholder="Option"/>
-			<input type="link1" name="ln1"placeholder="Option"/>
-			<input type="link2" name="ln2"placeholder="Option"/>
-			<input type="link3" name="ln3"placeholder="Option"/>
-			<input type="link4" name="ln4"placeholder="Option"/>
-			<input type="link5" name="ln5"placeholder="Option"/>
-			<input type="link6" name="ln6"placeholder="Option"/>
+			<input type="link1" name="ln1"placeholder="Link"/>
+			<input type="link2" name="ln2"placeholder="Link"/>
+			<input type="link3" name="ln3"placeholder="Link"/>
+			<input type="link4" name="ln4"placeholder="Link"/>
+			<input type="link5" name="ln5"placeholder="Link"/>
+			<input type="link6" name="ln6"placeholder="Link"/>
 			<button type="submit" name="submit"
 				class="btn btn-primary btn-block btn-large">Create Area</button>
 		</form>

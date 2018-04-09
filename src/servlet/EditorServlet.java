@@ -38,7 +38,7 @@ public class EditorServlet extends HttpServlet {
 		IDatabase db = DatabaseProvider.getInstance();
 		
 
-		String[] options = new String[6];
+		String[] options = new String[13];
 		// gets username and password
 		String name = req.getParameter("name");
 		String para = req.getParameter("para");
@@ -48,6 +48,13 @@ public class EditorServlet extends HttpServlet {
 		options[3] = req.getParameter("o4");
 		options[4] = req.getParameter("o5");
 		options[5] = req.getParameter("o6");
+		options[6] = req.getParameter("ln1");
+		options[7] = req.getParameter("ln2");
+		options[8] = req.getParameter("ln3");
+		options[9] = req.getParameter("ln4");
+		options[10] = req.getParameter("ln5");
+		options[11] = req.getParameter("ln6");
+		options[12] = req.getParameter("pic");
 		
 		try {
 			db.createArea(name, para, options);

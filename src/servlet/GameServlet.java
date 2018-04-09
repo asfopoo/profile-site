@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.AbstractDocument.Content;
 
 import fakeDB.FakeAreaDB;
 import gamePersist.DatabaseProvider;
@@ -18,6 +19,7 @@ public class GameServlet extends HttpServlet {
 	public int level = 1;
 	private static final long serialVersionUID = 1L;
 	public boolean post = false;
+	public String[] content = new String[16];
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -26,9 +28,9 @@ public class GameServlet extends HttpServlet {
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
 		IDatabase db = DatabaseProvider.getInstance();
 		//FakeAreaDB db2 = new FakeAreaDB();
-		String[] content = new String[16];
+		
 		try {
-			content = db.getArea("1");
+			content = db.getArea(Integer.toString(level));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,7 +53,15 @@ public class GameServlet extends HttpServlet {
 			throws ServletException, IOException {
 		post = true;
 		System.out.println("Game Servlet: doPost");
-		
+		String first = getInitParameter(req.getParameter("first"));
+		if(first == "1"){
+			req.setAttribute("path", content[9]);
+		}
+		/**
+		 * 
+		 * NOT FINSIHED
+		 * 
+		 */
 		
 		req.getRequestDispatcher("/_view/game.jsp").forward(req, resp);
 	}
