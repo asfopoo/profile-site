@@ -26,7 +26,7 @@ public class GameServlet extends HttpServlet {
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
 		IDatabase db = DatabaseProvider.getInstance();
 		//FakeAreaDB db2 = new FakeAreaDB();
-		String[] content = new String[9];
+		String[] content = new String[15];
 		try {
 			content = db.getArea("1");
 		} catch (SQLException e) {

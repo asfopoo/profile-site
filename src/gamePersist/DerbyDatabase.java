@@ -52,13 +52,13 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 				
 				try {
 						stmt2 = conn.prepareStatement( // enter username
-								"insert into area(areaName, areaPara, areaOpt1, areaOpt2, areaOpt3, areaOpt4, areaOpt5, areaOpt6)"
-								+ "values(?, ?, ?, ?, ?, ?, ?, ?)"
+								"insert into area(areaName, areaPara, areaOpt1, areaOpt2, areaOpt3, areaOpt4, areaOpt5, areaOpt6, areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6)"
+								+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 						);				
 								
 						stmt2.setString(1, name);
 						stmt2.setString(2, para);
-						for(int i = 0; i < 6; i++){
+						for(int i = 0; i < 12; i++){
 							stmt2.setString(i + 3, options[i]);
 						}
 								
@@ -102,7 +102,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		ResultSet resultSet4 = null;
 		ResultSet resultSet5 = null;
 		
-		String[] content = new String[9];
+		String[] content = new String[15];
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 
 		try {
@@ -116,7 +116,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			
 			resultSet = stmt.executeQuery();
 			while(resultSet.next()){
-				for(int i = 0; i < 9; i++){
+				for(int i = 0; i < 15; i++){
 					content[i] = resultSet.getString(i + 1);
 					System.out.println(content[i]);
 				}
@@ -525,7 +525,13 @@ public void removeUserItem(int size, String name, String type) {
 							"   areaOpt3 varchar(40)," +
 							"   areaOpt4 varchar(40)," +
 							"   areaOpt5 varchar(40)," +
-							"   areaOpt6 varchar(40)" +					
+							"   areaOpt6 varchar(40)," +
+							"	areaLink1 varchar(40)," +
+							"   areaLink2 varchar(40)," +
+							"   areaLink3 varchar(40)," +
+							"   areaLink4 varchar(40)," +
+							"   areaLink5 varchar(40)," +
+							"   areaLink6 varchar(40)" +	
 							")"
 						);	
 					stmt4.executeUpdate();	

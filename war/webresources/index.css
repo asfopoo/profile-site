@@ -17,6 +17,10 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    color: white;
+    font-size: 25px;
+    font-style: bold;
+    text-align: center;
 }
 .index{
 	width:800x;
