@@ -20,6 +20,7 @@
 			method="post">
 			<input type="name" name="name"placeholder="Area Name"/>
 			<input type="para" name="para" placeholder="Paragraph"/> 
+			<input type="pic" name="pic"placeholder="Picture"/>
 			<input type="op1" name="o1"placeholder="Option"/>
 			<input type="op2" name="o2"placeholder="Option"/>
 			<input type="op3" name="o3"placeholder="Option"/>
