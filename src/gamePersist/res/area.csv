@@ -1,6 +1,8 @@
-bedroom|paragraph|check the dooooooooorrrrrrrrrrrr|check the second dresser|check the bed|make the bed|turn the tv off|leave the room
-dresser|paragraph 1|option 1|option 2|option 3|option 4|option 5|option 6
-3|paragraph 2|option 1|option 2|option 3|option 4|option 5|option 6
-3|paragraph 3|option 1|option 2|option 3|option 4|option 5|option 6
-3|paragraph 4|option 1|option 2|option 3|option 4|option 5|option 6
-3|paragraph 5|option 1|option 2|option 3|option 4|option 5|option 6
+bedroom|You have just woken up How did I sleep so long? What time is it? ... screw sitting around this place, im getting outta here!!!!! Grab what you need and get on the road, keep in mind, you can only take what you can carry!!!! You are in your bedroom.  There are two dressers and a tv turned on to the local news.|check the first dresser|check the second dresser|check the bed|make the bed|turn the tv off|leave the room
+dresser|Aint shit there bro...       keep moving|go back|2 |3 |4 |5 |6
+dresser 2|You got a bunch of junk in here....    Nothing useful except maybe this lighter|Take the lighter|go back|3 |4 |5 |6
+Bed|Theres nothing in the bed...     Get movin ya weirdo|go back|2 |3 |4 |5 |6
+Bed|we should put in if you check the bed 15 times in a row you find something|go back|2 |3 |4 |5 |6
+tv|Busted ass tv wont turn off!!!!|go back|2 |3 | 4|5 |6
+bathroom|paragraph 5|option 1|option 2|option 3|option 4|option 5|option 6
+bedroom| You are in the master bedroom|check the first dresser|check the second dresser|check the bed|make the bed|turn the tv off|leave the room
