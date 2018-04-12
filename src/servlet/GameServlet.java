@@ -51,12 +51,14 @@ public class GameServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
+		IDatabase db = DatabaseProvider.getInstance();
 		post = true;
+		String choice = null;
 		System.out.println("Game Servlet: doPost");
-		String first = getInitParameter(req.getParameter("first"));
-		if(first == "1"){
-			req.setAttribute("path", content[9]);
-		}
+		choice = req.getParameter("choice");
+		System.out.println("choice= " + choice);
+		
 		/**
 		 * 
 		 * NOT FINSIHED

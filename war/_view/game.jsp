@@ -30,9 +30,9 @@
 				<p>
 						Your choice:
 						<br>
-						<input type="text" name="first" size="12" value="${choice}" />
+						<input type="text" name="choice" size="12" value="${choice}" />
 						<br>
-						<input type="Submit" name="submit" value="submit">
+						<input type="Submit" name="submit" value="choice">
 				</p>
 			</form>	
 			

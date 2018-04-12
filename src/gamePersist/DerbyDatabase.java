@@ -32,7 +32,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 ///////////////////////////////////////////////////////////////////////////////////
 /////////////////////ADD AREA////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////	
-	public void createArea(String name, String para, String[] options) throws SQLException {
+/*	public void createArea(String name, String para, String[] options) throws SQLException {
 		
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -84,7 +84,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 					DBUtil.closeQuietly(conn);
 				}
 	}
-	
+*/	
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////// GET AREA////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
@@ -103,7 +103,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		ResultSet resultSet4 = null;
 		ResultSet resultSet5 = null;
 		
-		String[] content = new String[16];
+		String[] content = new String[9];
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 
 		try {
@@ -117,7 +117,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			
 			resultSet = stmt.executeQuery();
 			while(resultSet.next()){
-				for(int i = 0; i < 16; i++){
+				for(int i = 0; i < 9; i++){
 					content[i] = resultSet.getString(i + 1);
 					System.out.println(content[i]);
 				}

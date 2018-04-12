@@ -11,6 +11,6 @@ public interface IDatabase {
 	boolean accountExist(String username, String password);
 	void insertUserItem(int size, String name, String type);
 	void removeUserItem(int size, String name, String type);
-	void createArea(String name, String para, String[] options) throws SQLException;
+	//void createArea(String name, String para, String[] options) throws SQLException;
 	String[] getArea(String id) throws SQLException;
 }
