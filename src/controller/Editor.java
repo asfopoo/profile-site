@@ -17,9 +17,9 @@ public class Editor {
 	Scanner keyboard = new Scanner(System.in);
 	ArrayList <Item> items = new ArrayList<Item>(); // needs fixed
 	
-	model.setLocation(LocationType.START, items); // must pass in a populated array list
+	//model.setLocation(LocationType.START, items); // must pass in a populated array list
 	
-	if(model.getLocation().getLocationType() == LocationType.START) {
+	//if(model.getLocation().getLocationType() == LocationType.START) {
 		
 		String open = "There is a tv on....\n " //put in a delay // maybe one letter at a time like a ticker
 				+ ".... in local news today, there was a recent outbreak of the mutated rabies virus that \n"
@@ -77,8 +77,8 @@ public class Editor {
 		
 		}
 	
-	keyboard.close();
+	//keyboard.close();
 	}
 	
-}
+//}
 

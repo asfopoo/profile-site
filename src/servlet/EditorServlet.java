@@ -56,12 +56,12 @@ public class EditorServlet extends HttpServlet {
 		options[11] = req.getParameter("ln6");
 		options[12] = req.getParameter("pic");
 		
-		try {
-			db.createArea(name, para, options);
-		} catch (SQLException e) {
+	//	try {
+			//db.createArea(name, para, options);
+		//} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//	e.printStackTrace();
+		//}
 		
 		
 

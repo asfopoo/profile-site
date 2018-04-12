@@ -53,15 +53,15 @@ public class Game {
 	
 	
 	public Game() {
-		this.house = new Area(LocationType.START, houseItems);
-		this.hospital = new Area(LocationType.HOSPITAL,hospitalItems);
-		this.church = new Area(LocationType.CHURCH, churchItems);
-		this.school = new Area(LocationType.SCHOOL, schoolItems);
-		this.brokenDownCar = new Area(LocationType.BROKEN_DOWN_CAR, carItems);
-		this.restaurant = new Area(LocationType.RESTAURAUNT, restaurantItems);
-		this.openManholeCover = new Area(LocationType.OPEN_MANHOLE_COVER, manCoverItems);
-		this.sheetz = new Area(LocationType.SHEETZ, sheetzItems);
-		this.groceryStore = new Area(LocationType.GROCERY_STORE, groceryItems);
+		//this.house = new Area(LocationType.START, houseItems);
+		//this.hospital = new Area(LocationType.HOSPITAL,hospitalItems);
+		//this.church = new Area(LocationType.CHURCH, churchItems);
+		//this.school = new Area(LocationType.SCHOOL, schoolItems);
+		//this.brokenDownCar = new Area(LocationType.BROKEN_DOWN_CAR, carItems);
+		//this.restaurant = new Area(LocationType.RESTAURAUNT, restaurantItems);
+		//this.openManholeCover = new Area(LocationType.OPEN_MANHOLE_COVER, manCoverItems);
+		//this.sheetz = new Area(LocationType.SHEETZ, sheetzItems);
+		//this.groceryStore = new Area(LocationType.GROCERY_STORE, groceryItems);
 		
 		
 		
@@ -84,9 +84,9 @@ public class Game {
 	}
 	
 	//Sets location based on type and arraylist of items
-	public void setLocation(LocationType locationType, ArrayList<Item> items) {
-		this.location = new Area(locationType, items);
-	}
+	//public void setLocation(LocationType locationType, ArrayList<Item> items) {
+		//this.location = new Area(locationType, items);
+	//}
 	
 	//returns location
 	public Area getLocation() {

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import entity.Area;
 import entity.Item;
 import entity.ItemType;
 import gamePersist.DBUtil;
@@ -437,15 +437,17 @@ public void removeUserItem(int size, String name, String type) {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
 				List<Item> houseItems;
-				
+				List<Area> areaList;
 				
 				try {
 					houseItems = InitialData.getHouseItems();
+					areaList = InitialData.getArea();
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
 
 				PreparedStatement insertHouseItem = null;
+				PreparedStatement insertArea = null;
 
 				try {
 					// populate houseItems table 
@@ -459,12 +461,26 @@ public void removeUserItem(int size, String name, String type) {
 					}
 					insertHouseItem.executeBatch();
 					
-					// populate books table (do this after authors table,
-					// since author_id must exist in authors table before inserting book)
+					insertArea = conn.prepareStatement("insert into area (areaName, para, opt1, opt2, opt3, opt4, opt5, opt6) values (?, ?, ?, ?, ?, ?, ?, ?)");
+					for (Area area : areaList) {
+						insertArea.setString(1, area.getName());
+						insertArea.setString(2, area.getPara());
+						insertArea.setString(3, area.getOpt1());
+						insertArea.setString(4, area.getOpt2());
+						insertArea.setString(5, area.getOpt3());
+						insertArea.setString(6, area.getOpt4());
+						insertArea.setString(7, area.getOpt5());
+						insertArea.setString(8, area.getOpt6());
+						insertArea.addBatch();
+						
+					}
+					
+					insertArea.executeBatch();
 					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertHouseItem);
+					DBUtil.closeQuietly(insertArea);
 				}
 			}
 		});
@@ -520,20 +536,20 @@ public void removeUserItem(int size, String name, String type) {
 							"	area_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +									
 							"	areaName varchar(40)," +
-							"	areaPara varchar(400)," +
-							"   areaOpt1 varchar(40)," +
-							"   areaOpt2 varchar(40)," +
-							"   areaOpt3 varchar(40)," +
-							"   areaOpt4 varchar(40)," +
-							"   areaOpt5 varchar(40)," +
-							"   areaOpt6 varchar(40)," +
-							"	areaLink1 varchar(40)," +
-							"   areaLink2 varchar(40)," +
-							"   areaLink3 varchar(40)," +
-							"   areaLink4 varchar(40)," +
-							"   areaLink5 varchar(40)," +
-							"   areaLink6 varchar(40)," +
-							"   areaPicture varchar(40)" +
+							"	para varchar(400)," +
+							"   Opt1 varchar(40)," +
+							"   Opt2 varchar(40)," +
+							"   Opt3 varchar(40)," +
+							"   Opt4 varchar(40)," +
+							"   Opt5 varchar(40)," +
+							"   Opt6 varchar(40)" +
+							//"	areaLink1 varchar(40)," +
+							//"   areaLink2 varchar(40)," +
+							///"   areaLink3 varchar(40)," +
+							//"   areaLink4 varchar(40)," +
+							//"   areaLink5 varchar(40)," +
+							//"   areaLink6 varchar(40)," +
+							//"   areaPicture varchar(40)" +
 							")"
 						);	
 					stmt4.executeUpdate();	
