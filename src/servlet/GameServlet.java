@@ -58,12 +58,58 @@ public class GameServlet extends HttpServlet {
 		System.out.println("Game Servlet: doPost");
 		choice = req.getParameter("choice");
 		System.out.println("choice= " + choice);
+		if (choice.equals("1")) {
+			try {
+				content = db.getArea(Integer.toString(2));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			String para = content[2];
+			req.setAttribute("para",para);
+			
+			//Sets the choices
+			for(int i = 3; i < 9; i++){
+				System.out.println(content[i]);
+				req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+			}	
+		}
+		if (choice.equals("2")) {
+			try {
+				content = db.getArea(Integer.toString(3));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			String para = content[2];
+			req.setAttribute("para",para);
+			
+			//Sets the choices
+			for(int i = 3; i < 9; i++){
+				System.out.println(content[i]);
+				req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+			}
+		}
+		if (choice.equals("3")) {
+			try {
+				content = db.getArea(Integer.toString(4));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			String para = content[2];
+			req.setAttribute("para",para);
+			
+			//Sets the choices
+			for(int i = 3; i < 9; i++){
+				System.out.println(content[i]);
+				req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+			}
+		}
 		
-		/**
-		 * 
-		 * NOT FINSIHED
-		 * 
-		 */
 		
 		req.getRequestDispatcher("/_view/game.jsp").forward(req, resp);
 	}
