@@ -50,7 +50,7 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				Area area = new Area(null, null, null, null, null, null, null, null);
-				System.out.print(itemId);
+				
 				area.setAreaInventoryId(itemId++);				
 				area.setName(i.next());
 				area.setPara(i.next());

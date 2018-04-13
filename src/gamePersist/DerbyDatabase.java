@@ -119,7 +119,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			while(resultSet.next()){
 				for(int i = 0; i < 9; i++){
 					content[i] = resultSet.getString(i + 1);
-					System.out.println(content[i]);
+					
 				}
 			}
 			return content;

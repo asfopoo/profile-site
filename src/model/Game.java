@@ -48,6 +48,8 @@ public class Game {
 	private Item change;
 	private Item bandAids;
 	
+	private String area;
+	
 	
 	
 	
@@ -172,6 +174,13 @@ public class Game {
 	}
 	public Item getBandAids() {
 		return bandAids;
+	}
+	
+	public void setArea(String area) { /// needs tested
+		this.area = area;
+	}
+	public String getArea() {
+		return area;
 	}
 
 }
