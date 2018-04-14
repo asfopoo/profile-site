@@ -316,134 +316,236 @@ public class GameServlet extends HttpServlet {
 				}
 			}
 		}	
-			else if(db.getPlayerLocation().equals("checkBed")) {
-				System.out.println(" check bed" + db.getPlayerLocation());
-				if (choice.equals("1")) { //parameter from post form 
-					try {
-						content = db.getArea(Integer.toString(8)); 
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		
-					String para = content[2]; //gets second section (paragraph section) of the line in csv
-					req.setAttribute("para",para);
-					
-					//Sets the choices
-					for(int i = 3; i < 9; i++){
-						
-						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
-						
-					}
-					db.insertPlayerLocation("bedroom");// change the area
-					System.out.println(" end of check bed " + db.getPlayerLocation());
+		else if(db.getPlayerLocation().equals("checkBed")) {
+			System.out.println(" check bed" + db.getPlayerLocation());
+			if (choice.equals("1")) { //parameter from post form 
+				try {
+					content = db.getArea(Integer.toString(8)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				else {// no choice or wrong choice
-					try {
-						content = db.getArea(Integer.toString(4)); 
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 		
-					String para = content[2]; //gets second section (paragraph section) of the line in csv
-					req.setAttribute("para",para);
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
 					
-					//Sets the choices
-					for(int i = 3; i < 9; i++){
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
 						
-						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 						
-					}
 				}
+				db.insertPlayerLocation("bedroom");// change the area
+				System.out.println(" end of check bed " + db.getPlayerLocation());
 			}
-			else if(db.getPlayerLocation().equals("makeBed")) {
-				System.out.println(" make bed" + db.getPlayerLocation());
-				if (choice.equals("1")) { //parameter from post form 
-					try {
-						content = db.getArea(Integer.toString(8)); 
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		
-					String para = content[2]; //gets second section (paragraph section) of the line in csv
-					req.setAttribute("para",para);
-					
-					//Sets the choices
-					for(int i = 3; i < 9; i++){
-						
-						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
-						
-					}
-					db.insertPlayerLocation("bedroom");// change the area
-					System.out.println(" end of make bed " + db.getPlayerLocation());
+			else {// no choice or wrong choice
+				try {
+					content = db.getArea(Integer.toString(4)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				else {// no choice or wrong choice
-					try {
-						content = db.getArea(Integer.toString(5)); 
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 		
-					String para = content[2]; //gets second section (paragraph section) of the line in csv
-					req.setAttribute("para",para);
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
 					
-					//Sets the choices
-					for(int i = 3; i < 9; i++){
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
 						
-						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 						
-					}
 				}
 			}
-			else if(db.getPlayerLocation().equals("tv")) {
-				System.out.println("tv " + db.getPlayerLocation());
-				if (choice.equals("1")) { //parameter from post form 
-					try {
-						content = db.getArea(Integer.toString(8)); 
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+		}
+		else if(db.getPlayerLocation().equals("makeBed")) {
+			System.out.println(" make bed" + db.getPlayerLocation());
+			if (choice.equals("1")) { //parameter from post form 
+				try {
+					content = db.getArea(Integer.toString(8)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block		
+					e.printStackTrace();
 					}
 		
-					String para = content[2]; //gets second section (paragraph section) of the line in csv
-					req.setAttribute("para",para);
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
 					
-					//Sets the choices
-					for(int i = 3; i < 9; i++){
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
 						
-						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 						
-					}
-					db.insertPlayerLocation("bedroom");// change the area
-					System.out.println(" end of tv " + db.getPlayerLocation());
-				}	
+				}
+				db.insertPlayerLocation("bedroom");// change the area
+				System.out.println(" end of make bed " + db.getPlayerLocation());
 			}
-			else if(db.getPlayerLocation().equals("bathroom")) {
-				System.out.println("bathroom " + db.getPlayerLocation());
-				if (choice.equals("1")) { //parameter from post form 
-					try {
-						content = db.getArea(Integer.toString(7)); 
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+			else {// no choice or wrong choice
+				try {
+					content = db.getArea(Integer.toString(5)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		
-					String para = content[2]; //gets second section (paragraph section) of the line in csv
-					req.setAttribute("para",para);
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
 					
-					//Sets the choices
-					for(int i = 3; i < 9; i++){
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
 						
-						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 						
-					}
-					db.insertPlayerLocation("medicine");// change the area
-					System.out.println(" end of bathroom " + db.getPlayerLocation());
-				}	
+				}
 			}
+		}
+		else if(db.getPlayerLocation().equals("tv")) {
+			System.out.println("tv " + db.getPlayerLocation());
+			if (choice.equals("1")) { //parameter from post form 
+				try {
+					content = db.getArea(Integer.toString(8)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				db.insertPlayerLocation("bedroom");// change the area
+				System.out.println(" end of tv " + db.getPlayerLocation());
+			}		
+		}
+//////////////////////////////BATHROOM////////////////////////////////////////////////
+		
+		else if(db.getPlayerLocation().equals("bathroom")) {
+			System.out.println("bathroom " + db.getPlayerLocation());
+			if (choice.equals("1")) { //parameter from post form 
+				try {
+					content = db.getArea(Integer.toString(9)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+						
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				db.insertPlayerLocation("medicine");// change the area
+				System.out.println(" end of medicine " + db.getPlayerLocation());
+			}
+			else if (choice.equals("2")) { //goes to sink 
+				try {
+					content = db.getArea(Integer.toString(10)); // redirects to next page
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					
+				}
+				db.insertPlayerLocation("sink");// change the area
+				System.out.println(" end of sink" + db.getPlayerLocation());
+			}
+			else if (choice.equals("3")) { //goes to shower
+				try {
+					content = db.getArea(Integer.toString(11)); // redirects to next page
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					
+				}
+				db.insertPlayerLocation("shower");// change the area
+				System.out.println(" end of shower" + db.getPlayerLocation());
+			}
+			else if (choice.equals("4")) { //goes to light cover 
+				try {
+					content = db.getArea(Integer.toString(12)); // redirects to next page
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					
+				}
+				db.insertPlayerLocation("lightcover");// change the area
+				System.out.println(" end of light cover " + db.getPlayerLocation());
+			}
+			else if (choice.equals("5")) { //goes to guest room
+				try {
+					content = db.getArea(Integer.toString(13)); // redirects to next page
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					
+				}
+				db.insertPlayerLocation("guestroom");// change the area
+				System.out.println(" guest room  " + db.getPlayerLocation());
+			}
+			else if (choice.equals("6")) { //goes to bedroom2 
+				try {
+					content = db.getArea(Integer.toString(8)); // redirects to next page
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					
+				}
+				db.insertPlayerLocation("bedroom");// change the area
+				System.out.println(" end of bathroom " + db.getPlayerLocation());
+			}
+		}
 		
 		
 		
