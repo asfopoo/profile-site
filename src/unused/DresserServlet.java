@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,26 +12,26 @@ import model.Game;
 
 
 
-public class Dresser2Servlet extends HttpServlet {
+public class DresserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Dresser2 Servlet: doGet");	
+		System.out.println("Dresser Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/dresser2.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/_view/dresser.jsp").forward(req, resp);	
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Dresser2 Servlet: doPost");
+		System.out.println("Dresser Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/dresser2");
+		resp.sendRedirect(req.getContextPath() + "/dresser");
 		
 		
 	}

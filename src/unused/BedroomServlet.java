@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 

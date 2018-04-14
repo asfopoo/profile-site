@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,26 +12,26 @@ import model.Game;
 
 
 
-public class SinkServlet extends HttpServlet {
+public class CouchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Sink Servlet: doGet");	
+		System.out.println("Couch Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/sink.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/couch.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Sink Servlet: doPost");
+		System.out.println("Couch Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/sink");
+		resp.sendRedirect(req.getContextPath() + "/couch");
 		
 		
 	}

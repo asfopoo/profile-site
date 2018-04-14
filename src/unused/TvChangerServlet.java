@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,26 +12,32 @@ import model.Game;
 
 
 
-public class WindowServlet extends HttpServlet {
+public class TvChangerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Window Servlet: doGet");	
+		System.out.println("TvChanger Servlet: doGet");	
+		
+		GameController controller = new GameController();
+		Game model = new Game();
+		
+		controller.addItem(model.getTvChanger()); // adds tv changer to userinventory items
+
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/window.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/tvChanger.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Window Servlet: doPost");
+		System.out.println("TvChanger Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/window");
+		resp.sendRedirect(req.getContextPath() + "/tvChanger");
 		
 		
 	}

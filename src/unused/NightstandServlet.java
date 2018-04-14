@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,26 +12,26 @@ import model.Game;
 
 
 
-public class MedicineServlet extends HttpServlet {
+public class NightstandServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Medicine Servlet: doGet");	
+		System.out.println("Nightstand Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/medicine.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/_view/nightstand.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Medicine Servlet: doPost");
+		System.out.println("Nightstand Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/medicine");
+		resp.sendRedirect(req.getContextPath() + "/nightstand");
 		
 		
 	}

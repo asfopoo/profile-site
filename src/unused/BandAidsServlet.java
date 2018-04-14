@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,26 +12,32 @@ import model.Game;
 
 
 
-public class CouchServlet extends HttpServlet {
+public class BandAidsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Couch Servlet: doGet");	
+		System.out.println("BandAids Servlet: doGet");
+		
+		GameController controller = new GameController();
+		Game model = new Game();
+		
+		controller.addItem(model.getBandAids()); // adds tv changer to userinventory items
+
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/couch.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/bandAids.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Couch Servlet: doPost");
+		System.out.println("BandAids Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/couch");
+		resp.sendRedirect(req.getContextPath() + "/bandAids");
 		
 		
 	}

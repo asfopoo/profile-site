@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,26 +12,32 @@ import model.Game;
 
 
 
-public class TvServlet extends HttpServlet {
+public class FirePokerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Tv Servlet: doGet");	
+		System.out.println("FirePoker Servlet: doGet");
+		
+		GameController controller = new GameController();
+		Game model = new Game();
+		
+		controller.addItem(model.getFirePoker()); // adds tv changer to userinventory items
+
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/tv.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/_view/firePoker.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Tv Servlet: doPost");
+		System.out.println("FirePoker Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/tv");
+		resp.sendRedirect(req.getContextPath() + "/firePoker");
 		
 		
 	}

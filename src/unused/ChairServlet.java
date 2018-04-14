@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,32 +12,27 @@ import model.Game;
 
 
 
-public class ChangeServlet extends HttpServlet {
+public class ChairServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Change: doGet");
+		System.out.println("Chair Servlet: doGet");	
 		
-		GameController controller = new GameController();
-		Game model = new Game();
-		
-		controller.addItem(model.getChange()); // adds change to userinventory items
-
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/change.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/chair.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Change: doPost");
+		System.out.println("Chair Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/change");
+		resp.sendRedirect(req.getContextPath() + "/chair");
 		
 		
 	}

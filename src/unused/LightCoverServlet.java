@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,26 +12,26 @@ import model.Game;
 
 
 
-public class LivingroomServlet extends HttpServlet {
+public class LightCoverServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Livingroom Servlet: doGet");	
+		System.out.println("Light cover Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/livingroom.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/lightCover.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Livingroom Servlet: doPost");
+		System.out.println("Light cover Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/livingroom");
+		resp.sendRedirect(req.getContextPath() + "/lightCover");
 		
 		
 	}

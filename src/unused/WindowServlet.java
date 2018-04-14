@@ -1,4 +1,4 @@
-package servlet;
+package unused;
 
 import java.io.IOException;
 
@@ -12,26 +12,26 @@ import model.Game;
 
 
 
-public class BedServlet extends HttpServlet {
+public class WindowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Bed Servlet: doGet");	
+		System.out.println("Window Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/bed.jsp").forward(req, resp);	
+		req.getRequestDispatcher("/_view/window.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Bed Servlet: doPost");
+		System.out.println("Window Servlet: doPost");
 	
-		resp.sendRedirect(req.getContextPath() + "/bed");
+		resp.sendRedirect(req.getContextPath() + "/window");
 		
 		
 	}
