@@ -19,7 +19,10 @@ import model.Game;
 
 public class GameServlet extends HttpServlet {
 	
-	String area = "bedroom"; //should be handled privately in the model!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	
+
+	
 	public int level = 1;
 	private static final long serialVersionUID = 1L;
 	public boolean post = false;
@@ -27,6 +30,7 @@ public class GameServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
 		post = false;
 		System.out.println("Game Servlet: doGet");
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
@@ -34,6 +38,7 @@ public class GameServlet extends HttpServlet {
 		//FakeAreaDB db2 = new FakeAreaDB();
 		
 		try {
+			db.insertPlayerLocation("bedroom");
 			content = db.getArea(Integer.toString(level));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -58,16 +63,17 @@ public class GameServlet extends HttpServlet {
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
 		IDatabase db = DatabaseProvider.getInstance();
 		
+		Game model = new Game();
+		GameController controller = new GameController();
+		
 		post = true;
 		String choice = null;
 		System.out.println("Game Servlet: doPost");
 		choice = req.getParameter("choice");
 		System.out.println("choice= " + choice);
-		if(choice.equals("")) {//// need  a way to check if choice is empty
-			System.out.println("try again");
-		}
-		else if (area.equals("bedroom")) {
-			System.out.println(" if equals bedroom" + area);
+		
+		if (model.getArea().equals("bedroom")) {
+			System.out.println(" if equals bedroom" + model.getArea());  // check the first dresser
 			if (choice.equals("1")) { //parameter from post form 
 				try {
 					content = db.getArea(Integer.toString(2)); //gets second line of csv
@@ -85,10 +91,10 @@ public class GameServlet extends HttpServlet {
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 					
 				}
-				area = "dresser1"; // change the area
-				System.out.println("choice was 1" + area);
+				model.setArea("dresser1"); // change the area
+				System.out.println("choice was 1" + model.getArea());
 			}
-			else if (choice.equals("2")) {
+			else if (choice.equals("2")) { // check the second dresser
 				try {
 					content = db.getArea(Integer.toString(3));///NOTE: does not correlate direclty to choice value
 				} catch (SQLException e) {
@@ -104,10 +110,10 @@ public class GameServlet extends HttpServlet {
 					
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 				}
-				area = "dresser2"; // change the area
-				System.out.println("choice was 1" + area);
+				model.setArea("dresser2"); // change the area
+				System.out.println("choice was 1" + model.getArea());
 			}
-			else if (choice.equals("3")) {
+			else if (choice.equals("3")) {  //check the bed
 				try {
 					content = db.getArea(Integer.toString(4));
 				} catch (SQLException e) {
@@ -123,10 +129,10 @@ public class GameServlet extends HttpServlet {
 					
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 				}
-				area = "checkBed"; // change the area
-				System.out.println("choice was 3 " + area);
+				model.setArea("checkBed"); // change the area
+				System.out.println("choice was 3 " + model.getArea());
 			}
-			else if (choice.equals("4")) {
+			else if (choice.equals("4")) { // make the bed
 				try {
 					content = db.getArea(Integer.toString(5));
 				} catch (SQLException e) {
@@ -142,10 +148,10 @@ public class GameServlet extends HttpServlet {
 					
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 				}
-				area = "makeBed"; // change the area
-				System.out.println("choice was 4 " + area);
+				model.setArea("makeBed"); // change the area
+				System.out.println("choice was 4 " + model.getArea());
 			}
-			else if (choice.equals("5")) {
+			else if (choice.equals("5")) {  // turn the tv off
 				try {
 					content = db.getArea(Integer.toString(6));
 				} catch (SQLException e) {
@@ -161,10 +167,10 @@ public class GameServlet extends HttpServlet {
 					
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 				}
-				area = "tv"; // change the area
-				System.out.println("choice was 5 " + area);
+				model.setArea("tv"); // change the area
+				System.out.println("choice was 5 " + model.getArea());
 			}
-			else if (choice.equals("6")) {
+			else if (choice.equals("6")) { //leave the room 
 				try {
 					content = db.getArea(Integer.toString(7));
 				} catch (SQLException e) {
@@ -180,12 +186,33 @@ public class GameServlet extends HttpServlet {
 					
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 				}
-				area = "bathroom"; // change the area
-				System.out.println("choice was 6 " + area);
+				model.setArea("bathroom"); // change the area
+				System.out.println("choice was 6 " + model.getArea());
 			}
+			else {// nothing or wrong choice
+				try {
+					content = db.getArea(Integer.toString(1));
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2];
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+				}
+				
+			}	
 		}
-		else if(area.equals("dresser1")) {
-			System.out.println(" in dressser" + area);
+////////////////////////////////////////////////////////////////////////////////////////
+	//choice was made///////
+////////////////////////////////////////////////////////////////////////////////////////		
+		else if(model.getArea().equals("dresser1")) {
+			System.out.println(" in dressser" + model.getArea());
 			if (choice.equals("1")) { //parameter from post form 
 				try {
 					content = db.getArea(Integer.toString(8)); 
@@ -203,12 +230,30 @@ public class GameServlet extends HttpServlet {
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 					
 				}
-				area = "bedroom";// change the area
-				System.out.println(" end of dressser" + area);
+				model.setArea("bedroom");// change the area
+				System.out.println(" end of dressser" + model.getArea());
+			}
+			else {// no choice or wrong choice
+				try {
+					content = db.getArea(Integer.toString(2)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					
+				}
 			}
 		}
-		else if(area.equals("dresser2")) {
-			System.out.println(" in dressser2" + area);
+		else if(model.getArea().equals("dresser2")) {
+			System.out.println(" in dressser2" + model.getArea());
 			if (choice.equals("1")) { //parameter from post form 
 				try {
 					content = db.getArea(Integer.toString(3)); 
@@ -226,11 +271,9 @@ public class GameServlet extends HttpServlet {
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 					
 				}
-				GameController controller = new GameController();
-				Game model = new Game();
 				controller.addItem(model.getLighter());
-				area = "dresser2";// change the area
-				System.out.println(" end of dressser2" + area);
+				model.setArea("dresser2");// change the area
+				System.out.println(" end of dressser2" + model.getArea());
 			}
 			else if (choice.equals("2")) { //parameter from post form 
 				try {
@@ -249,12 +292,30 @@ public class GameServlet extends HttpServlet {
 					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 					
 				}
-				area = "bedroom";// change the area
-				System.out.println(" end of dressser2" + area);
+				model.setArea("bedroom");// change the area
+				System.out.println(" end of dressser2" + model.getArea());
+			}
+			else {// no choice or wrong choice
+				try {
+					content = db.getArea(Integer.toString(3)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+					
+				}
 			}
 		}	
-			else if(area.equals("checkBed")) {
-				System.out.println(" check bed" + area);
+			else if(model.getArea().equals("checkBed")) {
+				System.out.println(" check bed" + model.getArea());
 				if (choice.equals("1")) { //parameter from post form 
 					try {
 						content = db.getArea(Integer.toString(8)); 
@@ -272,12 +333,30 @@ public class GameServlet extends HttpServlet {
 						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 						
 					}
-					area = "bedroom";// change the area
-					System.out.println(" end of check bed " + area);
-				}	
+					model.setArea("bedroom");// change the area
+					System.out.println(" end of check bed " + model.getArea());
+				}
+				else {// no choice or wrong choice
+					try {
+						content = db.getArea(Integer.toString(4)); 
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		
+					String para = content[2]; //gets second section (paragraph section) of the line in csv
+					req.setAttribute("para",para);
+					
+					//Sets the choices
+					for(int i = 3; i < 9; i++){
+						
+						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+					}
+				}
 			}
-			else if(area.equals("makeBed")) {
-				System.out.println(" make bed" + area);
+			else if(model.getArea().equals("makeBed")) {
+				System.out.println(" make bed" + model.getArea());
 				if (choice.equals("1")) { //parameter from post form 
 					try {
 						content = db.getArea(Integer.toString(8)); 
@@ -295,12 +374,30 @@ public class GameServlet extends HttpServlet {
 						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 						
 					}
-					area = "bedroom";// change the area
-					System.out.println(" end of make bed " + area);
-				}	
+					model.setArea("bedroom");// change the area
+					System.out.println(" end of make bed " + model.getArea());
+				}
+				else {// no choice or wrong choice
+					try {
+						content = db.getArea(Integer.toString(5)); 
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		
+					String para = content[2]; //gets second section (paragraph section) of the line in csv
+					req.setAttribute("para",para);
+					
+					//Sets the choices
+					for(int i = 3; i < 9; i++){
+						
+						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+					}
+				}
 			}
-			else if(area.equals("tv")) {
-				System.out.println("tv " + area);
+			else if(model.getArea().equals("tv")) {
+				System.out.println("tv " + model.getArea());
 				if (choice.equals("1")) { //parameter from post form 
 					try {
 						content = db.getArea(Integer.toString(8)); 
@@ -318,12 +415,12 @@ public class GameServlet extends HttpServlet {
 						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 						
 					}
-					area = "bedroom";// change the area
-					System.out.println(" end of tv " + area);
+					model.setArea("bedroom");// change the area
+					System.out.println(" end of tv " + model.getArea());
 				}	
 			}
-			else if(area.equals("bathroom")) {
-				System.out.println("bathroom " + area);
+			else if(model.getArea().equals("bathroom")) {
+				System.out.println("bathroom " + model.getArea());
 				if (choice.equals("1")) { //parameter from post form 
 					try {
 						content = db.getArea(Integer.toString(7)); 
@@ -341,8 +438,8 @@ public class GameServlet extends HttpServlet {
 						req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
 						
 					}
-					area = "medicine";// change the area
-					System.out.println(" end of bathroom " + area);
+					model.setArea("medicine");// change the area
+					System.out.println(" end of bathroom " + model.getArea());
 				}	
 			}
 		

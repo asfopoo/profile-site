@@ -13,4 +13,6 @@ public interface IDatabase {
 	void removeUserItem(int size, String name, String type);
 	//void createArea(String name, String para, String[] options) throws SQLException;
 	String[] getArea(String id) throws SQLException;
+	public void insertPlayerLocation(String area);
+
 }

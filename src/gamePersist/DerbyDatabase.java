@@ -372,9 +372,60 @@ public void removeUserItem(int size, String name, String type) {
 		finally {
 			DBUtil.closeQuietly(resultSet);
 			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
 			DBUtil.closeQuietly(conn);
 		}
 	}
+
+////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////ADD AREA TO PLAYERLOCATION//////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+public void insertPlayerLocation(String area) {
+	
+	ResultSet resultSet = null;
+	Connection conn = null;
+	PreparedStatement stmt = null;
+	PreparedStatement stmt2 = null;
+	
+	try {
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+		
+		
+		stmt = conn.prepareStatement(
+				"delete from playerLocation "
+				
+		);
+		
+		
+		stmt.executeUpdate();
+			
+		stmt2 = conn.prepareStatement(
+				"insert into playerLocation(area) "
+				+ "values(?)"
+				
+		);
+	
+		stmt2.setString(1, area);
+		
+		
+		stmt2.execute();
+		
+		
+		
+	} 
+	catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 	
+	finally {
+		DBUtil.closeQuietly(resultSet);
+		DBUtil.closeQuietly(stmt);
+		DBUtil.closeQuietly(stmt2);
+		DBUtil.closeQuietly(conn);
+	}
+}
+
 	
 	
 	
@@ -495,6 +546,7 @@ public void removeUserItem(int size, String name, String type) {
 				PreparedStatement stmt2 = null;
 				PreparedStatement stmt3 = null;
 				PreparedStatement stmt4 = null;
+				PreparedStatement stmt5 = null;
 				
 				
 				try {
@@ -552,7 +604,16 @@ public void removeUserItem(int size, String name, String type) {
 							//"   areaPicture varchar(40)" +
 							")"
 						);	
-					stmt4.executeUpdate();	
+					stmt4.executeUpdate();
+					
+					stmt5 = conn.prepareStatement( //creates playerLocation table
+							"create table playerLocation (" +
+							"	location_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +									
+							"	area varchar(40)" +
+							")"
+						);	
+						stmt5.executeUpdate();
 					
 					
 					return true;

@@ -176,7 +176,7 @@ public class Game {
 		return bandAids;
 	}
 	
-	public void setArea(String area) { /// needs tested
+	public void setArea(String area) { /// not used
 		this.area = area;
 	}
 	public String getArea() {

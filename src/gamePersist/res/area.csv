@@ -5,9 +5,9 @@ checkBed|Theres nothing in the bed...     Get movin ya weirdo|go back|2 |3 |4 |5
 makeBed|we should put in if you check the bed 15 times in a row you find something|go back|2 |3 |4 |5 |6
 tv|Busted ass tv wont turn off!!!!|go back|2 |3 | 4|5 |6
 bathroom|You seriously need to clean this bathroom!|Look in the medicine cabinet|Look under the sink|Open the shower curtain|Pull off the light cover|Go to the guest room |Go to your bedroom
-bedroom| You are in the master bedroom|check the first dresser|check the second dresser|check the bed|make the bed|turn the tv off|leave the room
+bedroom2| You are in the master bedroom|check the first dresser|check the second dresser|check the bed|make the bed|turn the tv off|leave the room
 medicine|medicine cabinet|take the band-aids|Go back|3|4|5|6
 sink|under the sink |take the toilet paper|Go back|3|4|5|6
 shower|you seriously need to clean this shower|take the shampoo|Go back|3|4|5|6
-light cover|Just a light.... quit wasting time!!!!!|Go back|2|3|4|5|6
-guest room|Not much in here...|Check the bed|check the night stand|Look out the window|Go downstairs|Go to the bathroom|Go to your bedroom
+lightCover|Just a light.... quit wasting time!!!!!|Go back|2|3|4|5|6
+guesroom|Not much in here...|Check the bed|check the night stand|Look out the window|Go downstairs|Go to the bathroom|Go to your bedroom
