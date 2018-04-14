@@ -23,11 +23,6 @@
   </servlet>
   
   <servlet>
-    <servlet-name>BedroomServlet</servlet-name>
-    <servlet-class>servlet.BedroomServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
     <servlet-name>StartServlet</servlet-name>
     <servlet-class>servlet.StartServlet</servlet-class>
   </servlet>
@@ -41,118 +36,6 @@
     <servlet-name>GameServlet</servlet-name>
     <servlet-class>servlet.GameServlet</servlet-class>
   </servlet>
-  
-  <servlet>
-    <servlet-name>BathroomServlet</servlet-name>
-    <servlet-class>servlet.BathroomServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>BedServlet</servlet-name>
-    <servlet-class>servlet.BedServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>DresserServlet</servlet-name>
-    <servlet-class>servlet.DresserServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>Dresser2Servlet</servlet-name>
-    <servlet-class>servlet.Dresser2Servlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>TvServlet</servlet-name>
-    <servlet-class>servlet.TvServlet</servlet-class>
-  </servlet>
-  
-   <servlet>
-    <servlet-name>MedicineServlet</servlet-name>
-    <servlet-class>servlet.MedicineServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>GuestroomServlet</servlet-name>
-    <servlet-class>servlet.GuestroomServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>LightCoverServlet</servlet-name>
-    <servlet-class>servlet.LightCoverServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>ShowerServlet</servlet-name>
-    <servlet-class>servlet.ShowerServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>SinkServlet</servlet-name>
-    <servlet-class>servlet.SinkServlet</servlet-class>
-  </servlet>
-  
-   <servlet>
-    <servlet-name>NightstandServlet</servlet-name>
-    <servlet-class>servlet.NightstandServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>WindowServlet</servlet-name>
-    <servlet-class>servlet.WindowServlet</servlet-class>
-  </servlet>
-  
-   <servlet>
-    <servlet-name>CandleServlet</servlet-name>
-    <servlet-class>servlet.CandleServlet</servlet-class>
-  </servlet>
-  
-   <servlet>
-    <servlet-name>ChairServlet</servlet-name>
-    <servlet-class>servlet.ChairServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>ChangeServlet</servlet-name>
-    <servlet-class>servlet.ChangeServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>CouchServlet</servlet-name>
-    <servlet-class>servlet.CouchServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>FirePokerServlet</servlet-name>
-    <servlet-class>servlet.FirePokerServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>LivingroomServlet</servlet-name>
-    <servlet-class>servlet.LivingroomServlet</servlet-class>
-  </servlet>
-  
-   <servlet>
-    <servlet-name>TvChangerServlet</servlet-name>
-    <servlet-class>servlet.TvChangerServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>UnderCouchServlet</servlet-name>
-    <servlet-class>servlet.UnderCouchServlet</servlet-class>
-  </servlet>
-  
-   <servlet>
-    <servlet-name>BandAidsServlet</servlet-name>
-    <servlet-class>servlet.BandAidsServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>ShampooServlet</servlet-name>
-    <servlet-class>servlet.ShampooServlet</servlet-class>
-  </servlet>
-  
-  
   
   
   
@@ -173,11 +56,6 @@
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
   
-  <servlet-mapping>
-    <servlet-name>BedroomServlet</servlet-name>
-    <url-pattern>/bedroom</url-pattern>
-  </servlet-mapping>
-
    <servlet-mapping>
     <servlet-name>StartServlet</servlet-name>
     <url-pattern>/start</url-pattern>
@@ -192,117 +70,6 @@
     <servlet-name>GameServlet</servlet-name>
     <url-pattern>/game</url-pattern>
   </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>BathroomServlet</servlet-name>
-    <url-pattern>/bathroom</url-pattern>
-  </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>BedServlet</servlet-name>
-    <url-pattern>/bed</url-pattern>
-  </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>DresserServlet</servlet-name>
-    <url-pattern>/dresser</url-pattern>
-  </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>Dresser2Servlet</servlet-name>
-    <url-pattern>/dresser2</url-pattern>
-  </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>TvServlet</servlet-name>
-    <url-pattern>/tv</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>MedicineServlet</servlet-name>
-    <url-pattern>/medicine</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>GuestroomServlet</servlet-name>
-    <url-pattern>/guestroom</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>LightCoverServlet</servlet-name>
-    <url-pattern>/lightCover</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>ShowerServlet</servlet-name>
-    <url-pattern>/shower</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>SinkServlet</servlet-name>
-    <url-pattern>/sink</url-pattern>
-  </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>WindowServlet</servlet-name>
-    <url-pattern>/window</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>NightstandServlet</servlet-name>
-    <url-pattern>/nightstand</url-pattern>
-  </servlet-mapping>
-  
-	<servlet-mapping>
-    <servlet-name>CandleServlet</servlet-name>
-    <url-pattern>/candle</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>ChairServlet</servlet-name>
-    <url-pattern>/chair</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>ChangeServlet</servlet-name>
-    <url-pattern>/change</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>CouchServlet</servlet-name>
-    <url-pattern>/couch</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>FirePokerServlet</servlet-name>
-    <url-pattern>/firePoker</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>LivingroomServlet</servlet-name>
-    <url-pattern>/livingroom</url-pattern>
-  </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>TvChangerServlet</servlet-name>
-    <url-pattern>/tvChanger</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>UnderCouchServlet</servlet-name>
-    <url-pattern>/underCouch</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>BandAidsServlet</servlet-name>
-    <url-pattern>/bandAids</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>ShampooServlet</servlet-name>
-    <url-pattern>/shampoo</url-pattern>
-  </servlet-mapping>
-  
   
  
 </web-app>
