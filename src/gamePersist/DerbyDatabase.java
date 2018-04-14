@@ -426,6 +426,49 @@ public void insertPlayerLocation(String area) {
 	}
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
+////////////////GET PLAYER LOCATION//////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+public String getPlayerLocation() {
+	
+	String area = null;
+	ResultSet resultSet = null;
+	Connection conn = null;
+	PreparedStatement stmt = null;
+	
+	try {
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+		
+		
+		stmt = conn.prepareStatement(
+				"select * from playerLocation "
+				
+		);
+		
+		
+		resultSet = stmt.executeQuery();
+		
+		if(resultSet.next()) {
+			area = resultSet.getString("area");
+			
+		}
+	}
+	
+	catch (SQLException e) {	
+		e.printStackTrace();
+	} 	
+	finally {
+		DBUtil.closeQuietly(resultSet);
+		DBUtil.closeQuietly(stmt);
+		DBUtil.closeQuietly(conn);
+	}
+	return area;
+	
+}
+
 	
 	
 	
