@@ -211,7 +211,7 @@ public class GameServlet extends HttpServlet {
 			}	
 		}
 ////////////////////////////////////////////////////////////////////////////////////////
-	//choice was made///////
+	//BEDROOM CHOICES///////
 ////////////////////////////////////////////////////////////////////////////////////////		
 		else if(db.getPlayerLocation().equals("dresser1")) {
 			System.out.println(" in dressser" + db.getPlayerLocation());
@@ -425,7 +425,7 @@ public class GameServlet extends HttpServlet {
 		
 		else if(db.getPlayerLocation().equals("bathroom")) {
 			System.out.println("bathroom " + db.getPlayerLocation());
-			if (choice.equals("1")) { //parameter from post form 
+			if (choice.equals("1")) { //goes to medicine cabinet 
 				try {
 					content = db.getArea(Integer.toString(9)); 
 				} catch (SQLException e) {
@@ -545,7 +545,263 @@ public class GameServlet extends HttpServlet {
 				db.insertPlayerLocation("bedroom");// change the area
 				System.out.println(" end of bathroom " + db.getPlayerLocation());
 			}
+			else {// nothing or wrong choice 
+				try {
+					content = db.getArea(Integer.toString(7)); // stays in bathroom
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2];
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+				}
+				
+			}	
 		}
+/////////////////BATHROOM CHOICES////////////////////////////////////////////////
+		
+		else if(db.getPlayerLocation().equals("medicine")) {
+			System.out.println("medicine choice " + db.getPlayerLocation());
+			if (choice.equals("1")) { //stays at bathroom and adds the band aids 
+				try {
+					content = db.getArea(Integer.toString(9)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+						
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				controller.addItem(model.getBandAids());
+				
+				db.insertPlayerLocation("medicine");// change the area
+				System.out.println(" end of medicine " + db.getPlayerLocation());
+			}
+			else if (choice.equals("2")) { //goes backto bathroom
+				try {
+					content = db.getArea(Integer.toString(7)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+						
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				controller.addItem(model.getBandAids());
+				
+				db.insertPlayerLocation("bathroom");// change the area
+				System.out.println(" end of bathroom " + db.getPlayerLocation());
+			}
+			else {// nothing or wrong choice
+				try {
+					content = db.getArea(Integer.toString(9)); // stays in medicine
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2];
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+				}
+			}	
+		}
+		else if(db.getPlayerLocation().equals("sink")) {
+			System.out.println("sink choice " + db.getPlayerLocation());
+			if (choice.equals("1")) { //
+				try {
+					content = db.getArea(Integer.toString(10)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+						
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				controller.addItem(model.getToiletPaper());
+				
+				db.insertPlayerLocation("sink");// change the area
+				System.out.println(" end of sink " + db.getPlayerLocation());
+			}
+			else if (choice.equals("2")) { //goes backto bathroom
+				try {
+					content = db.getArea(Integer.toString(7)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+						
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				controller.addItem(model.getBandAids());
+				
+				db.insertPlayerLocation("bathroom");// change the area
+				System.out.println(" end of bathroom " + db.getPlayerLocation());
+			}
+			else {// nothing or wrong choice
+				try {
+					content = db.getArea(Integer.toString(10)); // stays in sink
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2];
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+				}
+			}	
+		}
+		else if(db.getPlayerLocation().equals("shower")) {
+			System.out.println("shower choice " + db.getPlayerLocation());
+			if (choice.equals("1")) { //
+				try {
+					content = db.getArea(Integer.toString(11)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+						
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				controller.addItem(model.getShampoo());
+				
+				db.insertPlayerLocation("shower");// change the area
+				System.out.println(" end of shower " + db.getPlayerLocation());
+			}
+			else if (choice.equals("2")) { //goes backto bathroom
+				try {
+					content = db.getArea(Integer.toString(7)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+						
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				controller.addItem(model.getBandAids());
+				
+				db.insertPlayerLocation("bathroom");// change the area
+				System.out.println(" end of bathroom " + db.getPlayerLocation());
+			}
+			else {// nothing or wrong choice
+				try {
+					content = db.getArea(Integer.toString(11)); // stays in shower
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2];
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+				}
+			}	
+			
+		}
+		else if(db.getPlayerLocation().equals("lightcover")) {
+			System.out.println("light  choice " + db.getPlayerLocation());
+			if (choice.equals("1")) { //
+				try {
+					content = db.getArea(Integer.toString(7)); 
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				String para = content[2]; //gets second section (paragraph section) of the line in csv
+				req.setAttribute("para",para);
+					
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+						
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+						
+				}
+				
+				
+				db.insertPlayerLocation("bathroom");// change the area
+				System.out.println(" end of light " + db.getPlayerLocation());
+			}
+			else {// nothing or wrong choice
+				try {
+					content = db.getArea(Integer.toString(12)); // stays in shower
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				String para = content[2];
+				req.setAttribute("para",para);
+				
+				//Sets the choices
+				for(int i = 3; i < 9; i++){
+					
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+				}
+			}	
+		}	
+		
 		
 		
 		
