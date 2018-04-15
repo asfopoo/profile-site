@@ -890,7 +890,7 @@ public class GameServlet extends HttpServlet {
 			}
 			else if (choice.equals("5")) {  // back to the bathroom
 				try {
-					content = db.getArea(Integer.toString(7));
+					content = db.getArea(Integer.toString(13));
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
