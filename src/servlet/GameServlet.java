@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,15 +19,11 @@ import model.Game;
 
 
 public class GameServlet extends HttpServlet {
-	
-	
-	
-
-	
 	public int level = 1;
 	private static final long serialVersionUID = 1L;
 	public boolean post = false;
-	public String[] content = new String[16];
+	public ArrayList<String> content = new ArrayList<String>();
+	public ArrayList<String> select = new ArrayList<String>();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -38,20 +35,19 @@ public class GameServlet extends HttpServlet {
 		//FakeAreaDB db2 = new FakeAreaDB();
 		
 		try {
-			db.insertPlayerLocation("bedroom");
 			content = db.getArea(Integer.toString(level));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		String para = content[2];
+		String para = content.get(2);
 		req.setAttribute("para",para);
 		
 		//Sets the choices
 		for(int i = 3; i < 9; i++){
 			
-			req.setAttribute("q" + (i - 2), (i - 2) + ": " + content[i]);
+			req.setAttribute("q" + (i - 2), (i - 2) + ": " + content.get(i));
 		}
 
 		
@@ -73,6 +69,29 @@ public class GameServlet extends HttpServlet {
 		System.out.println("choice= " + choice);
 		System.out.println("db loaction = " + db.getPlayerLocation());
 		
+		
+		try {
+			String nextAreaNumber = select.get(Integer.parseInt(choice));
+			level = Integer.parseInt(nextAreaNumber);
+			select = db.getNextArea(Integer.toString(level)); //gets second line of csv
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String para = content.get(2); //gets second section (paragraph section) of the line in csv
+		req.setAttribute("para",para);
+		
+		//Sets the choices
+		for(int i = 3; i < 9; i++){
+			
+			req.setAttribute("q" + (i - 2), (i - 2) + ": " + content.get(i));
+			
+		}
+		db.insertPlayerLocation("dresser1"); // change the area
+			
+		
+		/*
 		if (db.getPlayerLocation().equals("bedroom")) {
 			System.out.println(db.getPlayerLocation());
 			System.out.println(" if equals bedroom " + db.getPlayerLocation());  // check the first dresser
@@ -1089,7 +1108,7 @@ public class GameServlet extends HttpServlet {
 		
 		
 		
-		}
+		}*/
 		
 		
 		

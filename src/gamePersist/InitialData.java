@@ -31,7 +31,7 @@ public class InitialData {
 				item.setSize(Integer.parseInt(i.next()));
 				houseItems.add(item);
 			}
-			System.out.print("house inventory populated");
+			System.out.println("house inventory populated");
 			return houseItems;
 		} finally {
 			readItems.close();
@@ -49,8 +49,8 @@ public class InitialData {
 					break;
 				}
 				Iterator<String> i = tuple.iterator();
-				Area area = new Area(null, null, null, null, null, null, null, null);
-				
+				Area area = new Area(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+
 				area.setAreaInventoryId(itemId++);				
 				area.setName(i.next());
 				area.setPara(i.next());
@@ -60,9 +60,16 @@ public class InitialData {
 				area.setOpt4(i.next());
 				area.setOpt5(i.next());
 				area.setOpt6(i.next());
+				area.setLnk1(i.next());
+				area.setLnk2(i.next());
+				area.setLnk3(i.next());
+				area.setLnk4(i.next());
+				area.setLnk5(i.next());
+				area.setLnk6(i.next());
+				area.setPicture(i.next());
 				areaList.add(area);
 			}
-			System.out.print("area populated");
+			System.out.println("area populated ");
 			return areaList;
 		} finally {
 			readArea.close();

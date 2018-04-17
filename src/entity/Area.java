@@ -13,6 +13,13 @@ public class Area {
 	private String opt4;
 	private String opt5;
 	private String opt6;
+	private String lnk1;
+	private String lnk2;
+	private String lnk3;
+	private String lnk4;
+	private String lnk5;
+	private String lnk6;
+	private String picture;
 	private int areaInventoryId;
 	
 
@@ -38,7 +45,7 @@ public class Area {
 		
 	//}
 	
-	public Area(String name, String para, String opt1, String opt2, String opt3, String opt4, String opt5, String opt6) {
+	public Area(String name, String para, String opt1, String opt2, String opt3, String opt4, String opt5, String opt6, String lnk1, String lnk2, String lnk3, String lnk4, String lnk5, String lnk6, String picture) {
 		this.name = name;
 		this.para = para;
 		this.opt1 = opt1;
@@ -47,8 +54,18 @@ public class Area {
 		this.opt4 = opt4;
 		this.opt5 = opt5;
 		this.opt6 = opt6;
+		this.lnk1 = lnk1;
+		this.lnk2 = lnk2;
+		this.lnk3 = lnk3;
+		this.lnk4 = lnk4;
+		this.lnk5 = lnk5;
+		this.lnk6 = lnk6;
+		this.picture = picture;
 	}
 	
+	/*
+	 * SETTERS
+	 */
 	public void setAreaInventoryId(int areaInventoryId) {
 		this.areaInventoryId = areaInventoryId;
 	}
@@ -79,6 +96,31 @@ public class Area {
 	public void setOpt6(String opt6) {
 		this.opt6 = opt6;
 	}
+	public void setLnk1(String lnk1) {
+		this.lnk1 = lnk1;
+	}
+	public void setLnk2(String lnk2) {
+		this.lnk2 = lnk2;
+	}
+	public void setLnk3(String lnk3) {
+		this.lnk3 = lnk3;
+	}
+	public void setLnk4(String lnk4) {
+		this.lnk4 = lnk4;
+	}
+	public void setLnk5(String lnk5) {
+		this.lnk5 = lnk5;
+	}
+	public void setLnk6(String lnk6) {
+		this.lnk6 = lnk6;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	
+	/*
+	 *GETTERS
+	 */
 	public String getName() {
 		return name;
 	}
@@ -103,7 +145,28 @@ public class Area {
 	public String getOpt6() {
 		return opt6;
 	}
-	
+	public String getLnk1() {
+		return lnk1;
+	}
+	public String getLnk2() {
+		return lnk2;
+	}
+	public String getLnk3() {
+		return lnk3;
+	}
+	public String getLnk4() {
+		return lnk4;
+	}
+	public String getLnk5() {
+		return lnk5;
+	}
+	public String getLnk6() {
+		return lnk6;
+	}
+	public String getPicture() {
+		return picture;
+	}
+
 
 }	
 

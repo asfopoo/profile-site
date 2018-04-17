@@ -32,7 +32,7 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 ///////////////////////////////////////////////////////////////////////////////////
 /////////////////////ADD AREA////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////	
-/*	public void createArea(String name, String para, String[] options) throws SQLException {
+public void createArea(String name, String para, ArrayList<String> options) throws SQLException {
 		
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -52,14 +52,14 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 				
 				try {
 						stmt2 = conn.prepareStatement( // enter username
-								"insert into area(areaName, areaPara, areaOpt1, areaOpt2, areaOpt3, areaOpt4, areaOpt5, areaOpt6, areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6, areaPicture)"
+								"insert into area(areaName, para, Opt1, Opt2, Opt3, Opt4, Opt5, Opt6, areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6, areaPicture)"
 								+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 						);				
 								
 						stmt2.setString(1, name);
 						stmt2.setString(2, para);
 						for(int i = 0; i < 13; i++){
-							stmt2.setString(i + 3, options[i]);
+							stmt2.setString(i + 3, options.get(i));
 						}
 						
 								
@@ -83,12 +83,11 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 					DBUtil.closeQuietly(stmt6);
 					DBUtil.closeQuietly(conn);
 				}
-	}
-*/	
+	}	
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////// GET AREA////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
-	public String[] getArea(String id) throws SQLException {
+	public ArrayList<String> getNextArea(String id) throws SQLException {
 
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -103,12 +102,12 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 		ResultSet resultSet4 = null;
 		ResultSet resultSet5 = null;
 		
-		String[] content = new String[9];
+		ArrayList<String> content = new ArrayList<String>();
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 
 		try {
 			stmt = conn.prepareStatement(
-					"select * from area "
+					"select areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6 from area "
 					+ "where area_id = ?"
 					
 			);
@@ -117,10 +116,66 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 			
 			resultSet = stmt.executeQuery();
 			while(resultSet.next()){
-				for(int i = 0; i < 9; i++){
-					content[i] = resultSet.getString(i + 1);
-					
+				for(int i = 0; i < 6; i++){
+					content.add(resultSet.getString(i + 1));
+					System.out.println(resultSet.getString(i + 1));
 				}
+			}
+			return content;
+
+		} finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(resultSet2);
+			DBUtil.closeQuietly(resultSet3);
+			DBUtil.closeQuietly(resultSet4);
+			DBUtil.closeQuietly(resultSet5);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(stmt3);
+			DBUtil.closeQuietly(stmt4);
+			DBUtil.closeQuietly(stmt5);
+			DBUtil.closeQuietly(stmt6);
+			DBUtil.closeQuietly(conn);
+		}
+	}
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////// GET AREA////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+	public ArrayList<String> getArea(String choice) throws SQLException {
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
+		PreparedStatement stmt3 = null;
+		PreparedStatement stmt4 = null;
+		PreparedStatement stmt5 = null;
+		PreparedStatement stmt6 = null;
+		ResultSet resultSet = null;
+		ResultSet resultSet2 = null;
+		ResultSet resultSet3 = null;
+		ResultSet resultSet4 = null;
+		ResultSet resultSet5 = null;
+
+		ArrayList<String> content = new ArrayList<String>();
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+
+		try {
+			stmt = conn.prepareStatement("select * from area " + "where area_id = ?"
+
+			);
+
+			stmt.setString(1, choice);
+
+			resultSet = stmt.executeQuery();
+			//int i = 0;
+			while (resultSet.next()) {
+				for(int i = 0; i < 9; i++){
+					content.add(resultSet.getString(i + 1));
+					System.out.println(resultSet.getString(i + 1));
+				}
+				//i++;
+				
 			}
 			return content;
 
@@ -555,7 +610,7 @@ public String getPlayerLocation() {
 					}
 					insertHouseItem.executeBatch();
 					
-					insertArea = conn.prepareStatement("insert into area (areaName, para, opt1, opt2, opt3, opt4, opt5, opt6) values (?, ?, ?, ?, ?, ?, ?, ?)");
+					insertArea = conn.prepareStatement("insert into area(areaName, para, Opt1, Opt2, Opt3, Opt4, Opt5, Opt6, areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6, areaPicture) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 					for (Area area : areaList) {
 						insertArea.setString(1, area.getName());
 						insertArea.setString(2, area.getPara());
@@ -565,6 +620,13 @@ public String getPlayerLocation() {
 						insertArea.setString(6, area.getOpt4());
 						insertArea.setString(7, area.getOpt5());
 						insertArea.setString(8, area.getOpt6());
+						insertArea.setString(9, area.getLnk1());
+						insertArea.setString(10, area.getLnk2());
+						insertArea.setString(11, area.getLnk3());
+						insertArea.setString(12, area.getLnk4());
+						insertArea.setString(13, area.getLnk5());
+						insertArea.setString(14, area.getLnk6());
+						insertArea.setString(15, area.getPicture());
 						insertArea.addBatch();
 						
 					}
@@ -637,14 +699,14 @@ public String getPlayerLocation() {
 							"   Opt3 varchar(40)," +
 							"   Opt4 varchar(40)," +
 							"   Opt5 varchar(40)," +
-							"   Opt6 varchar(40)" +
-							//"	areaLink1 varchar(40)," +
-							//"   areaLink2 varchar(40)," +
-							///"   areaLink3 varchar(40)," +
-							//"   areaLink4 varchar(40)," +
-							//"   areaLink5 varchar(40)," +
-							//"   areaLink6 varchar(40)," +
-							//"   areaPicture varchar(40)" +
+							"   Opt6 varchar(40)," +
+							"	areaLink1 varchar(40)," +
+							"   areaLink2 varchar(40)," +
+							"   areaLink3 varchar(40)," +
+							"   areaLink4 varchar(40)," +
+							"   areaLink5 varchar(40)," +
+							"   areaLink6 varchar(40)," +
+							"   areaPicture varchar(40)" +
 							")"
 						);	
 					stmt4.executeUpdate();
