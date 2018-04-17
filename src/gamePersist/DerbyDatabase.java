@@ -47,9 +47,10 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 		ResultSet resultSet4 = null;
 		ResultSet resultSet5 = null;
 		
-		
+		//Connects to database
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 				
+		//Takes information from the editor jsp and inserts it to the database for area
 				try {
 						stmt2 = conn.prepareStatement( // enter username
 								"insert into area(areaName, para, Opt1, Opt2, Opt3, Opt4, Opt5, Opt6, areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6, areaPicture)"
@@ -102,23 +103,28 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 		ResultSet resultSet4 = null;
 		ResultSet resultSet5 = null;
 		
+		//Loads from database
 		ArrayList<String> content = new ArrayList<String>();
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 
+		//Selects the entire area databse
 		try {
 			stmt = conn.prepareStatement(
-					"select areaLink1, areaLink2, areaLink3, areaLink4, areaLink5, areaLink6 from area "
+					"select * from area "
 					+ "where area_id = ?"
 					
 			);
 			
+			//Throws in the area id for sql statement
 			stmt.setString(1, id);
 			
 			resultSet = stmt.executeQuery();
+			
+			//Turns sql result into an array list then returns it
 			while(resultSet.next()){
-				for(int i = 0; i < 6; i++){
+				for(int i = 0; i < 16; i++){
 					content.add(resultSet.getString(i + 1));
-					System.out.println(resultSet.getString(i + 1));
+					//System.out.println(resultSet.getString(i + 1));
 				}
 			}
 			return content;
@@ -157,22 +163,27 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 		ResultSet resultSet4 = null;
 		ResultSet resultSet5 = null;
 
+		//uses database
 		ArrayList<String> content = new ArrayList<String>();
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 
+		//selects the area db
 		try {
 			stmt = conn.prepareStatement("select * from area " + "where area_id = ?"
 
 			);
 
+			//puts area id into sql statement
 			stmt.setString(1, choice);
 
 			resultSet = stmt.executeQuery();
 			//int i = 0;
+			
+			//returns result in array list and returns
 			while (resultSet.next()) {
-				for(int i = 0; i < 9; i++){
+				for(int i = 0; i < 16; i++){
 					content.add(resultSet.getString(i + 1));
-					System.out.println(resultSet.getString(i + 1));
+					//System.out.println(resultSet.getString(i + 1));
 				}
 				//i++;
 				
