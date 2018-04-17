@@ -25,6 +25,7 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				Item item = new Item(0, null, null);
+				System.out.println(itemId);
 				item.setHouseInventoryId(itemId++);				
 				item.setName(i.next());
 				item.setType(i.next());
@@ -42,7 +43,7 @@ public class InitialData {
 		ReadCSV readArea = new ReadCSV("area.csv");
 		try {
 			// auto-generated primary key for authors table
-			Integer itemId = 0;
+			Integer itemId = 1;
 			while (true) {
 				List<String> tuple = readArea.next();
 				if (tuple == null) {
@@ -50,8 +51,8 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				Area area = new Area(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-
-				area.setAreaInventoryId(itemId++);				
+				System.out.println(itemId);
+				area.setAreaInventoryId(itemId++);
 				area.setName(i.next());
 				area.setPara(i.next());
 				area.setOpt1(i.next());
@@ -69,6 +70,7 @@ public class InitialData {
 				area.setPicture(i.next());
 				areaList.add(area);
 			}
+			System.out.println(itemId);
 			System.out.println("area populated ");
 			return areaList;
 		} finally {
