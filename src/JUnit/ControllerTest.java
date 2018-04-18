@@ -35,13 +35,35 @@ public class ControllerTest {
 	
 	
 	@Test
-	public void testAddItem(Item item) { 
-		///ummmm.. how do i test this
+	public void testInsertUserItem(int size, String name, String type) { 
+	
 	}
 	@Test
-	public void testRemoveItem(Item item) {
-		//// and this
+	public void testRemoveItem(int size, String name, String type) {
+		
 	}
+	@Test
+	public void testAddArea() {
+		
+	}
+	@Test 
+	public void testGetArea() {
+		
+	}
+	@Test
+	public void testGetNextArea() {
+		
+	}
+	@Test
+	public void testRegisterAccount() {
+		
+	}
+	@Test
+	public void testAccountExists() {
+		
+	}
+	
+	
 
 
 }

@@ -109,24 +109,44 @@ public class ItemTests {
 	public void testGetChange() { /// 2 instances of change ??????
 		assertEquals(3, model.getChange().getSize());
 		assertEquals("change", model.getChange().getName());
-		assertEquals("utility", model.getScissors().getItemType());
+		assertEquals("utility", model.getChange().getItemType());
 	}
 	@Test
 	public void testGetCandle() {
 		assertEquals(2, model.getCandle().getSize());
 		assertEquals("candle", model.getCandle().getName());
-		assertEquals("food", model.getCanFood().getItemType());
+		assertEquals("utility", model.getCandle().getItemType());
 	}
 	@Test
 	public void testGetFirePoker() {
 		assertEquals(7, model.getFirePoker().getSize());
 		assertEquals("firePoker", model.getFirePoker().getName());
-		assertEquals("utility", model.getCigs().getItemType());
+		assertEquals("weapon", model.getFirePoker().getItemType());
 	}
 	@Test
 	public void testGetBandAids() {
 		assertEquals(2, model.getBandAids().getSize());
 		assertEquals("bandAids", model.getBandAids().getName());
-		assertEquals("utility", model.getCigs().getItemType());
+		assertEquals("utility", model.getBandAids().getItemType());
+	}
+	public void testGetGun() {
+		assertEquals(4, model.getGun().getSize());
+		assertEquals("gun", model.getGun().getName());
+		assertEquals("weapon", model.getGun().getItemType());
+	}
+	public void testGetShovel() {
+		assertEquals(7, model.getShovel().getSize());
+		assertEquals("shovel", model.getShovel().getName());
+		assertEquals("utility", model.getShovel().getItemType());
+	}
+	public void testGetFlashlight() {
+		assertEquals(4, model.getFlashlight().getSize());
+		assertEquals("flashlight", model.getFlashlight().getName());
+		assertEquals("utility", model.getFlashlight().getItemType());
+	}
+	public void testGetSocketSet() {
+		assertEquals(5, model.getSocketSet().getSize());
+		assertEquals("socketSet", model.getSocketSet().getName());
+		assertEquals("utility", model.getSocketSet().getItemType());
 	}
 }

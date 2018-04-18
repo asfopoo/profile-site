@@ -180,16 +180,21 @@ public class Game {
 	public Item getFirePoker() {
 		return firePoker; 
 	}
+	public Item getGun() {
+		return gun;
+	}
+	public Item getShovel() {
+		return shovel;
+	}
+	public Item getFlashlight() {
+		return flashlight;
+	}
+	public Item getSocketSet() {
+		return bandAids;
+	}
 	public Item getBandAids() {
 		return bandAids;
 	}
-	
-	/* 
-	 * this.gun = new Item(4, "gun", "weapon");
-		this.shovel = new Item(7, "shovel", "utility");
-		this.flashlight = new Item(4, "flashlight", "utility"); ////needs implemented ... needs tested but our jUnits are missing
-		this.socketSet = new Item(5, "sockeSet", "utility");
-	*/
 	
 	public void setArea(String area) { /// not used
 		this.area = area;
