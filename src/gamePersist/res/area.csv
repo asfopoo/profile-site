@@ -13,5 +13,15 @@ lightCover|Just a light.... quit wasting time!!!!!|Go back|*|*|*|*|*|10|7|*|*|*|
 guestroom|Not much in here...|Check the bed|check the night stand|Look out the window|Go downstairs|Go to the bathroom|Go to your bedroom|14|15|16|17|10|8|guestroom.png
 bed2|another bed view... we need something here|go back|*|*|*|*|*|13|*|*|*|*|*|bed2.png
 nightstand|night stand things|go back|*|*|*|*|*|13|*|*|*|*|*|nightstand.png
+<<<<<<< HEAD
 window|window pic... Everything looks fine out there|go back|*|*|*|*|*|13|*|*|*|*|*|window.png
 living room|You are in the living room   There is a tv with on a tv stand, a couch, and a mantle over the fireplace with a cand on it|Grab the tv remote|Check the couch|Grab the candle|Grab the firepoker|Go to the dining room|Go back up stairs|*|*|*|*|*|*|livingroom.png
+=======
+window|window pic... Everything looks fine out there|go back|*|*|*|*|*|13|*|*|*|*|*|window.jpg
+living room|You are in the living room   There is a tv with on a tv stand, a couch, and a mantle over the fireplace with a candle on it|Grab the tv remote|Check the couch|Grab the candle|Grab the firepoker|Go to the dining room|Go back up stairs|17|18|17|17|22|13|livingroom.png
+checkCouch|You found a pile of change|take the change|go back|*|*|*|*|18|17|*|*|*|*|livingroom.jpg
+diningroom|Just last nights dinner sitting on the dining room table and a can of dog food on the floor|take the fork|take the dog food|go to the kitchen|go to the living room|*|*|19|19|20|17|*|*|diningroom.jpg
+kitchen|There's a few things in here that might help|Take the scissors|Take the knife|Take the can of food|go out back to the shed|go back to the dining room|*|20|20|20|21|19|*|kitchen.jpg
+shed|Theres a lot of things in here.. choose wisely, you cant carry too much!!! There's also a small box with a lock on it... I wonder where the key is?|Take the cigs|Take the gun|Take the shovel|Take the flashlight|Take the small socket set|go back to the house|21|21|21|21|21|22|shed.jpg
+decision|Time to make a choice... if you think you've equipped yourself well enough to go out into the world its time to go.... if not lets fix this inventory|Go outside|go back to the house|*|*|*|*|20|*|*|*|*|*|decision.jpg
+>>>>>>> branch 'master' of https://github.com/asfopoo/CS320_OrganTrail.git
