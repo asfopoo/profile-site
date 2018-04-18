@@ -1,17 +1,17 @@
 bedroom|<i>-You have just woken up-</i><br> How did I sleep so long? What time is it? Screw sitting around this place, im gettin outta here Grab what you need and get on the road, keep in mind, you can only take what you can carry!|check the first dresser|check the second dresser|check the bed|make the bed|turn the tv off|leave the room|2|3|4|5|6|7|bedroom.png
 dresser|Aint shit there bro...       keep moving|go back|* |* |* |* |*|1|*|*|*|*|*|dresser01.png
-dresser 2|You got a bunch of junk in here....    Nothing useful except maybe this lighter|Take the lighter|go back|* |* |* |*|3|1|*|*|*|*|dresser02.png
-checkBed|Theres nothing in the bed...     Get movin ya weirdo|go back|* |* |* |* |*|1|*|*|*|*|*|checkBed.png
+dresser 2|You got a bunch of junk in here....    Nothing useful except maybe this lighter|Take the lighter|go back|* |* |* |*|3|1|*|*|*|*|dresser02.jpg
+checkBed|Theres nothing in the bed...     Get movin ya weirdo|go back|* |* |* |* |*|1|*|*|*|*|*|checkBed.jpg
 makeBed|we should put in if you check the bed 15 times in a row you find something|go back|* |* |* |* |*|1|*|*|*|*|*|makeBed.png
-tv|Busted ass tv wont turn off!!!!|go back|2 |3 | 4|5 |6|1|*|*|*|*|*|tv.png
+tv|Busted ass tv wont turn off!!!!|go back|2 |3 | 4|5 |6|1|*|*|*|*|*|tv.jpg
 bathroom|You seriously need to clean this bathroom!|Look in the medicine cabinet|Look under the sink|Open the shower curtain|Pull off the light cover|Go to the guest room |Go to your bedroom|9|10|11|12|13|8|bathroom.png
 bedroom2| You are in the master bedroom|check the first dresser|check the second dresser|check the bed|make the bed|turn the tv off|leave the room|2|3|4|5|6|7|bedroom.png
-medicine|medicine cabinet|take the band-aids|Go back|*|*|*|*|9|7|*|*|*|*|medicine.png
-sink|under the sink |take the toilet paper|Go back|*|*|*|*|10|7|*|*|*|*|sink.png
-shower|you seriously need to clean this shower|take the shampoo|Go back|*|*|*|*|11|7|*|*|*|*|shower.png
+medicine|medicine cabinet|take the band-aids|Go back|*|*|*|*|9|7|*|*|*|*|medicine.jpg
+sink|under the sink |take the toilet paper|Go back|*|*|*|*|10|7|*|*|*|*|sink.jpg
+shower|you seriously need to clean this shower|take the shampoo|Go back|*|*|*|*|11|7|*|*|*|*|shower.jpg
 lightCover|Just a light.... quit wasting time!!!!!|Go back|*|*|*|*|*|10|7|*|*|*|*|lightCover.png
 guestroom|Not much in here...|Check the bed|check the night stand|Look out the window|Go downstairs|Go to the bathroom|Go to your bedroom|14|15|16|17|10|8|guestroom.png
 bed2|another bed view... we need something here|go back|*|*|*|*|*|13|*|*|*|*|*|bed2.png
 nightstand|night stand things|go back|*|*|*|*|*|13|*|*|*|*|*|nightstand.png
-window|window pic... Everything looks fine out there|go back|*|*|*|*|*|13|*|*|*|*|*|window.png
+window|window pic... Everything looks fine out there|go back|*|*|*|*|*|13|*|*|*|*|*|window.jpg
 living room|You are in the living room   There is a tv with on a tv stand, a couch, and a mantle over the fireplace with a cand on it|Grab the tv remote|Check the couch|Grab the candle|Grab the firepoker|Go to the dining room|Go back up stairs|*|*|*|*|*|*|livingroom.png
