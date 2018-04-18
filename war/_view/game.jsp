@@ -34,9 +34,9 @@
 				<p>
 						Your choice:
 						<br>
-						<input type="text" name="choice" size="12" value="${choice}" />
+						<input type="text" name="choice" size="12" value="${choice}" required="required" autocomplete="off" maxlength="1" autofocus/>
 						<br>
-						<input type="Submit" name="submit" value="Select" autocomplete="off">
+						<input type="Submit" name="submit" value="Select" >
 				</p>
 			</form>	
 			
