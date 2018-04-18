@@ -47,6 +47,10 @@ public class Game {
 	private Item firePoker;
 	private Item change;
 	private Item bandAids;
+	private Item gun;
+	private Item shovel;
+	private Item flashlight;
+	private Item socketSet;
 	
 	private String area;
 	
@@ -83,6 +87,10 @@ public class Game {
 		this.change = new Item(1, "change", "utility");
 		this.change = new Item(3, "change", "utility");
 		this.bandAids = new Item(2, "bandAids", "utility");
+		this.gun = new Item(4, "gun", "weapon");
+		this.shovel = new Item(7, "shovel", "utility");
+		this.flashlight = new Item(4, "flashlight", "utility");
+		this.socketSet = new Item(5, "sockeSet", "utility");
 	}
 	
 	//Sets location based on type and arraylist of items
@@ -175,6 +183,13 @@ public class Game {
 	public Item getBandAids() {
 		return bandAids;
 	}
+	
+	/* 
+	 * this.gun = new Item(4, "gun", "weapon");
+		this.shovel = new Item(7, "shovel", "utility");
+		this.flashlight = new Item(4, "flashlight", "utility"); ////needs implemented ... needs tested but our jUnits are missing
+		this.socketSet = new Item(5, "sockeSet", "utility");
+	*/
 	
 	public void setArea(String area) { /// not used
 		this.area = area;
