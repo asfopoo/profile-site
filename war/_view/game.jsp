@@ -9,8 +9,12 @@
 		<link rel="stylesheet" href="webresources/game.css"/>
 	</head>
 
-	<body>
+	
 		<div class="options">
+		<body>
+			<div class="picture">
+				<img src="webresources/${pic}" alt="Game Image">
+			</div>
 			<div class="para">
 				<c:out value="${para}" escapeXml="false" />
 			</div>
@@ -32,7 +36,7 @@
 						<br>
 						<input type="text" name="choice" size="12" value="${choice}" />
 						<br>
-						<input type="Submit" name="submit" value="choice">
+						<input type="Submit" name="submit" value="Select" autocomplete="off">
 				</p>
 			</form>	
 			

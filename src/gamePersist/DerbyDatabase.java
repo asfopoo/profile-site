@@ -704,7 +704,7 @@ public String getPlayerLocation() {
 							"	area_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +									
 							"	areaName varchar(40)," +
-							"	para varchar(400)," +
+							"	para varchar(1000)," +
 							"   Opt1 varchar(40)," +
 							"   Opt2 varchar(40)," +
 							"   Opt3 varchar(40)," +

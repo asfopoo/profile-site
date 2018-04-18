@@ -44,7 +44,11 @@ public class GameServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		//Print out the picture
+		String pic = content.get(15);
+		req.setAttribute("pic",pic);
+				
 		//Print out all of the content
 		String para = content.get(2);
 		req.setAttribute("para",para);
@@ -93,7 +97,11 @@ public class GameServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		//Print out the picture
+		String pic = content.get(15);
+		req.setAttribute("pic",pic);
+				
 		//Displays the areas content
 		String para = select.get(2); //gets second section (paragraph section) of the line in csv
 		req.setAttribute("para",para);
