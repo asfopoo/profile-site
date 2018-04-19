@@ -23,8 +23,14 @@ public class EditorServlet extends HttpServlet {
 		
 		System.out.println("Editor Servlet: doGet");
 		
+		String username = (String) req.getSession().getAttribute("username");
+		if(username == null) {
+			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+		}
+		else {
 		req.getRequestDispatcher("/_view/editor.jsp").forward(req, resp);
-	}
+		}
+	}	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)

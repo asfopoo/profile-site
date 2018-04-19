@@ -28,43 +28,51 @@ public class GameServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		//checks if it is post
-		post = false;
-		System.out.println("Game Servlet: doGet");
-		
-		//Accessing database
-		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
-		IDatabase db = DatabaseProvider.getInstance();
-		//FakeAreaDB db2 = new FakeAreaDB();
-		
-		//Pulling the level content from database based on level id
-		try {
-			content = db.getArea(Integer.toString(level));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String username = (String) req.getSession().getAttribute("username");
+		if(username == null) {
+			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 		}
+		else {
 		
-		//Print out the picture
-		String pic = content.get(15);
-		req.setAttribute("pic",pic);
-				
-		//Print out all of the content
-		String para = content.get(2);
-		req.setAttribute("para",para);
 		
-		//Sets the choices
-		for(int i = 3; i < 9; i++){
-			if(content.get(i).equals("*")){
-				req.setAttribute("q" + (i - 2)," ");
-			}else{
-				req.setAttribute("q" + (i - 2), (i - 2) + ": " + content.get(i));
+			//checks if it is post
+			post = false;
+			System.out.println("Game Servlet: doGet");
+			
+			//Accessing database
+			DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
+			IDatabase db = DatabaseProvider.getInstance();
+			//FakeAreaDB db2 = new FakeAreaDB();
+			
+			//Pulling the level content from database based on level id
+			try {
+				content = db.getArea(Integer.toString(level));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
-		}
+			//Print out the picture
+			String pic = content.get(15);
+			req.setAttribute("pic",pic);
+					
+			//Print out all of the content
+			String para = content.get(2);
+			req.setAttribute("para",para);
+			
+			//Sets the choices
+			for(int i = 3; i < 9; i++){
+				if(content.get(i).equals("*")){
+					req.setAttribute("q" + (i - 2)," ");
+				}else{
+					req.setAttribute("q" + (i - 2), (i - 2) + ": " + content.get(i));
+				}
+				
+			}
 
 		
-		req.getRequestDispatcher("/_view/game.jsp").forward(req, resp);
+			req.getRequestDispatcher("/_view/game.jsp").forward(req, resp);
+		}
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)

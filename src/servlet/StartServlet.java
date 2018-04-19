@@ -21,8 +21,14 @@ public class StartServlet extends HttpServlet {
 		
 		System.out.println("Start Servlet: doGet");	
 		
-		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/start.jsp").forward(req, resp);	
+		String username = (String) req.getSession().getAttribute("username");
+		if (username == null) { // checks session for being logged in
+			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);		
+		}
+		else {
+			req.getRequestDispatcher("/_view/start.jsp").forward(req, resp);
+		}
+	
 	}
 	
 	@Override
