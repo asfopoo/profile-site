@@ -345,12 +345,14 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 ///////////////////////////////////////////////////////////////////////////////////
 /////////////////////INSERT USER INVENTORY////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
-	public void insertUserItem(int size, String name, String type) {
+	public int insertUserItem(int size, String name, String type) {
 		
+		int itemInventory_id = 0;
 		ResultSet resultSet = null;
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		PreparedStatement stmt2 = null;
+		PreparedStatement stmt3 = null;
 		
 		try {
 			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
@@ -380,6 +382,18 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 			
 			stmt.execute();
 			
+			stmt3 = conn.prepareStatement(
+					"select userinventory.* from userInventory where size = (?) and itemName = (?) and itemType = (?)"
+					
+			);
+		
+			stmt3.setInt(1, size);
+			stmt3.setString(2, name);
+			stmt3.setString(3, type);
+			
+			resultSet = stmt.executeQuery();
+			itemInventory_id = resultSet.getInt(1);
+			
 			
 			
 		} 
@@ -390,8 +404,11 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 		finally {
 			DBUtil.closeQuietly(resultSet);
 			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(stmt3);
 			DBUtil.closeQuietly(conn);
 		}
+		return itemInventory_id;
 	}
 	
 ///////////////////////////////////////////////////////////////////////////////////////
