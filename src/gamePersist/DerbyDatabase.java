@@ -209,7 +209,7 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////// REGISTER ACCOUNT////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
-	public boolean registerAccount(String userName, String pass, String pass2, String email) throws SQLException {
+	public boolean registerAccount(String userName, String pass, String email) throws SQLException {
 
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -674,7 +674,7 @@ public String getPlayerLocation() {
 						"	login_id integer primary key " +
 						"		generated always as identity (start with 1, increment by 1), " +									
 						"	userName varchar(40)," +
-						"	password varchar(40)," +
+						"	password varchar(100)," +
 						"   email varchar(40),"    +
 						"   type varchar(40)"      +
 						")"

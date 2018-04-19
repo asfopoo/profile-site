@@ -1,6 +1,6 @@
 bedroom|<i>-You have just woken up-</i><br> How did I sleep so long? What time is it? Screw sitting around this place, im gettin outta here Grab what you need and get on the road, keep in mind, you can only take what you can carry!|check the first dresser|check the second dresser|check the bed|make the bed|turn the tv off|leave the room|2|3|4|5|6|7|bedroom.png
 dresser|Aint shit there bro...       keep moving|go back|* |* |* |* |*|8|*|*|*|*|*|dresser01.png
-dresser 2|You got a bunch of junk in here....    Nothing useful except maybe this lighter|Take the lighter|go back|* |* |* |*|23|1|*|*|*|*|dresser02.png
+dresser 2|You got a bunch of junk in here....    Nothing useful except maybe this lighter|Take the lighter|go back|* |* |* |*|23&lighter|1|*|*|*|*|dresser02.png
 checkBed|Theres nothing in the bed...     Get movin ya weirdo|go back|* |* |* |* |*|1|*|*|*|*|*|checkBed.png
 makeBed|we should put in if you check the bed 15 times in a row you find something|go back|* |* |* |* |*|8|*|*|*|*|*|makeBed.png
 tv|Busted ass tv wont turn off!!!!|go back|* |* | *|* |*|8|*|*|*|*|*|tv.png

@@ -12,6 +12,7 @@ import fakeDB.FakeUserDB;
 import gamePersist.DatabaseProvider;
 import gamePersist.DerbyDatabase;
 import gamePersist.IDatabase;
+import gamePersist.hashSHA256;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -35,11 +36,12 @@ public class LoginServlet extends HttpServlet {
 		//FakeUserDB db = new FakeUserDB(); fake database
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example-- CITING
 		IDatabase db = DatabaseProvider.getInstance();
-
+		hashSHA256 encrypt = new hashSHA256();
+		
 		// gets username and password
 		String userName = (req.getParameter("u")).toLowerCase();
 		String password = req.getParameter("p");
-		
+		password = encrypt.hashString(password);
 		//checks if the account is valid
 		boolean validAccount = db.accountExist(userName, password);
 

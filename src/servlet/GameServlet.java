@@ -89,6 +89,17 @@ public class GameServlet extends HttpServlet {
 			//System.out.println(select + "*********************************");
 			String nextAreaNumber = select.get(Integer.parseInt(choice)+8);
 			//System.out.println(nextAreaNumber + "*********************************");
+			//checking for item
+			if(nextAreaNumber.indexOf('&') != -1){
+				String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
+				nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
+				System.out.println("There is an item, here is the name and next area" + item + ", " + nextAreaNumber);
+				
+				//lazy way of adding the correct item
+				if(item.equalsIgnoreCase("lighter")){
+					controller.addItem(model.getLighter()); //Added lighter to users inventory
+				}
+			}
 			level = Integer.parseInt(nextAreaNumber);
 			content = db.getArea(Integer.toString(level));
 			select = db.getNextArea(Integer.toString(level)); //gets second line of csv

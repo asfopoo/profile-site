@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import gamePersist.DatabaseProvider;
 import gamePersist.IDatabase;
+import gamePersist.hashSHA256;
 import fakeDB.FakeUserDB;
 import gamePersist.DerbyDatabase;
 
@@ -36,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
 		//fake db stuff//FakeUserDB db = new FakeUserDB();
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
 		IDatabase db = DatabaseProvider.getInstance();
-		
+		hashSHA256 encrypt = new hashSHA256();
 
 		// gets username and password
 		String user = (req.getParameter("u")).toLowerCase();
@@ -50,7 +51,8 @@ public class RegisterServlet extends HttpServlet {
 		//Checks if 2 passes are the same
 		if(password.equals(password2)){
 			try {
-				validAccount = db.registerAccount(user, password, password2, email);
+				password = encrypt.hashString(password);
+				validAccount = db.registerAccount(user, password, email);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
