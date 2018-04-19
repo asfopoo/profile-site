@@ -244,11 +244,12 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 			if (!resultSet.next()) { /// if username doesnt exist
 
 				stmt2 = conn.prepareStatement( // enter username
-						"insert into login(userName, password, email)" + "values(?, ?, ?)");
+						"insert into login(userName, password, email, type)" + "values(?, ?, ?, ?)");
 
 				stmt2.setString(1, userName);
 				stmt2.setString(2, pass);
 				stmt2.setString(3, email);
+				stmt2.setString(4, "1");
 
 				stmt2.execute();
 				
@@ -674,7 +675,8 @@ public String getPlayerLocation() {
 						"		generated always as identity (start with 1, increment by 1), " +									
 						"	userName varchar(40)," +
 						"	password varchar(40)," +
-						"   email varchar(40)"     +
+						"   email varchar(40),"    +
+						"   type varchar(40)"      +
 						")"
 					);	
 					stmt1.executeUpdate();
