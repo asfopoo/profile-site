@@ -383,7 +383,7 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 			stmt.execute();
 			
 			stmt3 = conn.prepareStatement(
-					"select userinventory.* from userInventory where size = (?) and itemName = (?) and itemType = (?)"
+					"select userinventory.userinventory_id from userInventory where size = (?) and itemName = (?) and itemType = (?)"
 					
 			);
 		
@@ -391,9 +391,10 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 			stmt3.setString(2, name);
 			stmt3.setString(3, type);
 			
-			resultSet = stmt.executeQuery();
-			itemInventory_id = resultSet.getInt(1);
-			
+			resultSet = stmt3.executeQuery();
+			if(resultSet.next()) {
+				itemInventory_id = resultSet.getInt(1);
+			}
 			
 			
 		} 

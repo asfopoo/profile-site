@@ -1,6 +1,7 @@
 package JUnit;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -45,12 +46,15 @@ public class ControllerTest {
 	
 	
 	@Test
-	public void testInsertUserItem(int size, String name, String type) { 
+	public void testInsertUserItem() { 
 		
-		//db.insertUserItem(2, "greenLighter", "utility");
+		int userInventory_id = 0;
+		userInventory_id = db.insertUserItem(2, "greenLighter", "utility");
+		assertNotEquals(0, userInventory_id);
+		
 	}
 	@Test
-	public void testRemoveItem(int size, String name, String type) {
+	public void testRemoveItem() {
 		
 	}
 	@Test
