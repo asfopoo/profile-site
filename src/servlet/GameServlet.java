@@ -19,7 +19,8 @@ import model.Game;
 
 
 public class GameServlet extends HttpServlet {
-	public int level = 1;
+	public String level = null;
+	private String username = null;
 	private static final long serialVersionUID = 1L;
 	public boolean post = false;
 	public ArrayList<String> content = new ArrayList<String>();
@@ -28,7 +29,7 @@ public class GameServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		String username = (String) req.getSession().getAttribute("username");
+		username = (String) req.getSession().getAttribute("username");
 		if(username == null) {
 			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 		}
@@ -38,15 +39,18 @@ public class GameServlet extends HttpServlet {
 			//checks if it is post
 			post = false;
 			System.out.println("Game Servlet: doGet");
-			
+
 			//Accessing database
 			DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
 			IDatabase db = DatabaseProvider.getInstance();
 			//FakeAreaDB db2 = new FakeAreaDB();
 			
+			level = db.getCurrentArea(username);
+			
+			System.out.println(level);
 			//Pulling the level content from database based on level id
 			try {
-				content = db.getArea(Integer.toString(level));
+				content = db.getArea(level);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -69,7 +73,6 @@ public class GameServlet extends HttpServlet {
 				}
 				
 			}
-
 		
 			req.getRequestDispatcher("/_view/game.jsp").forward(req, resp);
 		}
@@ -82,7 +85,7 @@ public class GameServlet extends HttpServlet {
 		
 		Game model = new Game();
 		GameController controller = new GameController();
-		
+		String nextAreaNumber = null;
 		post = true;
 		String choice = null;
 		System.out.println("Game Servlet: doPost");
@@ -90,30 +93,50 @@ public class GameServlet extends HttpServlet {
 		System.out.println("choice= " + choice);
 		System.out.println("db loaction = " + db.getPlayerLocation());
 		
-		
 		//Takes users choice and loads next area, each choice has an area id tied to it
 		try {
-			select = db.getNextArea(Integer.toString(level)); //gets second line of csv
+			select = db.getNextArea(level); //gets second line of csv
 			//System.out.println(select + "*********************************");
-			String nextAreaNumber = select.get(Integer.parseInt(choice)+8);
-			//System.out.println(nextAreaNumber + "*********************************");
+			nextAreaNumber = select.get(Integer.parseInt(choice)+8);
+			System.out.println(nextAreaNumber + "*********************************");
 			//checking for item
-			if(nextAreaNumber.indexOf('&') != -1){
-				String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
-				nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
-				System.out.println("There is an item, here is the name and next area" + item + ", " + nextAreaNumber);
-				
-				//lazy way of adding the correct item
-				if(item.equalsIgnoreCase("lighter")){
-					controller.addItem(model.getLighter()); //Added lighter to users inventory
-				}else if(item.equalsIgnoreCase("bandaids")){
-					controller.addItem(model.getBandAids()); //Added lighter to users inventory
+			if(!nextAreaNumber.equals("*")){
+				if(nextAreaNumber.indexOf('&') != -1){
+					String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
+					nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
+					System.out.println("There is an item, here is the name and next area: " + item + ", " + nextAreaNumber);
+					
+					//lazy way of adding the correct item
+					if(item.equalsIgnoreCase("lighter")){
+						controller.addItem(model.getLighter()); //Added lighter to users inventory
+					}else if(item.equalsIgnoreCase("bandaids")){
+						controller.addItem(model.getBandAids()); //Added lighter to users inventory
+					}
 				}
+				db.setCurrentArea(level, username);
+				level = nextAreaNumber;
+				content = db.getArea(level);
+				select = db.getNextArea(level); //gets second line of csv
+			}else{
+				nextAreaNumber = level;
+				System.out.println("CAUGHT");
+				if(nextAreaNumber.indexOf('&') != -1){
+					String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
+					nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
+					System.out.println("There is an item, here is the name and next area: " + item + ", " + nextAreaNumber);
+					
+					//lazy way of adding the correct item
+					if(item.equalsIgnoreCase("lighter")){
+						controller.addItem(model.getLighter()); //Added lighter to users inventory
+					}else if(item.equalsIgnoreCase("bandaids")){
+						controller.addItem(model.getBandAids()); //Added lighter to users inventory
+					}
+				}
+				db.setCurrentArea(level, username);
+				level = nextAreaNumber;
+				content = db.getArea(level);
+				select = db.getNextArea(level); //gets second line of csv
 			}
-			level = Integer.parseInt(nextAreaNumber);
-			content = db.getArea(Integer.toString(level));
-			select = db.getNextArea(Integer.toString(level)); //gets second line of csv
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -138,8 +161,8 @@ public class GameServlet extends HttpServlet {
 			
 		}
 		db.insertPlayerLocation(select.get(1)); // change the area
+		db.setCurrentArea(level, username);
 			
-		
 		req.getRequestDispatcher("/_view/game.jsp").forward(req, resp);
 	}
 }
