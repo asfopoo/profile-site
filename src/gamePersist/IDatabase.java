@@ -12,7 +12,7 @@ public interface IDatabase {
 	boolean accountExist(String username, String password);
 	int insertUserItem(int size, String name, String type);
 	int removeUserItem(int size, String name, String type);
-	void createArea(String name, String para, ArrayList<String> options) throws SQLException;
+	int createArea(String name, String para, ArrayList<String> options) throws SQLException;
 	ArrayList<String> getArea(String id) throws SQLException;
 	public void insertPlayerLocation(String area);
 	public String getPlayerLocation();

@@ -63,7 +63,16 @@ public class ControllerTest {
 		assertEquals(0, userInventory_id);
 	}
 	@Test
-	public void testAddArea() {
+	public void testCreateArea() throws SQLException {
+		int area_id = 0;
+		ArrayList<String> options = new ArrayList<String>();
+		for(int i = 0; i < 13; i ++) {// array list must have 13 items in it 
+			options.add("!");
+		}
+	
+		
+		area_id = db.createArea("bedroom", "para", options);
+		assertNotEquals(0, area_id);
 		
 	}
 	@Test 

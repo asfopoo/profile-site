@@ -32,8 +32,9 @@ public class DerbyDatabase implements IDatabase { /// most of the gamePersist pa
 ///////////////////////////////////////////////////////////////////////////////////
 /////////////////////ADD AREA////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////	
-public void createArea(String name, String para, ArrayList<String> options) throws SQLException {
+public int createArea(String name, String para, ArrayList<String> options) throws SQLException {
 		
+		int area_id = 0;
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		PreparedStatement stmt2 = null;
@@ -65,6 +66,22 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 						
 								
 						stmt2.execute();
+						
+						stmt3 = conn.prepareStatement(
+								"select area.area_id from area where areaName = (?) and para = (?)"
+								
+						);
+					
+						stmt3.setString(1, name);
+						stmt3.setString(2, para);
+						
+						
+						resultSet = stmt3.executeQuery();
+						if(resultSet.next()) {
+							area_id = resultSet.getInt(1);
+						}
+						
+						
 					
 					
 				
@@ -84,6 +101,7 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 					DBUtil.closeQuietly(stmt6);
 					DBUtil.closeQuietly(conn);
 				}
+			return area_id;
 	}	
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////// GET NEXT AREA////////////////////////////////////
