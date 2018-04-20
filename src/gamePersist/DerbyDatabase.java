@@ -415,12 +415,14 @@ public void createArea(String name, String para, ArrayList<String> options) thro
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////REMOVE ITEM FROM USER INVENTORY/////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-public void removeUserItem(int size, String name, String type) {
+public int removeUserItem(int size, String name, String type) {
 		
 		ResultSet resultSet = null;
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		PreparedStatement stmt2 = null;
+		PreparedStatement stmt3 = null;
+		int userInventory_id = 0;
 		
 		try {
 			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
@@ -449,7 +451,25 @@ public void removeUserItem(int size, String name, String type) {
 			
 			stmt2.execute();
 			
+			stmt3 = conn.prepareStatement(
+					"select userinventory.userinventory_id from userInventory where size = (?) and itemName = (?) and itemType = (?)"
+					
+			);
+		
+			stmt3.setInt(1, size);
+			stmt3.setString(2, name);
+			stmt3.setString(3, type);
+			
+			resultSet = stmt3.executeQuery();
+			if(resultSet.next()) {
+				userInventory_id = resultSet.getInt(1);
+				System.out.println("failed to remove item");
+			}
+			
+			
+			
 		} 
+		
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -458,8 +478,10 @@ public void removeUserItem(int size, String name, String type) {
 			DBUtil.closeQuietly(resultSet);
 			DBUtil.closeQuietly(stmt);
 			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(stmt3);
 			DBUtil.closeQuietly(conn);
 		}
+		return userInventory_id;
 	}
 
 ////////////////////////////////////////////////////////////////////////////////////////

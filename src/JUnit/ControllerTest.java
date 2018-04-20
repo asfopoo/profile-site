@@ -1,9 +1,11 @@
 package JUnit;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -56,6 +58,9 @@ public class ControllerTest {
 	@Test
 	public void testRemoveItem() {
 		
+		int userInventory_id = 0;
+		userInventory_id = db.removeUserItem(2, "greenLighter", "utility");
+		assertEquals(0, userInventory_id);
 	}
 	@Test
 	public void testAddArea() {
@@ -70,12 +75,23 @@ public class ControllerTest {
 		
 	}
 	@Test
-	public void testRegisterAccount() {
+	public void testRegisterAccount() throws SQLException {
 		
+		db.registerAccount("test", "tester", "testing@cs.com");
+		assertFalse(db.registerAccount("test", "tester", "testing@cs.com")); // if account already exists returns false
+		assertTrue(db.accountExist("test", "tester"));
+		assertFalse(db.accountExist("wrong", "tester"));
+		assertFalse(db.accountExist("test", "wrong"));
+		assertFalse(db.accountExist("wrong", "wrong"));
 	}
 	@Test
-	public void testAccountExists() {
+	public void testAccountExists() throws SQLException {
 		
+		db.registerAccount("test", "tester", "testing@cs.com");
+		assertTrue(db.accountExist("test", "tester"));
+		assertFalse(db.accountExist("wrong", "tester"));
+		assertFalse(db.accountExist("test", "wrong"));
+		assertFalse(db.accountExist("wrong", "wrong"));
 	}
 	
 	
