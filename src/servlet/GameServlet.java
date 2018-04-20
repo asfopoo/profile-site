@@ -106,6 +106,8 @@ public class GameServlet extends HttpServlet {
 				//lazy way of adding the correct item
 				if(item.equalsIgnoreCase("lighter")){
 					controller.addItem(model.getLighter()); //Added lighter to users inventory
+				}else if(item.equalsIgnoreCase("bandaids")){
+					controller.addItem(model.getBandAids()); //Added lighter to users inventory
 				}
 			}
 			level = Integer.parseInt(nextAreaNumber);
