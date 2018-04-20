@@ -6,7 +6,7 @@ makeBed|we should put in if you check the bed 15 times in a row you find somethi
 tv|Busted ass tv wont turn off!!!!|go back|* |* | *|* |*|8|*|*|*|*|*|tv.png
 bathroom|You seriously need to clean this bathroom!|Look in the medicine cabinet|Look under the sink|Open the shower curtain|Pull off the light cover|Go to the guest room |Go to your bedroom|9|10|11|12|13|8|bathroom.png
 bedroom2| You are in the master bedroom|check the first dresser|check the second dresser|check the bed|make the bed|turn the tv off|leave the room|2|3|4|5|6|7|bedroom.png
-medicine|medicine cabinet|take the band-aids|Go back|*|*|*|*|24|7|*|*|*|*|medicine.png
+medicine|medicine cabinet|take the band-aids|Go back|*|*|*|*|24&bandaids|7|*|*|*|*|medicine.png
 sink|under the sink |take the toilet paper|Go back|*|*|*|*|25|7|*|*|*|*|sink.png
 shower|you seriously need to clean this shower|take the shampoo|Go back|*|*|*|*|26|7|*|*|*|*|shower.png
 lightCover|Just a light.... quit wasting time!!!!!|Go back|*|*|*|*|*|7|*|*|*|*|*|lightCover.png
