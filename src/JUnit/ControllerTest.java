@@ -76,12 +76,18 @@ public class ControllerTest {
 		
 	}
 	@Test 
-	public void testGetArea() {
+	public void testGetArea() throws SQLException {
+		
+		ArrayList<String> area = new ArrayList<String>();
+		area = db.getArea("2");
+		assertEquals(16, area.size());
 		
 	}
 	@Test
-	public void testGetNextArea() {
-		
+	public void testGetNextArea () throws SQLException {
+		ArrayList<String> area = new ArrayList<String>();
+		area = db.getNextArea("2");
+		assertEquals(16, area.size());
 	}
 	@Test
 	public void testRegisterAccount() throws SQLException {

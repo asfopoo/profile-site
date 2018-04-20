@@ -124,7 +124,6 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		//Loads from database
 		ArrayList<String> content = new ArrayList<String>();
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
-		System.out.println(id);
 		//Selects the entire area databse
 		try {
 			stmt = conn.prepareStatement(
@@ -184,7 +183,7 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		//uses database
 		ArrayList<String> content = new ArrayList<String>();
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
-		System.out.println(choice);
+
 		//selects the area db
 		try {
 			stmt = conn.prepareStatement("select * from area " + "where area_id = ?"
