@@ -97,55 +97,57 @@ public class GameServlet extends HttpServlet {
 		try {
 			select = db.getNextArea(level); //gets second line of csv
 			//System.out.println(select + "*********************************");
-			if(Integer.parseInt(choice) < 7){
-				nextAreaNumber = select.get(Integer.parseInt(choice)+8);
-			System.out.println(nextAreaNumber + "*********************************");
-			//checking for item
-			if(!nextAreaNumber.equals("*")){
-				if(nextAreaNumber.indexOf('&') != -1){
-					String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
-					nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
-					System.out.println("There is an item, here is the name and next area: " + item + ", " + nextAreaNumber);
-					
-					//lazy way of adding the correct item
-					if(item.equalsIgnoreCase("lighter")){
-						controller.addItem(model.getLighter()); //Added lighter to users inventory
-					}else if(item.equalsIgnoreCase("bandaids")){
-						controller.addItem(model.getBandAids()); //Added lighter to users inventory
-					}else if(item.equalsIgnoreCase("tp")){
-						controller.addItem(model.getToiletPaper()); //Added lighter to users inventory
-					}else if(item.equalsIgnoreCase("shampoo")){
-						controller.addItem(model.getShampoo()); //Added lighter to users inventory
+			if(isInteger(choice) == true){
+				if(Integer.parseInt(choice) < 7){
+					nextAreaNumber = select.get(Integer.parseInt(choice)+8);
+				System.out.println(nextAreaNumber + "*********************************");
+				//checking for item
+				if(!nextAreaNumber.equals("*")){
+					if(nextAreaNumber.indexOf('&') != -1){
+						String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
+						nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
+						System.out.println("There is an item, here is the name and next area: " + item + ", " + nextAreaNumber);
+						
+						//lazy way of adding the correct item
+						if(item.equalsIgnoreCase("lighter")){
+							controller.addItem(model.getLighter()); //Added lighter to users inventory
+						}else if(item.equalsIgnoreCase("bandaids")){
+							controller.addItem(model.getBandAids()); //Added lighter to users inventory
+						}else if(item.equalsIgnoreCase("tp")){
+							controller.addItem(model.getToiletPaper()); //Added lighter to users inventory
+						}else if(item.equalsIgnoreCase("shampoo")){
+							controller.addItem(model.getShampoo()); //Added lighter to users inventory
+						}
+					}
+					db.setCurrentArea(level, username);
+					level = nextAreaNumber;
+					content = db.getArea(level);
+					select = db.getNextArea(level); //gets second line of csv
+				}else{
+					nextAreaNumber = level;
+					System.out.println("CAUGHT");
+					if(nextAreaNumber.indexOf('&') != -1){
+						String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
+						nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
+						System.out.println("There is an item, here is the name and next area: " + item + ", " + nextAreaNumber);
+						
+						//lazy way of adding the correct item
+						if(item.equalsIgnoreCase("lighter")){
+							controller.addItem(model.getLighter()); //Added lighter to users inventory
+						}else if(item.equalsIgnoreCase("bandaids")){
+							controller.addItem(model.getBandAids()); //Added lighter to users inventory
+						}else if(item.equalsIgnoreCase("tp")){
+							controller.addItem(model.getToiletPaper()); //Added lighter to users inventory
+						}else if(item.equalsIgnoreCase("shampoo")){
+							controller.addItem(model.getShampoo()); //Added lighter to users inventory
+						}
 					}
 				}
-				db.setCurrentArea(level, username);
-				level = nextAreaNumber;
-				content = db.getArea(level);
-				select = db.getNextArea(level); //gets second line of csv
-			}else{
-				nextAreaNumber = level;
-				System.out.println("CAUGHT");
-				if(nextAreaNumber.indexOf('&') != -1){
-					String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
-					nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
-					System.out.println("There is an item, here is the name and next area: " + item + ", " + nextAreaNumber);
-					
-					//lazy way of adding the correct item
-					if(item.equalsIgnoreCase("lighter")){
-						controller.addItem(model.getLighter()); //Added lighter to users inventory
-					}else if(item.equalsIgnoreCase("bandaids")){
-						controller.addItem(model.getBandAids()); //Added lighter to users inventory
-					}else if(item.equalsIgnoreCase("tp")){
-						controller.addItem(model.getToiletPaper()); //Added lighter to users inventory
-					}else if(item.equalsIgnoreCase("shampoo")){
-						controller.addItem(model.getShampoo()); //Added lighter to users inventory
-					}
+					db.setCurrentArea(level, username);
+					level = nextAreaNumber;
+					content = db.getArea(level);
+					select = db.getNextArea(level); //gets second line of csv
 				}
-			}
-				db.setCurrentArea(level, username);
-				level = nextAreaNumber;
-				content = db.getArea(level);
-				select = db.getNextArea(level); //gets second line of csv
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -174,6 +176,16 @@ public class GameServlet extends HttpServlet {
 		db.setCurrentArea(level, username);
 			
 		req.getRequestDispatcher("/_view/game.jsp").forward(req, resp);
+	}
+	
+	
+	//checks if the string ia an integer, very ugly dont look here please
+	public static boolean isInteger(String s) {
+		if(s.equals("1") || s.equals("2") ||  s.equals("3") ||  s.equals("4") ||  s.equals("5") || s.equals("6") || s.equals("7") || s.equals("8") || s.equals("9")){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 }
