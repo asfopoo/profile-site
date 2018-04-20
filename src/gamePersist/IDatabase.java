@@ -17,5 +17,7 @@ public interface IDatabase {
 	public void insertPlayerLocation(String area);
 	public String getPlayerLocation();
 	ArrayList<String> getNextArea(String choice) throws SQLException;
+	String getCurrentArea(String username);
+	void setCurrentArea(String area, String username);
 
 }

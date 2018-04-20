@@ -124,7 +124,7 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		//Loads from database
 		ArrayList<String> content = new ArrayList<String>();
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
-
+		System.out.println(id);
 		//Selects the entire area databse
 		try {
 			stmt = conn.prepareStatement(
@@ -184,7 +184,7 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		//uses database
 		ArrayList<String> content = new ArrayList<String>();
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
-
+		System.out.println(choice);
 		//selects the area db
 		try {
 			stmt = conn.prepareStatement("select * from area " + "where area_id = ?"
@@ -262,12 +262,13 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 			if (!resultSet.next()) { /// if username doesnt exist
 
 				stmt2 = conn.prepareStatement( // enter username
-						"insert into login(userName, password, email, type)" + "values(?, ?, ?, ?)");
+						"insert into login(userName, password, email, type, area)" + "values(?, ?, ?, ?, ?)");
 
 				stmt2.setString(1, userName);
 				stmt2.setString(2, pass);
 				stmt2.setString(3, email);
 				stmt2.setString(4, "1");
+				stmt2.setString(5, "1");
 
 				stmt2.execute();
 				
@@ -359,6 +360,94 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		}
 		return false;
 		
+	}
+///////////////////////////////////////////////////////////////////////////////////
+/////////////////////GET CURRENT AREA////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////	
+	public String getCurrentArea(String username) { 
+		// Checks if the user exist and if the password matches
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet resultSet = null;
+		String area = null;
+		boolean exist = false;
+		int count = 0;
+
+		try {
+
+			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+
+			// retreive username attribute from login
+			stmt = conn.prepareStatement("select area" // user attribute
+					+ "  from login " // from login table
+					+ "  where userName = ?"
+
+			);
+
+			stmt.setString(1, username);
+			
+			// execute the query
+			resultSet = stmt.executeQuery();
+
+			// harry = resultSet.getString("username");/// this might not work
+			resultSet.next();
+				area = resultSet.getString(1);
+				System.out.println(area);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(conn);
+		}
+		return area;
+
+	}
+///////////////////////////////////////////////////////////////////////////////////
+/////////////////////GET CURRENT AREA////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////	
+	public void setCurrentArea(String area, String username) {
+		// Checks if the user exist and if the password matches
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet resultSet = null;
+		
+		try {
+
+			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+
+			// retreive username attribute from login
+			stmt = conn.prepareStatement("update login" // user attribute
+					+ "  set area = ?" // from login table
+					+ "  where userName = ?"
+
+			);
+
+			stmt.setString(1, area);
+			stmt.setString(2, username);
+
+			// execute the query
+			stmt.executeUpdate();
+
+			// harry = resultSet.getString("username");/// this might not work
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(conn);
+		}
+
 	}
 ///////////////////////////////////////////////////////////////////////////////////
 /////////////////////INSERT USER INVENTORY////////////////////////////////////
@@ -732,9 +821,10 @@ public String getPlayerLocation() {
 						"	login_id integer primary key " +
 						"		generated always as identity (start with 1, increment by 1), " +									
 						"	userName varchar(40)," +
-						"	password varchar(100)," +
+						"	password varchar(100),"+
 						"   email varchar(40),"    +
-						"   type varchar(40)"      +
+						"   type varchar(40),"     +
+						"   area varchar(40)"      +
 						")"
 					);	
 					stmt1.executeUpdate();
