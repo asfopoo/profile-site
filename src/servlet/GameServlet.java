@@ -112,6 +112,10 @@ public class GameServlet extends HttpServlet {
 						controller.addItem(model.getLighter()); //Added lighter to users inventory
 					}else if(item.equalsIgnoreCase("bandaids")){
 						controller.addItem(model.getBandAids()); //Added lighter to users inventory
+					}else if(item.equalsIgnoreCase("tp")){
+						controller.addItem(model.getToiletPaper()); //Added lighter to users inventory
+					}else if(item.equalsIgnoreCase("shampoo")){
+						controller.addItem(model.getShampoo()); //Added lighter to users inventory
 					}
 				}
 				db.setCurrentArea(level, username);
