@@ -21,6 +21,10 @@ public class EditorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
+		//checks if account it a real account
+		//fake db stuff//FakeUserDB db = new FakeUserDB();
+		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
+		IDatabase db = DatabaseProvider.getInstance();
 		System.out.println("Editor Servlet: doGet");
 		
 		String username = (String) req.getSession().getAttribute("username");
@@ -28,7 +32,11 @@ public class EditorServlet extends HttpServlet {
 			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 		}
 		else {
-		req.getRequestDispatcher("/_view/editor.jsp").forward(req, resp);
+			if(db.checkAccess(username).equals("2")){
+				req.getRequestDispatcher("/_view/editor.jsp").forward(req, resp);
+			}else{
+				req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
+			}
 		}
 	}	
 	

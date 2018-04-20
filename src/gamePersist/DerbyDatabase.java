@@ -361,6 +361,57 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		
 	}
 ///////////////////////////////////////////////////////////////////////////////////
+/////////////////////ACCOUNT ACCESS////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////	
+	public String checkAccess(String username){ ///checks if account exists
+		//Checks if the user exist and if the password matches
+		
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet resultSet = null;
+		String type = null;
+		boolean exist = false;
+		int count = 0;
+		
+	
+		try {
+			
+			conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+		
+			// retreive username attribute from login
+			// retreive username attribute from login
+			stmt = conn.prepareStatement("select type" // user attribute
+					+ "  from login " // from login table
+					+ "  where userName = ?"
+
+			);
+			
+			
+			stmt.setString(1, username);
+
+			// execute the query
+			resultSet = stmt.executeQuery();
+			
+			//harry = resultSet.getString("username");/// this might not work 
+			while(resultSet.next()) {
+				type = resultSet.getString(1);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(conn);
+		}
+		return type;
+		
+	}
+///////////////////////////////////////////////////////////////////////////////////
 /////////////////////GET CURRENT AREA////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////	
 	public String getCurrentArea(String username) { 

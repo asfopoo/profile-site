@@ -19,5 +19,6 @@ public interface IDatabase {
 	ArrayList<String> getNextArea(String choice) throws SQLException;
 	String getCurrentArea(String username);
 	void setCurrentArea(String area, String username);
+	String checkAccess(String username);
 
 }
