@@ -97,7 +97,8 @@ public class GameServlet extends HttpServlet {
 		try {
 			select = db.getNextArea(level); //gets second line of csv
 			//System.out.println(select + "*********************************");
-			nextAreaNumber = select.get(Integer.parseInt(choice)+8);
+			if(Integer.parseInt(choice) < 7){
+				nextAreaNumber = select.get(Integer.parseInt(choice)+8);
 			System.out.println(nextAreaNumber + "*********************************");
 			//checking for item
 			if(!nextAreaNumber.equals("*")){
@@ -130,8 +131,13 @@ public class GameServlet extends HttpServlet {
 						controller.addItem(model.getLighter()); //Added lighter to users inventory
 					}else if(item.equalsIgnoreCase("bandaids")){
 						controller.addItem(model.getBandAids()); //Added lighter to users inventory
+					}else if(item.equalsIgnoreCase("tp")){
+						controller.addItem(model.getToiletPaper()); //Added lighter to users inventory
+					}else if(item.equalsIgnoreCase("shampoo")){
+						controller.addItem(model.getShampoo()); //Added lighter to users inventory
 					}
 				}
+			}
 				db.setCurrentArea(level, username);
 				level = nextAreaNumber;
 				content = db.getArea(level);
@@ -165,4 +171,5 @@ public class GameServlet extends HttpServlet {
 			
 		req.getRequestDispatcher("/_view/game.jsp").forward(req, resp);
 	}
+	
 }
