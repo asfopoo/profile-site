@@ -112,11 +112,56 @@ public class GameServlet extends HttpServlet {
 						if(item.equalsIgnoreCase("lighter")){
 							controller.addItem(model.getLighter()); //Added lighter to users inventory
 						}else if(item.equalsIgnoreCase("bandaids")){
-							controller.addItem(model.getBandAids()); //Added lighter to users inventory
+							controller.addItem(model.getBandAids()); 
 						}else if(item.equalsIgnoreCase("tp")){
-							controller.addItem(model.getToiletPaper()); //Added lighter to users inventory
+							controller.addItem(model.getToiletPaper()); 
 						}else if(item.equalsIgnoreCase("shampoo")){
-							controller.addItem(model.getShampoo()); //Added lighter to users inventory
+							controller.addItem(model.getShampoo()); 
+						}
+						else if(item.equalsIgnoreCase("knife")){
+							controller.addItem(model.getKnife()); 
+						}
+						else if(item.equalsIgnoreCase("dogFood")){
+							controller.addItem(model.getDogFood()); 
+						}
+						else if(item.equalsIgnoreCase("fork")){
+							controller.addItem(model.getFork()); 
+						}
+						else if(item.equalsIgnoreCase("tvChanger")){
+							controller.addItem(model.getTvChanger()); 
+						}
+						else if(item.equalsIgnoreCase("battery")){
+							controller.addItem(model.getBattery()); 
+						}
+						else if(item.equalsIgnoreCase("scissors")){
+							controller.addItem(model.getScissors()); 
+						}
+						else if(item.equalsIgnoreCase("canFood")){
+							controller.addItem(model.getCanFood()); 
+						}
+						else if(item.equalsIgnoreCase("cigs")){
+							controller.addItem(model.getCigs()); 
+						}
+						else if(item.equalsIgnoreCase("candle")){
+							controller.addItem(model.getCandle()); 
+						}
+						else if(item.equalsIgnoreCase("firePoker")){
+							controller.addItem(model.getFirePoker()); 
+						}
+						else if(item.equalsIgnoreCase("change")){
+							controller.addItem(model.getChange()); 
+						}
+						else if(item.equalsIgnoreCase("gun")){
+							controller.addItem(model.getGun()); 
+						}
+						else if(item.equalsIgnoreCase("shovel")){
+							controller.addItem(model.getShovel()); 
+						}
+						else if(item.equalsIgnoreCase("flashlight")){
+							controller.addItem(model.getFlashlight()); 
+						}
+						else if(item.equalsIgnoreCase("socketSet")){
+							controller.addItem(model.getSocketSet()); 
 						}
 					}
 					db.setCurrentArea(level, username);
@@ -135,11 +180,56 @@ public class GameServlet extends HttpServlet {
 						if(item.equalsIgnoreCase("lighter")){
 							controller.addItem(model.getLighter()); //Added lighter to users inventory
 						}else if(item.equalsIgnoreCase("bandaids")){
-							controller.addItem(model.getBandAids()); //Added lighter to users inventory
+							controller.addItem(model.getBandAids()); 
 						}else if(item.equalsIgnoreCase("tp")){
-							controller.addItem(model.getToiletPaper()); //Added lighter to users inventory
+							controller.addItem(model.getToiletPaper()); 
 						}else if(item.equalsIgnoreCase("shampoo")){
-							controller.addItem(model.getShampoo()); //Added lighter to users inventory
+							controller.addItem(model.getShampoo()); 
+						}
+						else if(item.equalsIgnoreCase("knife")){
+							controller.addItem(model.getKnife()); 
+						}
+						else if(item.equalsIgnoreCase("dogFood")){
+							controller.addItem(model.getDogFood()); 
+						}
+						else if(item.equalsIgnoreCase("fork")){
+							controller.addItem(model.getFork()); 
+						}
+						else if(item.equalsIgnoreCase("tvChanger")){
+							controller.addItem(model.getTvChanger()); 
+						}
+						else if(item.equalsIgnoreCase("battery")){
+							controller.addItem(model.getBattery()); 
+						}
+						else if(item.equalsIgnoreCase("scissors")){
+							controller.addItem(model.getScissors()); 
+						}
+						else if(item.equalsIgnoreCase("canFood")){
+							controller.addItem(model.getCanFood()); 
+						}
+						else if(item.equalsIgnoreCase("cigs")){
+							controller.addItem(model.getCigs()); 
+						}
+						else if(item.equalsIgnoreCase("candle")){
+							controller.addItem(model.getCandle()); 
+						}
+						else if(item.equalsIgnoreCase("firePoker")){
+							controller.addItem(model.getFirePoker()); 
+						}
+						else if(item.equalsIgnoreCase("change")){
+							controller.addItem(model.getChange()); 
+						}
+						else if(item.equalsIgnoreCase("gun")){
+							controller.addItem(model.getGun()); 
+						}
+						else if(item.equalsIgnoreCase("shovel")){
+							controller.addItem(model.getShovel()); 
+						}
+						else if(item.equalsIgnoreCase("flashlight")){
+							controller.addItem(model.getFlashlight()); 
+						}
+						else if(item.equalsIgnoreCase("socketSet")){
+							controller.addItem(model.getSocketSet()); 
 						}
 					}
 				}
