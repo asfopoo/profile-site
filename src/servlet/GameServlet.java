@@ -47,7 +47,7 @@ public class GameServlet extends HttpServlet {
 			
 			level = db.getCurrentArea(username);
 			
-			System.out.println(level);
+			System.out.println(level + " = level");
 			//Pulling the level content from database based on level id
 			try {
 				content = db.getArea(level);
@@ -102,11 +102,13 @@ public class GameServlet extends HttpServlet {
 					nextAreaNumber = select.get(Integer.parseInt(choice)+8);
 				System.out.println(nextAreaNumber + "*********************************");
 				//checking for item
+				System.out.println("level = " + level);
 				if(!nextAreaNumber.equals("*")){
 					if(nextAreaNumber.indexOf('&') != -1){
 						String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
 						nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
 						System.out.println("There is an item, here is the name and next area: " + item + ", " + nextAreaNumber);
+						
 						
 						//lazy way of adding the correct item
 						if(item.equalsIgnoreCase("lighter")){

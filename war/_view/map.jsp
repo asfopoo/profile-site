@@ -6,10 +6,17 @@
 	<head>
 		<title>Map view</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
+		<style>  
+ 			img {  
+    		display: block;  
+ 			margin-left: auto;  
+ 			margin-right: auto;  
+		</style>  
 	</head>
 
 	<body>
 		map styling 
+		<img src="webresources/map.jpg" alt="Map" style="width:600px;height:600px;"> 
 		
 	</body>
 </html>

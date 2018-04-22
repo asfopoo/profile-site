@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,7 +11,7 @@ import gamePersist.DatabaseProvider;
 import gamePersist.DerbyDatabase;
 import gamePersist.IDatabase;
 
-public class MapServlet {
+public class MapServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -19,7 +20,7 @@ public class MapServlet {
 		
 		System.out.println("Login Servlet: doGet");
 		
-		req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp); ///// put in multiple images of maps with each with different prgress corresponding to the users progress
+		req.getRequestDispatcher("/_view/map.jsp").forward(req, resp); ///// put in multiple images of maps with each with different prgress corresponding to the users progress
 	}
 	
 	
@@ -36,7 +37,7 @@ public class MapServlet {
 		
 		
 		
-			req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp);
+			req.getRequestDispatcher("/_view/map.jsp").forward(req, resp);
 		
 		
 	}
