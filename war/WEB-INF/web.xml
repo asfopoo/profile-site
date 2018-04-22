@@ -37,6 +37,21 @@
     <servlet-class>servlet.GameServlet</servlet-class>
   </servlet>
   
+   <servlet>
+    <servlet-name>MapServlet</servlet-name>
+    <servlet-class>servlet.MapServlet</servlet-class>
+  </servlet>
+  
+   <servlet>
+    <servlet-name>InventoryServlet</servlet-name>
+    <servlet-class>servlet.InventoryServlet</servlet-class>
+  </servlet>
+  
+   <servlet>
+    <servlet-name>LinearServlet</servlet-name>
+    <servlet-class>servlet.LinearServlet</servlet-class>
+  </servlet>
+  
   
   
   <!-- Servlet mappings -->
@@ -74,6 +89,21 @@
   <servlet-mapping>
     <servlet-name>GameServlet</servlet-name>
     <url-pattern>/game</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>MapServlet</servlet-name>
+    <url-pattern>/map</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>InventoryServlet</servlet-name>
+    <url-pattern>/inventory</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>LinearServlet</servlet-name>
+    <url-pattern>/linear</url-pattern>
   </servlet-mapping>
   
  
