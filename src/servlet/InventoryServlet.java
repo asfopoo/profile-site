@@ -17,14 +17,17 @@ public class InventoryServlet extends HttpServlet {
 	public String level = null;
 	private String username = null;
 	public boolean post = false;
-	public ArrayList<String> content = new ArrayList<String>();
+	public ArrayList<String> items = new ArrayList<String>();
+	public ArrayList<Integer> size = new ArrayList<Integer>();
+	int sieze;
 
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		username = (String) req.getSession().getAttribute("username");
+		username = (String) req.getSession().getAttribute("username"); //session stuff
+		
 		if(username == null) {
 			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 		}
@@ -35,19 +38,27 @@ public class InventoryServlet extends HttpServlet {
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example ---- CITING
 		IDatabase db = DatabaseProvider.getInstance();
 		
-		level = db.getCurrentArea(username);
+		
 		try {
-			content = db.getArea(level);
+			items = db.getInventory();
+			size = db.getInventorySize();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		for(int i = 0; i < size.size(); i++) { //adds inventory sizes
+			sieze += size.get(i);
+		}
+		
+		req.setAttribute("items", items); //sets items to be used in jsp
+		req.setAttribute("size", sieze); // sets size to be used in jsp
+		
 		
 		req.getRequestDispatcher("/_view/inventory.jsp").forward(req, resp);
 		}	
 	}
-	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

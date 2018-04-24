@@ -223,6 +223,90 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		}
 	}
 
+	
+/////////////////////////////////////////////////////////////
+	////////////  GET INVENTORY        /////////////////////
+////////////////////////////////////////////////////////////
+	
+	public ArrayList<String> getInventory() throws SQLException {
+		
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
+		ResultSet resultSet = null;
+		ResultSet resultSet2 = null;
+		ArrayList<String> inventory = new ArrayList<String>();
+		
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+		
+		try {
+			stmt = conn.prepareStatement("select * from userInventory"
+
+			);
+
+			
+			resultSet = stmt.executeQuery();
+		
+			
+			//returns result in array list and returns
+			while (resultSet.next()) {
+				inventory.add(resultSet.getString(2));		
+				
+			}
+			return inventory;
+
+		} finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(resultSet2);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(conn);
+		}
+		
+	}
+	
+//////////////////////////////////////////////////////////////////////
+///////////////////GET INVENTORY SIZE///////////////////////////////
+////////////////////////////////////////////////////////////////////////
+	
+	public ArrayList<Integer> getInventorySize() throws SQLException {
+		
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
+		ResultSet resultSet = null;
+		ResultSet resultSet2 = null;
+		ArrayList<Integer> size = new ArrayList<Integer>();
+		
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+		
+		try {
+			stmt = conn.prepareStatement("select * from userInventory"
+
+			);
+
+			
+			resultSet = stmt.executeQuery();
+		
+			
+			//returns result in array list and returns
+			while (resultSet.next()) {
+				size.add(resultSet.getInt(4));		
+				
+			}
+			return size;
+
+		} finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(resultSet2);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(conn);
+		}
+		
+	}
+	
+	
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////// REGISTER ACCOUNT////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
