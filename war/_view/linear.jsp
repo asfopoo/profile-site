@@ -13,7 +13,7 @@
 		<div class="options">
 		<body>
 			<div class="picture">
-				<img src="webresources/${pic}" alt="Linear Image">  //float right pic of car
+				<img src="webresources/car.gif" alt="Linear Image">  
 			</div>
 			//// need a linear bar across the screen
 			<div class="para">
@@ -33,7 +33,7 @@
 			</p>
 			
 				<form method = "get" action="/OrganTrail/inventory">
-					<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Inventory</button>			//// style buttons	
+					<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Inventory</button>
 				</form>
 				
 				<form method = "get" action="/OrganTrail/map">
