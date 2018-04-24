@@ -15,13 +15,23 @@ import gamePersist.hashSHA256;
 public class LinearServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	private String username = null;
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
+		username = (String) req.getSession().getAttribute("username"); //session stuff
+		
+		if(username == null) {
+			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+		}
+		else {
 		System.out.println("Login Servlet: doGet");
 		
 		req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp);
-	}
+	
+		}
+	}	
 	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)

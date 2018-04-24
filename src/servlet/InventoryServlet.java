@@ -19,7 +19,7 @@ public class InventoryServlet extends HttpServlet {
 	public boolean post = false;
 	public ArrayList<String> items = new ArrayList<String>();
 	public ArrayList<Integer> size = new ArrayList<Integer>();
-	int sieze;
+	int sieze = 0;
 
 	private static final long serialVersionUID = 1L;
 	
