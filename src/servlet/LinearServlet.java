@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,12 @@ import gamePersist.hashSHA256;
 public class LinearServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	private Random rand;
 	private String username = null;
+	boolean line = true;
+	int level = 0;
+	
+	
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -26,18 +32,41 @@ public class LinearServlet extends HttpServlet {
 			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 		}
 		else {
-		System.out.println("Login Servlet: doGet");
-		
-		req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp);
-	
-		}
+			System.out.println("Linear Servlet: doGet");
+			
+			//while(line == true) {
+				req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp);
+				/*try        
+				{
+				    Thread.sleep(6000);// delays text
+				} 
+				catch(InterruptedException ex) 
+				{
+				    Thread.currentThread().interrupt();
+				}
+				rand = new Random();
+				level = rand.nextInt(50);
+				req.setAttribute("para", level);
+				
+				req.getRequestDispatcher("/_view/linePara.jsp").forward(req, resp);
+				
+				try        
+				{
+				    Thread.sleep(6000);// delays text
+				} 
+				catch(InterruptedException ex) 
+				{
+				    Thread.currentThread().interrupt();
+				}
+			}  */
+		} 
 	}	
 	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Login Servlet: doPost");
+		System.out.println("Linear Servlet: doPost");
 		
 		//checks if account it a real account
 		//FakeUserDB db = new FakeUserDB(); fake database
