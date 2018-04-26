@@ -190,7 +190,7 @@ public class Game {
 		return flashlight;
 	}
 	public Item getSocketSet() {
-		return bandAids;
+		return socketSet;
 	}
 	public Item getBandAids() {
 		return bandAids;
