@@ -16,9 +16,7 @@
 				<img src="webresources/car.gif" alt="Linear Image">  
 			</div>
 			//// need a linear bar across the screen
-			<div class="para">
-				<c:out value="${para}" escapeXml="false" />
-			</div>
+			
 		<br>
 		<br>
 		<br>

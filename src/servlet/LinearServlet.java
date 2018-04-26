@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.servlet.ServletException;
@@ -19,12 +21,16 @@ public class LinearServlet extends HttpServlet {
 	private Random rand;
 	private String username = null;
 	boolean line = true;
-	int level = 0;
-	
-	
+	String level = null;
+	String page = null;
+	int count = 0;
+	public ArrayList<String> content = new ArrayList<String>();
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example-- CITING
+		IDatabase db = DatabaseProvider.getInstance();
+		
 		
 		username = (String) req.getSession().getAttribute("username"); //session stuff
 		
@@ -34,31 +40,51 @@ public class LinearServlet extends HttpServlet {
 		else {
 			System.out.println("Linear Servlet: doGet");
 			
-			//while(line == true) {
-				req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp);
-				/*try        
-				{
-				    Thread.sleep(6000);// delays text
-				} 
-				catch(InterruptedException ex) 
-				{
-				    Thread.currentThread().interrupt();
-				}
-				rand = new Random();
-				level = rand.nextInt(50);
-				req.setAttribute("para", level);
+			while(line == true) {
+				System.out.println(count);
 				
-				req.getRequestDispatcher("/_view/linePara.jsp").forward(req, resp);
-				
-				try        
-				{
-				    Thread.sleep(6000);// delays text
-				} 
-				catch(InterruptedException ex) 
-				{
-				    Thread.currentThread().interrupt();
+				if(count == 0) {
+					page = "linePara.jsp";
+					
 				}
-			}  */
+				else if(count%2 == 1) {
+					// need to display no message
+					page = "linear.jsp";
+					
+				}
+				else if(count%2 == 0) {
+					rand = new Random();
+					//level = rand.nextInt(25+1);
+					level = "3"; ///////////////////needs changed to random and new table
+					
+					//need to display random message
+					try {
+						content = db.getArea(level);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					String para = content.get(2);
+					req.setAttribute("para",para);
+					page = "linePara.jsp";
+					
+
+				
+				}
+				
+				req.getRequestDispatcher("/_view/" + page).forward(req, resp);
+				count++;
+				
+				try{  
+					Thread.sleep(4000);// delays text  
+				}   
+				catch(InterruptedException ex){  
+					Thread.currentThread().interrupt();  
+				}
+			}			
+			
+					
 		} 
 	}	
 	
@@ -68,8 +94,7 @@ public class LinearServlet extends HttpServlet {
 		
 		System.out.println("Linear Servlet: doPost");
 		
-		//checks if account it a real account
-		//FakeUserDB db = new FakeUserDB(); fake database
+		
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example-- CITING
 		IDatabase db = DatabaseProvider.getInstance();
 		
