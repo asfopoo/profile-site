@@ -10,15 +10,36 @@
 	</head>
 
 	
-		<div class="options">
+		<div class="options">     <!-- javascript modeled from w3 schools example -->
 		<body>
 			<div class="picture">
 				<img src="webresources/car.gif" alt="Linear Image">  
 			</div>
 			//// need a linear bar across the screen
 			<div class="para">
-				<c:out value="${para}" escapeXml="false" />
+				<c:out value="${para2}" escapeXml="false" />
 			</div>
+			
+			<button onclick="timedText()">Try it</button>
+
+			<p id="demo">Click on "Try it". I will display when two, four, and six seconds have passed.</p>
+			
+			<script>
+				function timedText() {
+				    setTimeout(myTimeout1, 2000) 
+				    setTimeout(myTimeout2, 4000) 
+				    setTimeout(myTimeout3, 6000) 
+				}
+				function myTimeout1() {
+				    document.getElementById("demo").innerHTML = "${para3}";
+				}
+				function myTimeout2() {
+				    document.getElementById("demo").innerHTML = "${para4}";
+				}
+				function myTimeout3() {
+				    document.getElementById("demo").innerHTML = "${para5}";
+				}
+			</script>
 		<br>
 		<br>
 		<br>

@@ -16,7 +16,7 @@
 				<img src="webresources/car.gif" alt="Linear Image">  
 			</div>
 			//// need a linear bar across the screen
-			
+		
 		<br>
 		<br>
 		<br>

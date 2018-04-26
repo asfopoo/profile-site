@@ -40,38 +40,29 @@ public class LinearServlet extends HttpServlet {
 		else {
 			System.out.println("Linear Servlet: doGet");
 			
-			while(line == true) {
-				System.out.println(count);
-				
-				if(count == 0) {
-					page = "linePara.jsp";
-					
-				}
-				else if(count%2 == 1) {
-					// need to display no message
-					page = "linear.jsp";
-					
-				}
-				else if(count%2 == 0) {
-					rand = new Random();
+			
+					//rand = new Random();
 					//level = rand.nextInt(25+1);
-					level = "3"; ///////////////////needs changed to random and new table
+					//level = "3"; ///////////////////needs changed to random and new table
 					
 					//need to display random message
+				for(int i = 0; i  < 25; i++) {
 					try {
-						content = db.getArea(level);
+						
+						content = db.getArea((String.valueOf(i + 1)));
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					
 					String para = content.get(2);
-					req.setAttribute("para",para);
-					page = "linePara.jsp";
+					req.setAttribute("para" + (i+1),para);
+					
 					
 
-				
 				}
+				page = "linePara.jsp";
+		}
 				
 				req.getRequestDispatcher("/_view/" + page).forward(req, resp);
 				count++;
@@ -83,10 +74,6 @@ public class LinearServlet extends HttpServlet {
 					Thread.currentThread().interrupt();  
 				}
 			}			
-			
-					
-		} 
-	}	
 	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
