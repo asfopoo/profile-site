@@ -18,5 +18,13 @@
 		map styling 
 		<img src="webresources/map.jpg" alt="Map" style="width:600px;height:600px;"> 
 		
+		<br>
+		<br>
+		<br>
+		<div>
+			<form method = "get" action="/OrganTrail/linear">
+				<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Go Back</button>
+			</form>
+		</div>
 	</body>
 </html>

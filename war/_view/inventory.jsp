@@ -21,5 +21,13 @@
 			Inventory Size = <c:out value="${size}" escapeXml="false"/> /35  (whatever we choose)
 		</div>
 		
+		<br>
+		<br>
+		<br>
+		<div>
+			<form method = "get" action="/OrganTrail/linear">
+				<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Go Back</button>
+			</form>
+		</div>
 	</body>
 </html>
