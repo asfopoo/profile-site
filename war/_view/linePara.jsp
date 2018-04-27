@@ -28,11 +28,13 @@
 				var count = 0;
 				var time1 = 3000;
 				var time2 = 6000;
+				var time3 = 9000;
 				
 				
 				function timedText() {
 				    setTimeout(myTimeout1, time1) 
 				    setTimeout(myTimeout2, time2) 
+				    setTimeout(myTimeout3, time3) 
 				}   
 
 				function myTimeout1() {
@@ -46,6 +48,10 @@
 					count++;
 				}
 				
+				function myTimeout3() {
+					document.getElementById("demo").innerHTML = "${para3}";
+					count++;
+				}
 					
 					
 			</script>

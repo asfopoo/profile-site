@@ -47,7 +47,7 @@ public class LinearServlet extends HttpServlet {
 					//level = "3"; ///////////////////needs changed to random and new table
 					
 					//need to display random message
-				for(int i = 0; i  < 2; i++) {
+				for(int i = 0; i  < 3; i++) {
 					try {
 						
 						content = db.getLinearArea((String.valueOf(i + 1)));
@@ -68,12 +68,7 @@ public class LinearServlet extends HttpServlet {
 				req.getRequestDispatcher("/_view/" + page).forward(req, resp);
 				count++;
 				
-				try{  
-					Thread.sleep(4000);// delays text  
-				}   
-				catch(InterruptedException ex){  
-					Thread.currentThread().interrupt();  
-				}
+				
 			}			
 	
 	
