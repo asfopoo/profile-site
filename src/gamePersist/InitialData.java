@@ -81,12 +81,12 @@ public class InitialData {
 	
 	public static List<LinearArea> getLinearArea() throws IOException { //reads areas from csv
 		List<LinearArea> linearAreaList = new ArrayList<LinearArea>();
-		ReadCSV readArea = new ReadCSV("linearArea.csv");
+		ReadCSV readLinearArea = new ReadCSV("linearArea.csv");
 		try {
 			// auto-generated primary key for authors table
 			Integer itemId = 1;
 			while (true) {
-				List<String> tuple = readArea.next();
+				List<String> tuple = readLinearArea.next();
 				if (tuple == null) {
 					break;
 				}
@@ -96,13 +96,14 @@ public class InitialData {
 				linearArea.setLinearAreaInventoryId(itemId++);
 				linearArea.setName(i.next());
 				linearArea.setPara(i.next());
+				linearAreaList.add(linearArea);
 				
 			}
 			System.out.println(itemId);
 			System.out.println("linearArea populated ");
 			return linearAreaList;
 		} finally {
-			readArea.close();
+			readLinearArea.close();
 		}
 	}
 }
