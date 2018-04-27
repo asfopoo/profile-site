@@ -17,8 +17,10 @@ public interface IDatabase {
 	
 	ArrayList<String> getArea(String id) throws SQLException;
 	ArrayList<String> getInventory() throws SQLException;
-	ArrayList<Integer> getInventorySize() throws SQLException;
 	ArrayList<String> getNextArea(String choice) throws SQLException;
+	ArrayList<String> getLinearArea(String choice) throws SQLException;
+	
+	ArrayList<Integer> getInventorySize() throws SQLException;
 	
 	void insertPlayerLocation(String area);
 	void setCurrentArea(String area, String username);

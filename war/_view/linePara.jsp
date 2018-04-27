@@ -17,28 +17,37 @@
 			</div>
 			//// need a linear bar across the screen
 			<div class="para">
-				<c:out value="${para2}" escapeXml="false" />
+				<p id="demo"></p>
 			</div>
 			
-			<button onclick="timedText()">Try it</button>
+			<button onclick="timedText()">Start</button>
 
-			<p id="demo">Click on "Try it". I will display when two, four, and six seconds have passed.</p>
+			
 			
 			<script>
+				var count = 0;
+				var time1 = 3000;
+				var time2 = 6000;
+				
+				
 				function timedText() {
-				    setTimeout(myTimeout1, 2000) 
-				    setTimeout(myTimeout2, 4000) 
-				    setTimeout(myTimeout3, 6000) 
-				}
+				    setTimeout(myTimeout1, time1) 
+				    setTimeout(myTimeout2, time2) 
+				}   
+
 				function myTimeout1() {
-				    document.getElementById("demo").innerHTML = "${para3}";
-				}
+					document.getElementById("demo").innerHTML = "${para1}";
+					count++;
+						
+				}	
+					
 				function myTimeout2() {
-				    document.getElementById("demo").innerHTML = "${para4}";
+					document.getElementById("demo").innerHTML = "${para4}";
+					count++;
 				}
-				function myTimeout3() {
-				    document.getElementById("demo").innerHTML = "${para5}";
-				}
+				
+					
+					
 			</script>
 		<br>
 		<br>

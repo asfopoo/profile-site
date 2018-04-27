@@ -12,6 +12,7 @@ import java.util.List;
 import entity.Area;
 import entity.Item;
 import entity.ItemType;
+import entity.LinearArea;
 import gamePersist.DBUtil;
 
 public class DerbyDatabase implements IDatabase { /// most of the gamePersist package taken from Lab06 ----CITING
@@ -223,6 +224,70 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		}
 	}
 
+	
+//////////////////////////////////////////////////////////////////
+///////////////////GET LINEAR AREA////////////////////////////////
+////////////////////////////////////////////////////////////////
+	
+	public ArrayList<String> getLinearArea(String choice) throws SQLException {
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
+		PreparedStatement stmt3 = null;
+		PreparedStatement stmt4 = null;
+		PreparedStatement stmt5 = null;
+		PreparedStatement stmt6 = null;
+		ResultSet resultSet = null;
+		ResultSet resultSet2 = null;
+		ResultSet resultSet3 = null;
+		ResultSet resultSet4 = null;
+		ResultSet resultSet5 = null;
+
+		//uses database
+		ArrayList<String> content = new ArrayList<String>();
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+
+		//selects the area db
+		try {
+			stmt = conn.prepareStatement("select * from linearArea " + "where area_id = ?"
+
+			);
+
+			//puts area id into sql statement
+			stmt.setString(1, choice);
+
+			resultSet = stmt.executeQuery();
+			//int i = 0;
+			
+			//returns result in array list and returns
+			while (resultSet.next()) {
+				for(int i = 0; i < 3; i++){
+					content.add(resultSet.getString(i + 1));
+					//System.out.println(resultSet.getString(i + 1));
+				}
+				//i++;
+				
+			}
+			return content;
+
+		} finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(resultSet2);
+			DBUtil.closeQuietly(resultSet3);
+			DBUtil.closeQuietly(resultSet4);
+			DBUtil.closeQuietly(resultSet5);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(stmt3);
+			DBUtil.closeQuietly(stmt4);
+			DBUtil.closeQuietly(stmt5);
+			DBUtil.closeQuietly(stmt6);
+			DBUtil.closeQuietly(conn);
+		}
+	}
+
+	
 	
 /////////////////////////////////////////////////////////////
 	////////////  GET INVENTORY        /////////////////////
@@ -882,17 +947,21 @@ public String getPlayerLocation() {
 			public Boolean execute(Connection conn) throws SQLException {
 				List<Item> houseItems;
 				List<Area> areaList;
+				List<LinearArea> linearAreaList;
 				
 				try {
 					houseItems = InitialData.getHouseItems();
 					areaList = InitialData.getArea();
+					linearAreaList = InitialData.getLinearArea();
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
 
 				PreparedStatement insertHouseItem = null;
 				PreparedStatement insertArea = null;
+				PreparedStatement insertLinearArea = null;
 
+				
 				try {
 					// populate houseItems table 
 					insertHouseItem = conn.prepareStatement("insert into houseItems (itemName, itemType, size) values (?, ?, ?)");
@@ -928,10 +997,20 @@ public String getPlayerLocation() {
 					
 					insertArea.executeBatch();
 					
+					insertLinearArea = conn.prepareStatement("insert into linearArea(areaName, para) values (?, ?)");
+					for (LinearArea linearArea : linearAreaList) {
+						insertLinearArea.setString(1, linearArea.getName());
+						insertLinearArea.setString(2, linearArea.getPara());
+						insertLinearArea.addBatch();
+					}
+					
+					insertLinearArea.executeBatch();
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertHouseItem);
 					DBUtil.closeQuietly(insertArea);
+					DBUtil.closeQuietly(insertLinearArea);
 				}
 			}
 		});
@@ -947,6 +1026,7 @@ public String getPlayerLocation() {
 				PreparedStatement stmt3 = null;
 				PreparedStatement stmt4 = null;
 				PreparedStatement stmt5 = null;
+				PreparedStatement stmt6 = null;
 				
 				
 				try {
@@ -1008,14 +1088,25 @@ public String getPlayerLocation() {
 						);	
 					stmt4.executeUpdate();
 					
-					stmt5 = conn.prepareStatement( //creates playerLocation table
+					stmt5 = conn.prepareStatement( //creates house inventory 
+							"create table area (" +
+							"	area_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +									
+							"	areaName varchar(40),"
+							+ " para varchar(1000)" +
+							
+							")"
+						);	
+					stmt5.executeUpdate();
+					
+					stmt6 = conn.prepareStatement( //creates playerLocation table
 							"create table playerLocation (" +
 							"	location_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +									
 							"	area varchar(40)" +
 							")"
 						);	
-						stmt5.executeUpdate();
+					stmt6.executeUpdate();
 					
 					
 					return true;
@@ -1024,6 +1115,8 @@ public String getPlayerLocation() {
 					DBUtil.closeQuietly(stmt2);
 					DBUtil.closeQuietly(stmt3);
 					DBUtil.closeQuietly(stmt4);
+					DBUtil.closeQuietly(stmt5);
+					DBUtil.closeQuietly(stmt6);
 				}
 			}
 		});

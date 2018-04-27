@@ -7,6 +7,7 @@ import java.util.List;
 
 import entity.Area;
 import entity.Item;
+import entity.LinearArea;
 
 
 
@@ -73,6 +74,33 @@ public class InitialData {
 			System.out.println(itemId);
 			System.out.println("area populated ");
 			return areaList;
+		} finally {
+			readArea.close();
+		}
+	}
+	
+	public static List<LinearArea> getLinearArea() throws IOException { //reads areas from csv
+		List<LinearArea> linearAreaList = new ArrayList<LinearArea>();
+		ReadCSV readArea = new ReadCSV("linearArea.csv");
+		try {
+			// auto-generated primary key for authors table
+			Integer itemId = 1;
+			while (true) {
+				List<String> tuple = readArea.next();
+				if (tuple == null) {
+					break;
+				}
+				Iterator<String> i = tuple.iterator();
+				LinearArea linearArea = new LinearArea(null, null);
+				System.out.println(itemId);
+				linearArea.setLinearAreaInventoryId(itemId++);
+				linearArea.setName(i.next());
+				linearArea.setPara(i.next());
+				
+			}
+			System.out.println(itemId);
+			System.out.println("area populated ");
+			return linearAreaList;
 		} finally {
 			readArea.close();
 		}

@@ -32,12 +32,13 @@ public class LinearServlet extends HttpServlet {
 		IDatabase db = DatabaseProvider.getInstance();
 		
 		
-		username = (String) req.getSession().getAttribute("username"); //session stuff
+//		username = (String) req.getSession().getAttribute("username"); //session stuff
 		
-		if(username == null) {
-			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
-		}
-		else {
+//		if(username == null) {
+//			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+//		}
+//		else 
+		{
 			System.out.println("Linear Servlet: doGet");
 			
 			
