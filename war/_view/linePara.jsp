@@ -42,7 +42,7 @@
 				}	
 					
 				function myTimeout2() {
-					document.getElementById("demo").innerHTML = "${para4}";
+					document.getElementById("demo").innerHTML = "${para2}";
 					count++;
 				}
 				

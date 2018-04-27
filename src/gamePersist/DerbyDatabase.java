@@ -997,7 +997,7 @@ public String getPlayerLocation() {
 					
 					insertArea.executeBatch();
 					
-					insertLinearArea = conn.prepareStatement("insert into linearArea(areaName, para) values (?, ?)");
+					insertLinearArea = conn.prepareStatement("insert into linearArea (areaName, para) values (?, ?)");
 					for (LinearArea linearArea : linearAreaList) {
 						insertLinearArea.setString(1, linearArea.getName());
 						insertLinearArea.setString(2, linearArea.getPara());
@@ -1089,7 +1089,7 @@ public String getPlayerLocation() {
 					stmt4.executeUpdate();
 					
 					stmt5 = conn.prepareStatement( //creates house inventory 
-							"create table area (" +
+							"create table linearArea (" +
 							"	area_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +									
 							"	areaName varchar(40),"

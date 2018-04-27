@@ -99,7 +99,7 @@ public class InitialData {
 				
 			}
 			System.out.println(itemId);
-			System.out.println("area populated ");
+			System.out.println("linearArea populated ");
 			return linearAreaList;
 		} finally {
 			readArea.close();
