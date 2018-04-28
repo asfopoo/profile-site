@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.Area;
+import entity.Health;
 import entity.Item;
 import entity.ItemType;
 import entity.LinearArea;
@@ -948,11 +949,13 @@ public String getPlayerLocation() {
 				List<Item> houseItems;
 				List<Area> areaList;
 				List<LinearArea> linearAreaList;
+				List<Health> healthList;
 				
 				try {
 					houseItems = InitialData.getHouseItems();
 					areaList = InitialData.getArea();
 					linearAreaList = InitialData.getLinearArea();
+					healthList = InitialData.getHealth();
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
@@ -960,6 +963,7 @@ public String getPlayerLocation() {
 				PreparedStatement insertHouseItem = null;
 				PreparedStatement insertArea = null;
 				PreparedStatement insertLinearArea = null;
+				PreparedStatement insertHealth = null;
 
 				
 				try {
@@ -1006,11 +1010,20 @@ public String getPlayerLocation() {
 					
 					insertLinearArea.executeBatch();
 					
+					insertHealth = conn.prepareStatement("insert into health (health) values (?)");
+					for (Health health : healthList) {
+						insertHealth.setString(1, health.getHealth());
+						insertHealth.addBatch();
+					}
+					
+					insertHealth.executeBatch();
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertHouseItem);
 					DBUtil.closeQuietly(insertArea);
 					DBUtil.closeQuietly(insertLinearArea);
+					DBUtil.closeQuietly(insertHealth);
 				}
 			}
 		});
@@ -1027,6 +1040,7 @@ public String getPlayerLocation() {
 				PreparedStatement stmt4 = null;
 				PreparedStatement stmt5 = null;
 				PreparedStatement stmt6 = null;
+				PreparedStatement stmt7 = null;
 				
 				
 				try {
@@ -1108,6 +1122,16 @@ public String getPlayerLocation() {
 						);	
 					stmt6.executeUpdate();
 					
+					stmt7 = conn.prepareStatement( //creates house inventory 
+							"create table health (" +
+							"	area_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +									
+							"	health varchar(40)" +
+							")"
+						);	
+					stmt7.executeUpdate();
+					
+					
 					
 					return true;
 				} finally {
@@ -1117,6 +1141,7 @@ public String getPlayerLocation() {
 					DBUtil.closeQuietly(stmt4);
 					DBUtil.closeQuietly(stmt5);
 					DBUtil.closeQuietly(stmt6);
+					DBUtil.closeQuietly(stmt7);
 				}
 			}
 		});

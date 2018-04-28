@@ -13,7 +13,7 @@ public class LinearArea {
 		
 	}
 	
-	public void setLinearAreaInventoryId(int areaInventoryId) {
+	public void setLinearAreaInventoryId(int linearareaInventoryId) {
 		this.linearAreaInventoryId = linearAreaInventoryId;
 	}
 	public int getLinearAreaInventoryId() {

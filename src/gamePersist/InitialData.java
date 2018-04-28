@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import entity.Area;
+import entity.Health;
 import entity.Item;
 import entity.LinearArea;
 
@@ -104,6 +105,33 @@ public class InitialData {
 			return linearAreaList;
 		} finally {
 			readLinearArea.close();
+		}
+	}
+	
+	public static List<Health> getHealth() throws IOException { //reads areas from csv
+		List<Health> healthList = new ArrayList<Health>();
+		ReadCSV readHealth = new ReadCSV("health.csv");
+		try {
+			// auto-generated primary key for authors table
+			Integer itemId = 1;
+			while (true) {
+				List<String> tuple = readHealth.next();
+				if (tuple == null) {
+					break;
+				}
+				Iterator<String> i = tuple.iterator();
+				Health health = new Health(null);
+				System.out.println(itemId);
+				health.setHealthInventoryId(itemId++);
+				health.setHealth(i.next());
+				healthList.add(health);
+				
+			}
+			System.out.println(itemId);
+			System.out.println("health populated ");
+			return healthList;
+		} finally {
+			readHealth.close();
 		}
 	}
 }
