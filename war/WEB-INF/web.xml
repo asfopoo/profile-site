@@ -52,6 +52,11 @@
     <servlet-class>servlet.LinearServlet</servlet-class>
   </servlet>
   
+  <servlet>
+    <servlet-name>HealthServlet</servlet-name>
+    <servlet-class>servlet.HealthServlet</servlet-class>
+  </servlet>
+  
   
   
   <!-- Servlet mappings -->
@@ -104,6 +109,11 @@
    <servlet-mapping>
     <servlet-name>LinearServlet</servlet-name>
     <url-pattern>/linear</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>HealthServlet</servlet-name>
+    <url-pattern>/health</url-pattern>
   </servlet-mapping>
   
  

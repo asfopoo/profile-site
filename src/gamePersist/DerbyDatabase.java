@@ -372,6 +372,47 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 		
 	}
 	
+////////////////////////////////////////////////////////////////////////////
+	///////////////////////Get HEALTH SIZE/////////////////////////////////
+	////////////////////////////////////////////////////////////////////////
+	
+public ArrayList<Integer> getHealthSize() throws SQLException {
+		
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		PreparedStatement stmt2 = null;
+		ResultSet resultSet = null;
+		ResultSet resultSet2 = null;
+		ArrayList<Integer> size = new ArrayList<Integer>();
+		
+		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+		
+		try {
+			stmt = conn.prepareStatement("select * from health"
+
+			);
+
+			
+			resultSet = stmt.executeQuery();
+		
+			
+			//returns result in array list and returns
+			while (resultSet.next()) {
+				size.add(resultSet.getInt(2));		
+				
+			}
+			return size;
+
+		} finally {
+			DBUtil.closeQuietly(resultSet);
+			DBUtil.closeQuietly(resultSet2);
+			DBUtil.closeQuietly(stmt);
+			DBUtil.closeQuietly(stmt2);
+			DBUtil.closeQuietly(conn);
+		}
+		
+	}
+	
 	
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////// REGISTER ACCOUNT////////////////////////////////////

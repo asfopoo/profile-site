@@ -18,7 +18,7 @@ public class MapServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Login Servlet: doGet");
+		System.out.println("map Servlet: doGet");
 		
 		req.getRequestDispatcher("/_view/map.jsp").forward(req, resp); ///// put in multiple images of maps with each with different prgress corresponding to the users progress
 	}
@@ -27,7 +27,7 @@ public class MapServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Login Servlet: doPost");
+		System.out.println("map Servlet: doPost");
 		
 		//checks if account it a real account
 		//FakeUserDB db = new FakeUserDB(); fake database
