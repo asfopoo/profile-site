@@ -47,7 +47,7 @@ public class LinearServlet extends HttpServlet {
 					//level = "3"; ///////////////////needs changed to random and new table
 					
 					//need to display random message
-				for(int i = 0; i  < 3; i++) {
+				for(int i = 0; i  < 12; i++) {
 					try {
 						
 						content = db.getLinearArea((String.valueOf(i + 1)));
