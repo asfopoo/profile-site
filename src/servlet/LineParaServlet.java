@@ -15,7 +15,7 @@ import gamePersist.DerbyDatabase;
 import gamePersist.IDatabase;
 import gamePersist.hashSHA256;
 
-public class LinearServlet extends HttpServlet {
+public class LineParaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private Random rand;
@@ -39,7 +39,7 @@ public class LinearServlet extends HttpServlet {
 //		}
 //		else 
 		{
-			System.out.println("Linear Servlet: doGet");
+			System.out.println("Linepara Servlet: doGet");
 			
 			
 					//rand = new Random();
@@ -62,7 +62,7 @@ public class LinearServlet extends HttpServlet {
 					
 
 				}
-				page = "linear.jsp";
+				page = "linePara.jsp";
 		}
 				
 				req.getRequestDispatcher("/_view/" + page).forward(req, resp);
@@ -75,7 +75,7 @@ public class LinearServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Linear Servlet: doPost");
+		System.out.println("LinePara Servlet: doPost");
 		
 		
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example-- CITING
@@ -84,11 +84,9 @@ public class LinearServlet extends HttpServlet {
 		
 		
 		
-			req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp);
+			req.getRequestDispatcher("/_view/linePara.jsp").forward(req, resp);
 		
 		
 	}
 
 }
-
-

@@ -57,6 +57,10 @@
     <servlet-class>servlet.HealthServlet</servlet-class>
   </servlet>
   
+  <servlet>
+    <servlet-name>LineParaServlet</servlet-name>
+    <servlet-class>servlet.LineParaServlet</servlet-class>
+  </servlet>
   
   
   <!-- Servlet mappings -->
@@ -114,6 +118,11 @@
    <servlet-mapping>
     <servlet-name>HealthServlet</servlet-name>
     <url-pattern>/health</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>LineParaServlet</servlet-name>
+    <url-pattern>/linePara</url-pattern>
   </servlet-mapping>
   
  
