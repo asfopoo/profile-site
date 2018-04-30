@@ -13,7 +13,9 @@
 		<div class="options">
 		<body>
 			<div class="picture">
-				<img src="webresources/${pic}" alt="Game Image">
+				<a href="${img}">
+					<img src="webresources/${pic}" alt="Game Image">
+				</a>
 			</div>
 			<div class="para">
 				<c:out value="${para}" escapeXml="false" />

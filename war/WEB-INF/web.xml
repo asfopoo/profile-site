@@ -13,6 +13,11 @@
   </servlet>
   
   <servlet>
+    <servlet-name>MiniGameServlet</servlet-name>
+    <servlet-class>servlet.MiniGameServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
     <servlet-name>EditorServlet</servlet-name>
     <servlet-class>servlet.EditorServlet</servlet-class>
   </servlet>
@@ -114,6 +119,11 @@
    <servlet-mapping>
     <servlet-name>HealthServlet</servlet-name>
     <url-pattern>/health</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>MiniGameServlet</servlet-name>
+    <url-pattern>/mini</url-pattern>
   </servlet-mapping>
   
  
