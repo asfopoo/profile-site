@@ -19,7 +19,9 @@
 			<div class="para">
 				<c:out value= "${para}" escapeXml= "false" />
 			</div>
-			
+			 
+			we need to display options similar to game 
+			ie. rest 6 hours, stop to look around, some minigame option, plus map and inventory
 			
 
 			
@@ -36,6 +38,10 @@
 				
 				<form method = "get" action="/OrganTrail/map">
 					<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Map</button>				
+				</form>
+				
+				<form method = "get" action="/OrganTrail/linear">
+					<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">keep moving</button>				
 				</form>
 				
 				

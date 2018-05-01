@@ -52,7 +52,8 @@ public class LineParaServlet extends HttpServlet {
 			
 			
 					rand = new Random();
-					level = (String.valueOf(rand.nextInt(13+1))); // gets random numver and sets to level
+					level = (String.valueOf(rand.nextInt(13) + 1)); // gets random numver and sets to level
+					System.out.println(level);
 					
 					
 				
