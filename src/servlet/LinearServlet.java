@@ -18,6 +18,7 @@ import gamePersist.hashSHA256;
 public class LinearServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	int size;
 	private Random rand;
 	private String username = null;
 	boolean line = true;
@@ -38,36 +39,27 @@ public class LinearServlet extends HttpServlet {
 //			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 //		}
 //		else 
-		{
+		//{
 			System.out.println("Linear Servlet: doGet");
+	
+			
+			try {
+				size = db.getHealthSize();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
-					//rand = new Random();
-					//level = rand.nextInt(25+1);
-					//level = "3"; ///////////////////needs changed to random and new table
-					
-					//need to display random message
-				for(int i = 0; i  < 3; i++) {
-					try {
-						
-						content = db.getLinearArea((String.valueOf(i + 1)));
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-					String para = content.get(2);
-					req.setAttribute("para" + (i+1),para);
-					
-					
+			req.setAttribute("size", size); // sets size to be used in jsp
 
-				}
-				page = "linePara.jsp";
-		}
+				page = "linear.jsp";
+	
 				
 				req.getRequestDispatcher("/_view/" + page).forward(req, resp);
 				count++;
-				
+	//}			
 				
 			}			
 	

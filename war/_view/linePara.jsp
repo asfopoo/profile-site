@@ -7,67 +7,65 @@
 		<title>Organ Trail</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
 		<link rel="stylesheet" href="webresources/game.css"/>
+		<style>
+			.btn-group .button {
+			    background-color: #545454; /* Green */
+			    border: none;
+			    color: white;
+			    padding: 15px 32px;
+			    text-align: center;
+			    text-decoration: none;
+			    display: inline-block;
+			    font-size: 16px;
+			    cursor: pointer;
+			    float: left;
+			    width: 500px;
+			}
+	
+			.btn-group .button:hover {
+			    background-color: #a9a9a9;
+			}
+		
+		</style>
 	</head>
 
 	
-		<div class="options">     <!-- javascript modeled from w3 schools example -->
+		<div class="options">     <!-- buttons modeled from w3 schools example -->
 		<body>
 			<div class="picture">
 				<img src="webresources/car.gif" alt="Linear Image">  
 			</div>
-			//// need a linear bar across the screen
+
 			<div class="para">
-				<p id="demo"></p>
+				<c:out value= "${para}" escapeXml= "false" />
 			</div>
-			
-			<button onclick="timedText()">Start</button>
 
-			
-			
-			<script>
-				var count = 0;
-				var time1 = 3000;
-				var time2 = 6000;
-				var time3 = 9000;
-				
-				
-				function timedText() {
-				    setTimeout(myTimeout1, time1) 
-				    setTimeout(myTimeout2, time2) 
-				    setTimeout(myTimeout3, time3) 
-				}   
-
-				function myTimeout1() {
-					document.getElementById("demo").innerHTML = "${para1}";
-					count++;
-						
-				}	
-					
-				function myTimeout2() {
-					document.getElementById("demo").innerHTML = "${para2}";
-					count++;
-				}
-				
-				function myTimeout3() {
-					document.getElementById("demo").innerHTML = "${para3}";
-					count++;
-				}
-					
-					
-			</script>
 		<br>
 		<br>
 		<br>
 		
-			
+			<div class="btn-group">
 				<form method = "get" action="/OrganTrail/inventory">
-					<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Inventory</button>
-				</form>
-				
+					<button type="submit" name="submit" class="button">Inventory</button>
+				</form>				
 				<form method = "get" action="/OrganTrail/map">
-					<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Map</button>				
+					<button type="submit" name="submit" class="button">Map</button>				
 				</form>
-				
+				<form method = "get" action="/OrganTrail/look">
+					<button type="submit" name="submit" class="button">Take a look around</button>				
+				</form>
+				<form method = "get" action="/OrganTrail/linear">
+					<button type="submit" name="submit" class="button">keep moving</button>				
+				</form>
+				<form method = "get" action="/OrganTrail/rest">
+					<button type="submit" name="submit" class="button">Rest</button>				
+				</form>
+				<form method = "get" action="/OrganTrail/minigame">
+					<button type="submit" name="submit" class="button">kill zombies</button>				
+				</form>
+			</div>	
+			
+			<p style= "clear:both"></p>
 				
 			
 		</div>
