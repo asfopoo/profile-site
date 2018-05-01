@@ -442,7 +442,7 @@ public int updateHealth(int health) throws SQLException {
 		stmt.executeUpdate();
 	
 		stmt2 = conn.prepareStatement(
-				"insert into health(area) "
+				"insert into health(health) "
 						+ "values(?)"
 	
 				);
