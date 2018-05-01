@@ -18,8 +18,7 @@ import gamePersist.hashSHA256;
 public class LinearServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public ArrayList<Integer> size = new ArrayList<Integer>();
-	int sieze = 0;
+	int size;
 	private Random rand;
 	private String username = null;
 	boolean line = true;
@@ -51,10 +50,8 @@ public class LinearServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			for(int i = 0; i < size.size(); i++) { //adds health 'stars'
-				sieze += size.get(i);
-			}
-			req.setAttribute("size", sieze); // sets size to be used in jsp
+			
+			req.setAttribute("size", size); // sets size to be used in jsp
 
 				page = "linear.jsp";
 	

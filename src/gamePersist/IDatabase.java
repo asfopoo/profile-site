@@ -14,6 +14,7 @@ public interface IDatabase {
 	int insertUserItem(int size, String name, String type);
 	int removeUserItem(int size, String name, String type);
 	int createArea(String name, String para, ArrayList<String> options) throws SQLException;
+	int getHealthSize() throws SQLException;
 	
 	ArrayList<String> getArea(String id) throws SQLException;
 	ArrayList<String> getInventory() throws SQLException;
@@ -21,7 +22,7 @@ public interface IDatabase {
 	ArrayList<String> getLinearArea(String choice) throws SQLException;
 	
 	ArrayList<Integer> getInventorySize() throws SQLException;
-	ArrayList<Integer> getHealthSize() throws SQLException;
+	
 	
 	void insertPlayerLocation(String area);
 	void setCurrentArea(String area, String username);

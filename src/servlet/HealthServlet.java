@@ -15,8 +15,8 @@ import gamePersist.IDatabase;
 
 public class HealthServlet extends HttpServlet {
 	
-	public ArrayList<Integer> size = new ArrayList<Integer>();
-	int sieze = 0;
+	
+	int size = 0;
 
 	private static final long serialVersionUID = 1L;
 	
@@ -36,10 +36,8 @@ public class HealthServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		for(int i = 0; i < size.size(); i++) { //adds health 'stars'
-			sieze += size.get(i);
-		}
-		req.setAttribute("size", sieze); // sets size to be used in jsp
+		
+		req.setAttribute("size", size); // sets size to be used in jsp
 		
 		req.getRequestDispatcher("/_view/health.jsp").forward(req, resp); ///// put in multiple images of maps with each with different prgress corresponding to the users progress
 	}

@@ -376,14 +376,14 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 	///////////////////////Get HEALTH SIZE/////////////////////////////////
 	////////////////////////////////////////////////////////////////////////
 	
-public ArrayList<Integer> getHealthSize() throws SQLException {
+public int getHealthSize() throws SQLException {
 		
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		PreparedStatement stmt2 = null;
 		ResultSet resultSet = null;
 		ResultSet resultSet2 = null;
-		ArrayList<Integer> size = new ArrayList<Integer>();
+		int health = 0;
 		
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
 		
@@ -397,11 +397,11 @@ public ArrayList<Integer> getHealthSize() throws SQLException {
 		
 			
 			//returns result in array list and returns
-			while (resultSet.next()) {
-				size.add(resultSet.getInt(2));		
+			if (resultSet.next()) {
+				health = (resultSet.getInt(2));		
 				
 			}
-			return size;
+			return health;
 
 		} finally {
 			DBUtil.closeQuietly(resultSet);
