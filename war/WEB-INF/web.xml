@@ -125,15 +125,14 @@
     <url-pattern>/health</url-pattern>
   </servlet-mapping>
   
-<<<<<<< HEAD
    <servlet-mapping>
     <servlet-name>MiniGameServlet</servlet-name>
     <url-pattern>/mini</url-pattern>
-=======
+   </servlet-mapping>
+   
   <servlet-mapping>
     <servlet-name>LineParaServlet</servlet-name>
     <url-pattern>/linePara</url-pattern>
->>>>>>> branch 'master' of https://github.com/asfopoo/CS320_OrganTrail.git
   </servlet-mapping>
   
  
