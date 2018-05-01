@@ -414,59 +414,47 @@ public int getHealthSize() throws SQLException {
 		
 	}
 	
-////////////////////////////////////////////////////////////////////////////
-///////////////////////UPDATE HEALTH SIZE/////////////////////////////////
-////////////////////////////////////////////////////////////////////////
 
 
-public int updateHealthSize(int health) throws SQLException {
-	
-	int id = 1;
+////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////UPDATE HEALTH //////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+public int updateHealth(int health) throws SQLException {
+
 	ResultSet resultSet = null;
 	Connection conn = null;
 	PreparedStatement stmt = null;
 	PreparedStatement stmt2 = null;
-	PreparedStatement stmt3 = null;
 	
 	try {
 		conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
-		
-		
-		stmt2 = conn.prepareStatement(
-				"delete from health " //will have to change at some point depending on current location
-				+ "where health_id = ?"
-				
-		);
 	
-		
-		stmt2.setInt(1, id);
-		
-		
-		stmt2.executeUpdate();
-			
+	
 		stmt = conn.prepareStatement(
-				"insert into health(health)"
-				+ "values(?)"
-				
-		);
+				"delete from health "
 	
-		stmt.setInt(1, health);
-		
-		
-		stmt.execute();
-		
-		stmt3 = conn.prepareStatement(
-				"select * from health"
-				
-		);
-		
-		resultSet = stmt3.executeQuery();
-		if(resultSet.next()) {
-			health = resultSet.getInt(2);
-		}
-		
-		
-	} 
+				);
+	
+	
+		stmt.executeUpdate();
+	
+		stmt2 = conn.prepareStatement(
+				"insert into health(area) "
+						+ "values(?)"
+	
+				);
+	
+		stmt2.setInt(1, health);
+	
+	
+		stmt2.execute();
+	
+	
+	
+		} 
 	catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -475,13 +463,11 @@ public int updateHealthSize(int health) throws SQLException {
 		DBUtil.closeQuietly(resultSet);
 		DBUtil.closeQuietly(stmt);
 		DBUtil.closeQuietly(stmt2);
-		DBUtil.closeQuietly(stmt3);
 		DBUtil.closeQuietly(conn);
 	}
-	return health;
-	
+return health;
 }
-	
+
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////// REGISTER ACCOUNT////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
