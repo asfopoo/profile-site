@@ -113,11 +113,14 @@ public class GameServlet extends HttpServlet {
 						//lazy way of adding the correct item
 						if(item.equalsIgnoreCase("lighter")){
 							controller.addItem(model.getLighter()); //Added lighter to users inventory
-						}else if(item.equalsIgnoreCase("bandaids")){
+						}
+						else if(item.equalsIgnoreCase("bandaids")){
 							controller.addItem(model.getBandAids()); 
-						}else if(item.equalsIgnoreCase("tp")){
+						}
+						else if(item.equalsIgnoreCase("tp")){
 							controller.addItem(model.getToiletPaper()); 
-						}else if(item.equalsIgnoreCase("shampoo")){
+						}
+						else if(item.equalsIgnoreCase("shampoo")){
 							controller.addItem(model.getShampoo()); 
 						}
 						else if(item.equalsIgnoreCase("knife")){
@@ -256,7 +259,7 @@ public class GameServlet extends HttpServlet {
 		
 		//Sets the choices
 		for(int i = 3; i < 9; i++){
-			if(content.get(i).equals("*")){
+			if(content.get(i).equals("*") || nextAreaNumber.indexOf('&') != -1){
 				req.setAttribute("q" + (i - 2)," ");
 			}else{
 				req.setAttribute("q" + (i - 2), (i - 2) + ": " + select.get(i));

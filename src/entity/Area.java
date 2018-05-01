@@ -45,7 +45,8 @@ public class Area {
 		
 	//}
 	
-	public Area(String name, String para, String opt1, String opt2, String opt3, String opt4, String opt5, String opt6, String lnk1, String lnk2, String lnk3, String lnk4, String lnk5, String lnk6, String picture) {
+	public Area(String name, String para, String opt1, String opt2, String opt3, String opt4, String opt5, 
+			String opt6, String lnk1, String lnk2, String lnk3, String lnk4, String lnk5, String lnk6, String picture) {
 		this.name = name;
 		this.para = para;
 		this.opt1 = opt1;

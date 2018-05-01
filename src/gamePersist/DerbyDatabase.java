@@ -202,6 +202,7 @@ public int createArea(String name, String para, ArrayList<String> options) throw
 			while (resultSet.next()) {
 				for(int i = 0; i < 16; i++){
 					content.add(resultSet.getString(i + 1));
+					System.out.println(resultSet.getString(i + 1).length());
 					//System.out.println(resultSet.getString(i + 1));
 				}
 				//i++;

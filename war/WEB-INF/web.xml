@@ -13,6 +13,11 @@
   </servlet>
   
   <servlet>
+    <servlet-name>MiniGameServlet</servlet-name>
+    <servlet-class>servlet.MiniGameServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
     <servlet-name>EditorServlet</servlet-name>
     <servlet-class>servlet.EditorServlet</servlet-class>
   </servlet>
@@ -120,9 +125,15 @@
     <url-pattern>/health</url-pattern>
   </servlet-mapping>
   
+<<<<<<< HEAD
+   <servlet-mapping>
+    <servlet-name>MiniGameServlet</servlet-name>
+    <url-pattern>/mini</url-pattern>
+=======
   <servlet-mapping>
     <servlet-name>LineParaServlet</servlet-name>
     <url-pattern>/linePara</url-pattern>
+>>>>>>> branch 'master' of https://github.com/asfopoo/CS320_OrganTrail.git
   </servlet-mapping>
   
  
