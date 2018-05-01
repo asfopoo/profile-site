@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1525145067
+#1525216718
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
@@ -15,6 +15,6 @@ icon-128.png
 icon-256.png
 loading-logo.png
 data.txt
-FileSaver.js
+new.js
 NETWORK:
 *
