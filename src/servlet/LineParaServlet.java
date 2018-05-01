@@ -54,13 +54,8 @@ public class LineParaServlet extends HttpServlet {
 					rand = new Random();
 					level = (String.valueOf(rand.nextInt(13) + 1)); // gets random numver and sets to level
 					
-					try {
-						db.updateHealthSize(db.getHealthSize() - 2);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					
+					db.insertPlayerLocation(level);
+					System.out.println(db.getPlayerLocation());
 					
 			/*		if(level == "1" || level == "3") {
 						
