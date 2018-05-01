@@ -38,32 +38,31 @@ public class LineParaServlet extends HttpServlet {
 //			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 //		}
 //		else 
-		{
+		//{
 			System.out.println("Linepara Servlet: doGet");
 			
 			
-					//rand = new Random();
-					//level = rand.nextInt(25+1);
-					//level = "3"; ///////////////////needs changed to random and new table
+					rand = new Random();
+					level = (String.valueOf(rand.nextInt(13+1))); // gets random numver and sets to level
 					
-					//need to display random message
-				for(int i = 0; i  < 12; i++) {
+					
+				
 					try {
 						
-						content = db.getLinearArea((String.valueOf(i + 1)));
+						content = db.getLinearArea((String.valueOf(level))); //gets that random line from from the linear area table
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					
 					String para = content.get(2);
-					req.setAttribute("para" + (i+1),para);
+					req.setAttribute("para", para); //sets para attribute to be used in jsp
 					
 					
 
-				}
-				page = "linePara.jsp";
-		}
+				//}
+				page = "linePara.jsp"; // different way to set the page forward address
+		
 				
 				req.getRequestDispatcher("/_view/" + page).forward(req, resp);
 				count++;

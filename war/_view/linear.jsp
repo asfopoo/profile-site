@@ -16,11 +16,10 @@
 				<img src="webresources/car.gif" alt="Linear Image">  
 			</div>
 			//// need a linear bar across the screen
-			<div class="para">
-				<p id="demo"></p>
-				
+			<div id= "delay">
+				<button onclick="timedText()"> start? </button>
 			</div>
-			<button onclick="timedText()">Start</button>
+			
 		<br>
 		<br>
 		<br>
@@ -32,9 +31,10 @@
 				}
 				
 				function myTimeout1() {
-					document.getElementById("demo").innerHTML = "test time";
-					count++;	
+					document.getElementById("delay").innerHTML = "test time";
+					window.location = "linePara";	
 				}	
+				
 				
 			</script>
 				<form method = "get" action="/OrganTrail/inventory">

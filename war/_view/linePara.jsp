@@ -17,24 +17,14 @@
 			</div>
 			//// need a linear bar across the screen
 			<div class="para">
-				<p id="demo"></p>
+				<c:out value= "${para}" escapeXml= "false" />
 			</div>
 			
-			<button onclick="myFunction()">Try it</button>
+			
 
 			
 			
-			<script>
-			
-			function myFunction() {
-				var para = "";
-			    var x = Math.floor((Math.random() * 12) + 1);
-			   	para = "${para" + x + "}";
-			    
-			    document.getElementById("demo").innerHTML = para;
-			}
-			
-			</script>
+	
 		<br>
 		<br>
 		<br>
