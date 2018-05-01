@@ -1,13 +1,13 @@
-cholera|greg got cholera
-zombie|zombies attacked your car
-cold|You have developed a cold... hopefully it isnt serious
-Zombies|There is a hoard of zombies in the distance
-abandoned car|You have come upon an abandoned car
+cholera|You veered off the road and bumped you head off your window, you lose 1 hp
+zombie|zombies attacked your car, you made it out alive but got a few bumps and scrapes, you lose 3 hp 
+cold|You have developed a cold... hopefully it isnt serious, you lose 1 hp 
+Zombies|There is a hoard of zombies in the distance, you better get moving
+abandoned car|You have come upon an abandoned car, You've found a "something"
 grave|You found a shallow grave on the side of the road
 group|Youve found a group of people, they seem hostile, best to keep moving
 tire|Your car got a flat
 car| Youve come acrossed a nicer car and the keys are in it
-guy|you met a fellow traveler, hes a smoker // need to have cigs andddddd lighter
-guy|you met a fellow traveler, his car is broken down //need to have socket set
-lady|you met a fellow traveler, shes desperate for a shower /// need to have shampoo
-lady|you met a fellow traveler, she needs batteries // for something 
+guy|you met a fellow traveler, hes a smoker // need to have cigs andddddd lighter, and he gives you something
+guy|you met a fellow traveler, his car is broken down //need to have socket set then get an item 
+lady|you met a fellow traveler, shes desperate for a shower /// need to have shampoo, she gives you an item
+lady|you met a fellow traveler, she needs batteries // for something  she gives you an item

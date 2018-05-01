@@ -41,6 +41,7 @@ public class LinearServlet extends HttpServlet {
 //		else 
 		//{
 			System.out.println("Linear Servlet: doGet");
+	
 			
 			try {
 				size = db.getHealthSize();

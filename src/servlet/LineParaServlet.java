@@ -53,10 +53,41 @@ public class LineParaServlet extends HttpServlet {
 			
 					rand = new Random();
 					level = (String.valueOf(rand.nextInt(13) + 1)); // gets random numver and sets to level
-					System.out.println(level);
+					
+					try {
+						db.updateHealthSize(db.getHealthSize() - 2);
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					
 					
-				
+			/*		if(level == "1" || level == "3") {
+						
+						try {
+							
+							db.updateHealthSize(db.getHealthSize() - 1);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					else if(level == "2") {
+						try {
+							db.updateHealthSize(db.getHealthSize() - 3);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					try {
+						System.out.println(db.getHealthSize() + " health size");
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					*/
+					
 					try {
 						
 						content = db.getLinearArea((String.valueOf(level))); //gets that random line from from the linear area table
