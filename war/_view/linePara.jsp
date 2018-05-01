@@ -60,7 +60,7 @@
 				<form method = "get" action="/OrganTrail/rest">
 					<button type="submit" name="submit" class="button">Rest</button>				
 				</form>
-				<form method = "get" action="/OrganTrail/minigame">
+				<form method = "get" action="/OrganTrail/mini">
 					<button type="submit" name="submit" class="button">kill zombies</button>				
 				</form>
 			</div>	
