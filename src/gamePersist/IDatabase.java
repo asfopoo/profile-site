@@ -15,6 +15,7 @@ public interface IDatabase {
 	int removeUserItem(int size, String name, String type);
 	int createArea(String name, String para, ArrayList<String> options) throws SQLException;
 	int getHealthSize() throws SQLException;
+	int updateHealthSize(int health) throws SQLException;
 	
 	ArrayList<String> getArea(String id) throws SQLException;
 	ArrayList<String> getInventory() throws SQLException;

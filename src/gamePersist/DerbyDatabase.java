@@ -413,6 +413,54 @@ public int getHealthSize() throws SQLException {
 		
 	}
 	
+////////////////////////////////////////////////////////////////////////////
+///////////////////////UPDATE HEALTH SIZE/////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+
+public int updateHealthSize(int health) throws SQLException {
+	
+	Connection conn = null;
+	PreparedStatement stmt = null;
+	PreparedStatement stmt2 = null;
+	ResultSet resultSet = null;
+	ResultSet resultSet2 = null;
+	
+	
+	conn = DriverManager.getConnection("jdbc:derby:test.db;create=true");
+	
+	try {
+		stmt = conn.prepareStatement("update health"
+				+ " set health = (?)"
+
+		);
+
+		stmt.setInt(1, health);
+		stmt.execute();
+	
+		
+		//returns result in int health and returns
+		
+		stmt2 = conn.prepareStatement("select * from health" // for testing purposes 
+				);
+		
+		resultSet = stmt2.executeQuery();
+		
+		if(resultSet.next()) {
+			health = (resultSet.getInt(2));		
+		}	
+		
+		return health;
+
+	} finally {
+		DBUtil.closeQuietly(resultSet);
+		DBUtil.closeQuietly(resultSet2);
+		DBUtil.closeQuietly(stmt);
+		DBUtil.closeQuietly(stmt2);
+		DBUtil.closeQuietly(conn);
+	}
+	
+}
 	
 	///////////////////////////////////////////////////////////////////////////////////
 	///////////////////// REGISTER ACCOUNT////////////////////////////////////

@@ -30,7 +30,7 @@
 	</head>
 
 	
-		<div class="options">     <!-- javascript modeled from w3 schools example -->
+		<div class="options">     <!-- buttons modeled from w3 schools example -->
 		<body>
 			<div class="picture">
 				<img src="webresources/car.gif" alt="Linear Image">  
