@@ -15,40 +15,27 @@
 			<div class="picture">
 				<img src="webresources/car.gif" alt="Linear Image">  
 			</div>
-			//// need a linear bar across the screen
-			<div id= "delay">
-				<button onclick="timedText()"> start? </button>
-			</div>
 			
-		<br>
-		<br>
-		<br>
-		
-			<script>
-				var time1 = 3000;
-				function timedText() {
-				    setTimeout(myTimeout1, time1) 
-				}
-				
-				function myTimeout1() {
-					document.getElementById("delay").innerHTML = "test time";
-					window.location = "linePara";	
-				}	
-				
-				
-			</script>
-				<form method = "get" action="/OrganTrail/inventory">
-					<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Inventory</button>
-				</form>
-				
-				<form method = "get" action="/OrganTrail/map">
-					<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Map</button>				
-				</form>		
+	<br>
+	
+
+			
+			
+			
+			
+			
+			Health -> <c:out value="${size}" escapeXml="false"/> /20 
+			<progress value = "${size}" max = "20"></progress>
+	
+				//throw in day count, health etc.  this page cannot map to other locations
 			
 		</div>
 		
-		<form method = "get" action="/OrganTrail/linePara">
-				</form>		
+		<script>
+			window.location = "linePara";
+			
+			</script>
+			
 		
 		
 	</body>

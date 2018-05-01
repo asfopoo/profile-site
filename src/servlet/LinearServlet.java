@@ -18,6 +18,8 @@ import gamePersist.hashSHA256;
 public class LinearServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	public ArrayList<Integer> size = new ArrayList<Integer>();
+	int sieze = 0;
 	private Random rand;
 	private String username = null;
 	boolean line = true;
@@ -41,14 +43,25 @@ public class LinearServlet extends HttpServlet {
 		//{
 			System.out.println("Linear Servlet: doGet");
 			
+			try {
+				size = db.getHealthSize();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
+			for(int i = 0; i < size.size(); i++) { //adds health 'stars'
+				sieze += size.get(i);
+			}
+			req.setAttribute("size", sieze); // sets size to be used in jsp
 
 				page = "linear.jsp";
-	//	}
+	
 				
 				req.getRequestDispatcher("/_view/" + page).forward(req, resp);
 				count++;
-				
+	//}			
 				
 			}			
 	

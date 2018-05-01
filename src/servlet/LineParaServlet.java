@@ -31,6 +31,15 @@ public class LineParaServlet extends HttpServlet {
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example-- CITING
 		IDatabase db = DatabaseProvider.getInstance();
 		
+		try        
+		{
+		    Thread.sleep(10000);// delays text
+		} 
+		catch(InterruptedException ex) 
+		{
+		    Thread.currentThread().interrupt();
+		}
+		
 		
 //		username = (String) req.getSession().getAttribute("username"); //session stuff
 		
