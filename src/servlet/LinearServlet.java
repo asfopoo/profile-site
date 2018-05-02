@@ -19,6 +19,7 @@ public class LinearServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	int size;
+	int health;
 	private Random rand;
 	private String username = null;
 	boolean line = true;
@@ -32,14 +33,22 @@ public class LinearServlet extends HttpServlet {
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example-- CITING
 		IDatabase db = DatabaseProvider.getInstance();
 		
+		try {
+			health = db.getHealthSize();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
-//		username = (String) req.getSession().getAttribute("username"); //session stuff
+		username = (String) req.getSession().getAttribute("username"); //session stuff
 		
-//		if(username == null) {
-//			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
-//		}
-//		else 
-		//{
+		if(username == null) {
+			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+		} 
+		else if(health < 1) {
+			req.getRequestDispatcher("/_view/gameOver.jsp").forward(req, resp);
+		}
+		else {
 			System.out.println("Linear Servlet: doGet");
 	
 			
@@ -59,7 +68,7 @@ public class LinearServlet extends HttpServlet {
 				
 				req.getRequestDispatcher("/_view/" + page).forward(req, resp);
 				count++;
-	//}			
+	}			
 				
 			}			
 	

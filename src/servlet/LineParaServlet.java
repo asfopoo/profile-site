@@ -24,12 +24,20 @@ public class LineParaServlet extends HttpServlet {
 	String level = null;
 	String page = null;
 	int count = 0;
+	int health;
 	public ArrayList<String> content = new ArrayList<String>();
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		DatabaseProvider.setInstance(new DerbyDatabase()); // some of this code taken from lab 06 and library example-- CITING
 		IDatabase db = DatabaseProvider.getInstance();
+		
+		try {
+			health = db.getHealthSize();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		try        
 		{
@@ -41,13 +49,15 @@ public class LineParaServlet extends HttpServlet {
 		}
 		
 		
-//		username = (String) req.getSession().getAttribute("username"); //session stuff
+		username = (String) req.getSession().getAttribute("username"); //session stuff
 		
-//		if(username == null) {
-//			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
-//		}
-//		else 
-		//{
+		if(username == null) {
+			req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
+		}
+		else if(health < 1) {
+			req.getRequestDispatcher("/_view/gameOver.jsp").forward(req, resp);
+		}
+		else {
 			System.out.println("Linepara Servlet: doGet");
 			
 			
@@ -60,7 +70,7 @@ public class LineParaServlet extends HttpServlet {
 					
 					
 					if(level.equals("1") || level.equals("3")) {
-						System.out.println("if kdjfljs");
+						
 						try {
 							
 							db.updateHealth(db.getHealthSize() - 1);
@@ -70,7 +80,7 @@ public class LineParaServlet extends HttpServlet {
 						}
 					}
 					else if(level.equals("2")) {
-						System.out.println("if kdjfljs");
+						
 						try {
 							db.updateHealth(db.getHealthSize() - 3);
 						} catch (SQLException e) {
@@ -101,7 +111,8 @@ public class LineParaServlet extends HttpServlet {
 				count++;
 				
 				
-			}			
+			}
+	}
 	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)

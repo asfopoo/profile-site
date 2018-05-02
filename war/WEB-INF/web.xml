@@ -67,6 +67,11 @@
     <servlet-class>servlet.LineParaServlet</servlet-class>
   </servlet>
   
+  <servlet>
+    <servlet-name>GameOverServlet</servlet-name>
+    <servlet-class>servlet.GameOverServlet</servlet-class>
+  </servlet>
+  
   
   <!-- Servlet mappings -->
   
@@ -133,6 +138,11 @@
   <servlet-mapping>
     <servlet-name>LineParaServlet</servlet-name>
     <url-pattern>/linePara</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>GameOverServlet</servlet-name>
+    <url-pattern>/gameOver</url-pattern>
   </servlet-mapping>
   
  
