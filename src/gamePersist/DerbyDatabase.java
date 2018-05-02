@@ -512,7 +512,7 @@ return health;
 				stmt2.setString(2, pass);
 				stmt2.setString(3, email);
 				stmt2.setString(4, "1");
-				stmt2.setString(5, "1");
+				stmt2.setString(5, "0");
 
 				stmt2.execute();
 				

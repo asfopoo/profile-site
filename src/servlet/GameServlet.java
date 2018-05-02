@@ -46,7 +46,13 @@ public class GameServlet extends HttpServlet {
 			//FakeAreaDB db2 = new FakeAreaDB();
 			
 			level = db.getCurrentArea(username);
-			
+			if(level.equals("0")){
+				db.setCurrentArea("1", username);
+				req.getRequestDispatcher("/_view/start.jsp").forward(req, resp);
+			}
+			if(level.equals("$linear")){
+				req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp);
+			}
 			System.out.println(level + " = level");
 			//Pulling the level content from database based on level id
 			try {
