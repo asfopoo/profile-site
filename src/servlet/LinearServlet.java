@@ -52,16 +52,9 @@ public class LinearServlet extends HttpServlet {
 			System.out.println("Linear Servlet: doGet");
 	
 			
-			try {
-				size = db.getHealthSize();
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
 			
-			req.setAttribute("size", size); // sets size to be used in jsp
+			req.setAttribute("size", health); // sets size to be used in jsp
 
 				page = "linear.jsp";
 	

@@ -51,7 +51,7 @@
 				<form method = "get" action="/OrganTrail/map">
 					<button type="submit" name="submit" class="button">Map</button>				
 				</form>
-				<form method = "get" action="/OrganTrail/look">
+				<form method = "get" action="/OrganTrail/lookOut">
 					<button type="submit" name="submit" class="button">Take a look around</button>				
 				</form>
 				<form method = "get" action="/OrganTrail/linear">
