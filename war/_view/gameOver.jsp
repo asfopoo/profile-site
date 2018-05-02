@@ -4,20 +4,42 @@
 
 <html>
 	<head>
-		<title>Map view</title>
+		<title>Game Over</title>
 		<link rel="icon" type="image/x-icon" href="webresources/favicon.ico" />
-		<style>  
- 			 
+		<style> 
+			body{
+			    font-family: 'timeless';
+			    font-size: 24px;
+			    background-color: #202122;
+			} 
+ 			 .center {
+			    display: block;
+			    margin-left: auto;
+			    margin-right: auto;
+			    width: 50%;
+			}
+			.button {
+			    background-color: #7a0000; /* Red */
+			    border: none;
+			    color: white;
+			    padding: 15px 32px;
+			    text-align: center;
+			    text-decoration: none;
+			    display: inline-block;
+			    font-size: 16px;
+			}
 		</style>  
 	</head>
 
 	<body>
-	
-	GAME OVER!!!
-		
-			<form method = "get" action="/OrganTrail/start">
-				<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Start Over</button>
-			</form>
+	<img src="webresources/dead.png" alt="Paris" class="center">
+
+		<div style="text-align:center;">
+			<form method = "get" action="/OrganTrail/index">
+		    	<button type="submit" name="submit" class="button">Start Over</button>
+		    </form>
+		</div>
+
 		
 	</body>
 </html>
