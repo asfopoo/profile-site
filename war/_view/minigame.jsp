@@ -12,7 +12,7 @@
 			    background-color: #f1f1f1;
 			}
 			</style>
-			<meta http-equiv="refresh" content="0; url=test/index.html" />
+			<meta http-equiv="refresh" content="0; url=minigame/index.html" />
 	</head>
 
 	
