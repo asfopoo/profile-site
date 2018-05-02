@@ -104,6 +104,9 @@ public class GameServlet extends HttpServlet {
 				//checking for item
 				System.out.println("level = " + level);
 				if(!nextAreaNumber.equals("*")){
+					if(nextAreaNumber.equals("$linear")){
+						req.getRequestDispatcher("/_view/linear.jsp").forward(req, resp);
+					}
 					if(nextAreaNumber.indexOf('&') != -1){
 						String item = nextAreaNumber.substring(nextAreaNumber.indexOf('&') + 1);
 						nextAreaNumber = nextAreaNumber.substring(0, nextAreaNumber.indexOf('&'));
