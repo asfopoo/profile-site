@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<form method = "get" action="/OrganTrail/bedroom">
+<form method = "get" action="/OrganTrail/game">
 	<button type="submit" name="submit" class="btn btn-primary btn-block btn-large">Click to continue</button>
 </form>
 
