@@ -108,7 +108,13 @@ public class ControllerTest {
 		assertFalse(db.accountExist("test", "wrong"));
 		assertFalse(db.accountExist("wrong", "wrong"));
 	}
-	
+	test get health size
+	test update health 
+	test insert player location
+	test get inventory size
+	test get inventory
+	test get linear area
+	test add area
 	
 
 
