@@ -108,14 +108,106 @@ public class ControllerTest {
 		assertFalse(db.accountExist("test", "wrong"));
 		assertFalse(db.accountExist("wrong", "wrong"));
 	}
-	test get health size
-	test update health 
-	test insert player location
-	test get inventory size
-	test get inventory
-	test get linear area
-	test add area
-	
+	@Test
+	public void testGetHealthSize() throws SQLException{
+		db.updateHealth(17);
+		assertEquals(db.getHealthSize(), 17);
+		assertNotEquals(db.getHealthSize(), 16);
+		assertNotEquals(db.getHealthSize(), 18);
+		assertNotEquals(db.getHealthSize(), 0);
+		assertNotEquals(db.getHealthSize(), null);
+		
+		db.updateHealth(22);
+		int health = db.getHealthSize();
+		assertEquals(health, 22);
+		assertNotEquals(health, 21);
+		assertNotEquals(health, 23);
+		assertNotEquals(health, 0);
+		assertNotEquals(health, null);
+	}
+	@Test
+	public void testUpdateHealth() throws SQLException{
+		db.updateHealth(17);
+		assertEquals(db.getHealthSize(), 17);
+		assertNotEquals(db.getHealthSize(), 16);
+		assertNotEquals(db.getHealthSize(), 18);
+		assertNotEquals(db.getHealthSize(), 0);
+		assertNotEquals(db.getHealthSize(), null);
+		
+		int health = db.updateHealth(22);
+		assertEquals(health, 22);
+		assertNotEquals(health, 21);
+		assertNotEquals(health, 23);
+		assertNotEquals(health, 0);
+		assertNotEquals(health, null);
+	}
+	@Test
+	public void testGetPlayerLocation() {
+		db.insertPlayerLocation("here");
+		String loc = db.getPlayerLocation();
+		
+		assertEquals(loc, "here");
+		assertEquals(db.getPlayerLocation(), "here");
+		assertNotEquals(loc, "there");
+		assertNotEquals(loc, null);
+		assertNotEquals(db.getPlayerLocation(), "there");
+		assertNotEquals(db.getPlayerLocation(), null);
+	}
+	@Test
+	public void testInsertPlayerLocation() throws SQLException{
+		db.insertPlayerLocation("here");
+		String loc = db.getPlayerLocation();
+		
+		assertEquals(loc, "here");
+		assertEquals(db.getPlayerLocation(), "here");
+		assertNotEquals(loc, "there");
+		assertNotEquals(loc, null);
+		assertNotEquals(db.getPlayerLocation(), "there");
+		assertNotEquals(db.getPlayerLocation(), null);
+	}
+	@Test
+	public void testGetInventorySize() throws SQLException{
+		ArrayList<Integer> items = new ArrayList<Integer>();
+		db.insertUserItem(1, "name", "type");
+		db.insertUserItem(3, "name", "type");
+		db.insertUserItem(5, "name", "type");
+		items = db.getInventorySize();
+		int count = 0;
+		
+		for(int i = 0; i < items.size(); i ++) {
+			count += items.get(i);
+		}
+		
+		assertEquals(db.getInventorySize(), 3);
+		assertEquals(count, 9);
+		assertNotEquals(count, 0);
+		assertNotEquals(count, null);	
+	}
+	@Test
+	public void testGetInventory() throws SQLException{
+		ArrayList<String> items = new ArrayList<String>();
+		db.insertUserItem(1, "key", "utility");
+		db.insertUserItem(3, "lock", "utility");
+		db.insertUserItem(5, "knife", "weapon");
+		
+		items = db.getInventory();
+		assertEquals(db.getInventorySize(), 3);
+		assertTrue(db.getInventory().get(0).equals("key"));
+		assertTrue(items.get(0).equals("key"));
+		
+		
+		
+	}
+	@Test
+	public void testGetLinearArea() throws SQLException{
+		ArrayList<String> area = new ArrayList<String>();
+		area = db.getLinearArea("2");
+		assertEquals(3, area.size());
+	}
+	@Test
+	public void testAddArea() throws SQLException{
+
+	}
 
 
 }
